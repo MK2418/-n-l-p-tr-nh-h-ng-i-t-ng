@@ -18,17 +18,18 @@ class PhieuNhapHang {
         this.soLuongCT = 0;
     }
 
-    public PhieuNhapHang(String ma, LocalDate ngay, Nhanvien nv, Nhacungcap ncc) {
-        this.maPNH = ma;
+    public PhieuNhapHang(String maPhieu, LocalDate ngay, Nhanvien nv, Nhacungcap ncc, chitietphieunhaphang[] ds,
+            int soCT) {
+        this.maPNH = maPhieu;
         this.ngayNhap = ngay;
         this.nv = nv;
         this.ncc = ncc;
-        this.dsCT = new chitietphieunhaphang[0];
-        this.soLuongCT = 0;
+        this.dsCT = ds;
+        this.soLuongCT = soCT;
     }
 
     public void themChiTiet(String maHang, int soLuong, double donGia) {
-        chitietphieunhaphang ct = new chitietphieunhaphang(this, maHang, soLuong, donGia);
+        chitietphieunhaphang ct = new chitietphieunhaphang(maHang, soLuong, donGia);
         dsCT = Arrays.copyOf(dsCT, soLuongCT + 1);
         dsCT[soLuongCT] = ct;
         soLuongCT++;

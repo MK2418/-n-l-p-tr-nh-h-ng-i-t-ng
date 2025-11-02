@@ -4,8 +4,7 @@ class chitietphieunhaphang {
     private int soLuong;
     private double donGia;
 
-    public chitietphieunhaphang(PhieuNhapHang phieu, String maHang, int soLuong, double donGia) {
-        this.phieu = phieu;
+    public chitietphieunhaphang(String maHang, int soLuong, double donGia) {
         this.maHang = maHang;
         this.soLuong = soLuong;
         this.donGia = donGia;
