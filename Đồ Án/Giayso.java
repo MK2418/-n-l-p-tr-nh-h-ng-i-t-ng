@@ -1,48 +1,26 @@
-import java.util.Scanner;
-
+// File: Giayso.java
 public class Giayso extends Dodunghoctap {
-    private String KhoGiay;
-    private int DoDay;
+    public String doDay;
+    public String khoGiay;
 
-    public Giayso(String MSP, String Ten, int SL, int DonGia, String DVTinh, int DoDay, String KhoGiay) {
-        super(MSP, Ten, SL, DonGia, DVTinh);
-        this.KhoGiay = KhoGiay;
-        this.DoDay = DoDay;
-    }
-
-    public Giayso() {
-    }
-
-    @Override
-    public void Nhap() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap Ma San Pham: ");
-        MSP = sc.nextLine();
-        System.out.print("Nhap Ten San Pham: ");
-        Ten = sc.nextLine();
-        System.out.print("Nhap So Luong: ");
-        SL = sc.nextInt();
-        System.out.print("Nhap Don Gia: ");
-        DonGia = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nhap Don Vi Tinh: ");
-        DVTinh = sc.nextLine();
-        System.out.print("Nhap Do Day: ");
-        DoDay = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nhap Kho Giay (A4, A5,...): ");
-        KhoGiay = sc.nextLine();
+    public Giayso(String maSP, String tenSP, int soLuong, int donGia,
+            String donViTinh, String maLoai, String maSX,
+            String doDay, String khoGiay) {
+        super(maSP, tenSP, soLuong, donGia, donViTinh, maLoai, maSX);
+        this.doDay = doDay;
+        this.khoGiay = khoGiay;
     }
 
     @Override
-    public void Xuat() {
-        System.out.println("===== GIẤY SỔ =====");
-        System.out.println("MSP: " + MSP);
-        System.out.println("Ten: " + Ten);
-        System.out.println("So luong: " + SL);
-        System.out.println("Đon gia: " + DonGia);
-        System.out.println("Đon vi tinh: " + DVTinh);
-        System.out.println("Đo day: " + DoDay);
-        System.out.println("Kho giay: " + KhoGiay);
+    public void xuat() {
+        String ten = tenSP.length() > 15 ? tenSP.substring(0, 12) + "..." : tenSP;
+        System.out.printf("%-10s %-15s %8d %,12d %-8s %-8s %-8s %-12s %-10s\n",
+                maSP, ten, soLuong, donGia, donViTinh, maLoai, maSX, doDay, khoGiay);
+    }
+
+    @Override
+    public String toFileString() {
+        return String.format("%s,%s,%d,%d,%s,%s,%s,%s,%s",
+                maSP, tenSP, soLuong, donGia, donViTinh, maLoai, maSX, doDay, khoGiay);
     }
 }
