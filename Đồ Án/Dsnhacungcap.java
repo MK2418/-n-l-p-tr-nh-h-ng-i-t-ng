@@ -1,9 +1,10 @@
 import java.util.*;
 
 interface dieukien {
-    void themNCC();
-
-    void timKiemNCC();
+    void them();
+    void xoa();
+    void timkiem();
+    void sua();
 }
 
 class Dsnhacungcap implements dieukien {
@@ -25,7 +26,7 @@ class Dsnhacungcap implements dieukien {
     }
 
     @Override
-    public void themNCC() {
+    public void them() {
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = new Nhacungcap();
         ds[n].nhap();
@@ -33,7 +34,10 @@ class Dsnhacungcap implements dieukien {
         System.out.println("Da them nha cung cap moi thanh cong!");
     }
 
-    public void xoaNCC(String maNCC) {
+    @Override
+    public void xoa() {
+    	System.out.print("nhập mã nhà cung cấp cần xóa");
+		String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {
                 for (int j = i; j < n - 1; j++) {
@@ -49,7 +53,7 @@ class Dsnhacungcap implements dieukien {
     }
 
     @Override
-    public void timKiemNCC() {
+    public void timkiem() {
         System.out.print("Nhap ma nha cung cap can tim: ");
         String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
@@ -61,8 +65,10 @@ class Dsnhacungcap implements dieukien {
         }
         System.out.println("Khong tim thay nha cung cap voi ma nay.");
     }
-
-    public void suaNCC(String maNCC) {
+    @Override
+    public void sua() {
+    	System.out.print("nhập mã nhà cung cấp cần sửa");
+		String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {
                 int k;
