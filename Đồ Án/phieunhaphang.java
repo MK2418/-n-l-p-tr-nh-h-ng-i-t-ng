@@ -6,7 +6,7 @@ class PhieuNhapHang {
     private LocalDate ngayNhap;
     private String nv;
     private String ncc;
-    private int tongTien;
+    private double tongTien;
 
     public PhieuNhapHang() {
         maPNH = "";
@@ -21,27 +21,14 @@ class PhieuNhapHang {
         this.ngayNhap = ngay;
         this.nv = nv;
         this.ncc = ncc;
-
     }
 
-    public void nhap() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap ma phieu nhap hang: ");
-        maPNH = sc.nextLine();
-        System.out.print("Nhap ngay nhap (YYYY-MM-DD): ");
-        ngayNhap = LocalDate.parse(sc.nextLine());
-        System.out.print("Nhap ten nhan vien: ");
-        nv = sc.nextLine();
-        System.out.print("Nhap ma nha cung cap: ");
-        ncc = sc.nextLine();
-    }
-
-    public void xuatThongTin() {
-        System.out.println("Ma PNH: " + maPNH);
-        System.out.println("Ngay Nhap: " + ngayNhap);
-        System.out.println("Ma nhan Vien: " + nv);
-        System.out.println("Ma nha Cung Cap: " + ncc);
-        System.out.println("Tong Tien: " + tongTien);
+    public PhieuNhapHang(String maPhieu, LocalDate ngay, String nv, String ncc, double tongTien) {
+        this.maPNH = maPhieu;
+        this.ngayNhap = ngay;
+        this.nv = nv;
+        this.ncc = ncc;
+        this.tongTien = tongTien;
     }
 
     public String getMaPNH() {
@@ -60,7 +47,7 @@ class PhieuNhapHang {
         return ncc;
     }
 
-    public int getTongTien() {
+    public double getTongTien() {
         return tongTien;
     }
 
@@ -80,7 +67,7 @@ class PhieuNhapHang {
         this.ncc = ncc;
     }
 
-    public void setTongTien(int tongTien) {
+    public void setTongTien(double tongTien) {
         this.tongTien = tongTien;
     }
 }

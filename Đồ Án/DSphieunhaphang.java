@@ -1,5 +1,9 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.time.LocalDate;
 
 class Dsphieunhaphang {
@@ -13,17 +17,50 @@ class Dsphieunhaphang {
         soLuong = 0;
     }
 
+    public void docFile(String filename) throws Exception {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            soLuong = Integer.parseInt(br.readLine());
+            ds = new PhieuNhapHang[soLuong];
+            for (int i = 0; i < soLuong; i++) {
+                String line = br.readLine();
+                if (line == null)
+                    break;
+                String[] parts = line.split(",");
+                ds[i] = new PhieuNhapHang(parts[0], LocalDate.parse(parts[1]), parts[2], parts[3]);
+            }
+        }
+    }
+
+    public void ghiFile(String filename) throws Exception {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            bw.write(soLuong + "");
+            bw.newLine();
+            for (int i = 0; i < soLuong; i++) {
+                if (ds[i] != null) {
+                    bw.write(ds[i].getMaPNH() + "," + ds[i].getNgayNhap() + "," + ds[i].getNv() + ","
+                            + ds[i].getNcc() + "," + ds[i].getTongTien());
+                    bw.newLine();
+                }
+            }
+        }
+        System.out.println("Da ghi du lieu vao file thanh cong!");
+    }
+
     // ====== Xuất danh sách phiếu nhập hàng ======
     public void xuat() {
         if (soLuong == 0) {
-            System.out.println("Chưa có phiếu nhập hàng nào!");
+            System.out.println("Chua co phieu nhap nao!");
             return;
         }
 
-        System.out.println("\n===== DANH SÁCH PHIẾU NHẬP HÀNG =====");
+        System.out.println("\n===== DANH SACH PHIEU NHAP HANG =====");
         for (int i = 0; i < soLuong; i++) {
-            System.out.println("\n--- Phiếu nhập hàng thứ " + (i + 1) + " ---");
-            ds[i].xuatThongTin();
+            System.out.println("\n--- Phieu nhap hang thu  " + (i + 1) + " ---");
+            System.out.println("Ma PNH: " + ds[i].getMaPNH());
+            System.out.println("Ngay nhap: " + ds[i].getNgayNhap());
+            System.out.println("Nhan vien: " + ds[i].getNv());
+            System.out.println("Nha cung cap: " + ds[i].getNcc());
+            System.out.println("Tong tien: " + ds[i].getTongTien());
         }
     }
 
@@ -38,9 +75,17 @@ class Dsphieunhaphang {
     }
 
     // ====== Thêm 1 phiếu nhập hàng ======
-    public void themPhieuNhap(PhieuNhapHang p) {
+    public void themPhieuNhap() {
         ds = Arrays.copyOf(ds, soLuong + 1);
-        ds[soLuong] = p;
+        System.out.print("Nhap ma phieu nhap hang: ");
+        String maPNH = sc.nextLine();
+        System.out.print("Nhap ngay nhap (YYYY-MM-DD): ");
+        LocalDate ngayNhap = LocalDate.parse(sc.nextLine());
+        System.out.print("Nhap ma nhan vien: ");
+        String nv = sc.nextLine();
+        System.out.print("Nhap nha cung cap: ");
+        String ncc = sc.nextLine();
+        ds[soLuong] = new PhieuNhapHang(maPNH, ngayNhap, nv, ncc);
         soLuong++;
     }
 
@@ -48,17 +93,16 @@ class Dsphieunhaphang {
     public void xoaPhieuNhapTheoMa(String ma) {
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
-                // Xoá phiếu nhập hàng tại vị trí i
                 for (int j = i; j < soLuong - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
                 ds = Arrays.copyOf(ds, soLuong - 1);
                 soLuong--;
-                System.out.println("Đã xoá phiếu nhập hàng với mã: " + ma);
+                System.out.println("Da xoa phieu nhap hang co ma  " + ma);
                 return;
             }
         }
-        System.out.println("Không tìm thấy phiếu nhập hàng với mã: " + ma);
+        System.out.println("Khong tim thay phieu co ma  " + ma);
     }
 
     // ====== Sửa thông tin phiếu nhập hàng theo mã ======
@@ -106,6 +150,14 @@ class Dsphieunhaphang {
             }
         }
         System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
+    }
+
+    public PhieuNhapHang[] getDs() {
+        return ds;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
     }
 
     public void setDanhSach(PhieuNhapHang[] ds, int soLuong) {

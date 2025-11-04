@@ -156,6 +156,14 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
     }
 
+    public chitietphieunhaphang[] getDs() {
+        return ds;
+    }
+
+    public int getN() {
+        return n;
+    }
+
     public void setDanhSach(chitietphieunhaphang[] ds, int n) {
         this.ds = ds;
         this.n = n;
