@@ -1,9 +1,16 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.*;
 
 interface dieukien {
     void them();
+
     void xoa();
+
     void timkiem();
+
     void sua();
 }
 
@@ -12,32 +19,69 @@ class Dsnhacungcap implements dieukien {
     private Nhacungcap[] ds;
     Scanner sc = new Scanner(System.in);
 
-    public void setDanhSach(Nhacungcap[] ds, int n) {
-        this.ds = ds;
-        this.n = n;
+    public void docFile(String filename) throws Exception {
+        try (BufferedReader br = new BufferedReader(new FileReader("Dsnhacungcap.txt"))) {
+            n = Integer.parseInt(br.readLine());
+            ds = new Nhacungcap[n];
+            for (int i = 0; i < n; i++) {
+                String line = br.readLine();
+                if (line == null)
+                    break;
+                String[] parts = line.split(",");
+                ds[i] = new Nhacungcap(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]));
+            }
+        }
+    }
+
+    public void ghiFile(String filename) throws Exception {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            bw.write(n + "");
+            bw.newLine();
+            for (int i = 0; i < n; i++) {
+                if (ds[i] != null) {
+                    bw.write(ds[i].getMaNCC() + "," + ds[i].getTenNCC() + "," + ds[i].getDiaChi() + ","
+                            + ds[i].getSoDienThoai());
+                    bw.newLine();
+                }
+            }
+        }
+        System.out.println("Da ghi du lieu vao file thanh cong!");
     }
 
     public void xuat() {
         for (int i = 0; i < n; i++) {
             System.out.println("---------------------------");
             System.out.println("Thong tin nha cung cap thu " + (i + 1) + ": ");
-            ds[i].xuat();
+            System.out.println("Ma NCC: " + ds[i].getMaNCC());
+            System.out.println("Ten NCC: " + ds[i].getTenNCC());
+            System.out.println("Dia Chi: " + ds[i].getDiaChi());
+            System.out.println("So Dien Thoai: " + ds[i].getSoDienThoai());
+
         }
     }
 
     @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = new Nhacungcap();
-        ds[n].nhap();
+        System.out.println("Nhap thong tin nha cung cap moi: ");
+        System.out.print("Ma NCC: ");
+        String maNCC = sc.nextLine();
+        System.out.print("Ten NCC: ");
+        String tenNCC = sc.nextLine();
+        System.out.print("Dia Chi: ");
+        String diaChi = sc.nextLine();
+        System.out.print("So Dien Thoai: ");
+        int soDienThoai = sc.nextInt();
+        sc.nextLine(); // bỏ dòng thừa
+        ds[n] = new Nhacungcap(maNCC, tenNCC, diaChi, soDienThoai);
         n++;
         System.out.println("Da them nha cung cap moi thanh cong!");
     }
 
     @Override
     public void xoa() {
-    	System.out.print("nhập mã nhà cung cấp cần xóa");
-		String maNCC = sc.nextLine();
+        System.out.print("nhập mã nhà cung cấp cần xóa");
+        String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {
                 for (int j = i; j < n - 1; j++) {
@@ -59,16 +103,20 @@ class Dsnhacungcap implements dieukien {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equalsIgnoreCase(maNCC)) {
                 System.out.println("Thong tin nha cung cap:");
-                ds[i].xuat();
+                System.out.println("Ma NCC: " + ds[i].getMaNCC());
+                System.out.println("Ten NCC: " + ds[i].getTenNCC());
+                System.out.println("Dia Chi: " + ds[i].getDiaChi());
+                System.out.println("So Dien Thoai: " + ds[i].getSoDienThoai());
                 return;
             }
         }
         System.out.println("Khong tim thay nha cung cap voi ma nay.");
     }
+
     @Override
     public void sua() {
-    	System.out.print("nhập mã nhà cung cấp cần sửa");
-		String maNCC = sc.nextLine();
+        System.out.print("nhập mã nhà cung cấp cần sửa");
+        String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {
                 int k;
@@ -112,5 +160,10 @@ class Dsnhacungcap implements dieukien {
             }
         }
         System.out.println("Khong tim thay nha cung cap voi ma nay.");
+    }
+
+    public void setDanhSach(Nhacungcap[] ds, int n) {
+        this.ds = ds;
+        this.n = n;
     }
 }

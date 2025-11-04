@@ -21,27 +21,20 @@ class Nhacungcap {
         this.soDienThoai = soDienThoai;
     }
 
-    public void nhap() {
-        sc.nextLine(); // bỏ dòng trống nếu còn
-        System.out.print("Nhap ma nha cung cap: ");
-        maNCC = sc.nextLine();
-        System.out.print("Nhap ten nha cung cap: ");
-        tenNCC = sc.nextLine();
-        System.out.print("Nhap dia chi: ");
-        diaChi = sc.nextLine();
-        System.out.print("Nhap so dien thoai: ");
-        soDienThoai = sc.nextInt();
-    }
-
-    public void xuat() {
-        System.out.println("Ma nha cung cap: " + maNCC);
-        System.out.println("Ten nha cung cap: " + tenNCC);
-        System.out.println("Dia chi: " + diaChi);
-        System.out.println("So dien thoai: " + soDienThoai);
-    }
-
     public String getMaNCC() {
         return maNCC;
+    }
+
+    public String getTenNCC() {
+        return tenNCC;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public int getSoDienThoai() {
+        return soDienThoai;
     }
 
     public void setMaNCC(String maNCC) {
