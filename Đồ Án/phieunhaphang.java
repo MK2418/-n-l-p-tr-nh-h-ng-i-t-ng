@@ -4,57 +4,83 @@ import java.util.*;
 class PhieuNhapHang {
     private String maPNH;
     private LocalDate ngayNhap;
-    private Nhanvien nv;
-    private Nhacungcap ncc;
-    private chitietphieunhaphang[] dsCT;
-    private int soLuongCT;
+    private String nv;
+    private String ncc;
+    private int tongTien;
 
     public PhieuNhapHang() {
         maPNH = "";
         ngayNhap = LocalDate.now();
-        nv = new Nhanvien();
-        ncc = new Nhacungcap();
-        this.dsCT = new chitietphieunhaphang[0];
-        this.soLuongCT = 0;
+        nv = "";
+        ncc = "";
+        tongTien = 0;
     }
 
-    public PhieuNhapHang(String maPhieu, LocalDate ngay, Nhanvien nv, Nhacungcap ncc, chitietphieunhaphang[] ds,
-            int soCT) {
+    public PhieuNhapHang(String maPhieu, LocalDate ngay, String nv, String ncc) {
         this.maPNH = maPhieu;
         this.ngayNhap = ngay;
         this.nv = nv;
         this.ncc = ncc;
-        this.dsCT = ds;
-        this.soLuongCT = soCT;
+
     }
 
-    public void themChiTiet(String maHang, int soLuong, double donGia) {
-        chitietphieunhaphang ct = new chitietphieunhaphang(maHang, soLuong, donGia);
-        dsCT = Arrays.copyOf(dsCT, soLuongCT + 1);
-        dsCT[soLuongCT] = ct;
-        soLuongCT++;
-    }
-
-    public double tinhTongTien() {
-        double tong = 0;
-        for (int i = 0; i < soLuongCT; i++) {
-            tong += dsCT[i].tinhTien();
-        }
-        return tong;
+    public void nhap() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhap ma phieu nhap hang: ");
+        maPNH = sc.nextLine();
+        System.out.print("Nhap ngay nhap (YYYY-MM-DD): ");
+        ngayNhap = LocalDate.parse(sc.nextLine());
+        System.out.print("Nhap ten nhan vien: ");
+        nv = sc.nextLine();
+        System.out.print("Nhap ma nha cung cap: ");
+        ncc = sc.nextLine();
     }
 
     public void xuatThongTin() {
-        System.out.println("Mã PNH: " + maPNH + " | Ngày: " + ngayNhap);
-        System.out.println("Nhân viên: " + nv.getHonv());
-        System.out.println("Nhà cung cấp: " + ncc.getMaNCC());
-        System.out.println("--- Chi tiết ---");
-        for (int i = 0; i < soLuongCT; i++) {
-            System.out.println("  Mặt hàng: " + dsCT[i].getMaHang() + " - SL: " + dsCT[i].getSoLuong());
-        }
-        System.out.println("Tổng tiền: " + tinhTongTien());
+        System.out.println("Ma PNH: " + maPNH);
+        System.out.println("Ngay Nhap: " + ngayNhap);
+        System.out.println("Ma nhan Vien: " + nv);
+        System.out.println("Ma nha Cung Cap: " + ncc);
+        System.out.println("Tong Tien: " + tongTien);
     }
 
     public String getMaPNH() {
         return maPNH;
+    }
+
+    public LocalDate getNgayNhap() {
+        return ngayNhap;
+    }
+
+    public String getNv() {
+        return nv;
+    }
+
+    public String getNcc() {
+        return ncc;
+    }
+
+    public int getTongTien() {
+        return tongTien;
+    }
+
+    public void setMaPNH(String maPNH) {
+        this.maPNH = maPNH;
+    }
+
+    public void setNgayNhap(LocalDate ngayNhap) {
+        this.ngayNhap = ngayNhap;
+    }
+
+    public void setNv(String nv) {
+        this.nv = nv;
+    }
+
+    public void setNcc(String ncc) {
+        this.ncc = ncc;
+    }
+
+    public void setTongTien(int tongTien) {
+        this.tongTien = tongTien;
     }
 }
