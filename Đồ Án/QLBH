@@ -1,64 +1,38 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public abstract class QLBH {
-    protected Scanner sc = new Scanner(System.in);
-    // Các thuộc tính danh sách
-    protected Nhanvien[] Dsnhanvien;
-    protected Khachhang[] Dskhachhang;
-    protected Hoadon[] Dshoadon;
-    protected Phieunhaphang[] Dsphieunhaphang;
-    protected Dodunghoctap[] Dsdodunghoctap;
-    protected Loaihang[] Dsloaihang;
-    protected Hangsanxuat[] Dshangsanxuat;
-    protected Chitiethoadon[] Dschitiethoadon;
-    protected Chitietphieunhap[] Dschitietphieunhap;
-    protected Nhacungcap[] Dsnhacungcap;
+    // ---- CÁC DANH SÁCH DÙNG CHUNG ----
+    protected static Dsnhanvien dsNhanVien = new Dsnhanvien();
+    protected static Dskhachhang dsKhachHang = new Dskhachhang();
+    protected static Dshoadon dsHoaDon = new Dshoadon();
+    protected static Dsphieunhaphang dsPhieuNhapHang = new Dsphieunhaphang();
+    protected static Dsdodunghoctap dsDoDungHocTap = new Dsdodunghoctap();
+    protected static Dsloaihang dsLoaiHang = new Dsloaihang();
+    protected static Dshangsanxuat dsHangSanXuat = new Dshangsanxuat();
+    protected static Dschitiethoadon dsChiTietHoaDon = new Dschitiethoadon();
+    protected static Dschitietphieunhap dsChiTietPhieuNhap = new Dschitietphieunhap();
+    protected static Dssanpham dsSanPham = new Dssanpham();
+    protected static Dsnhacungcap dsNhaCungCap = new Dsnhacungcap();
 
-    public abstract void them();
-
-    public abstract void sua();
-
-    public abstract void xoa();
-
-    public abstract void timKiem();
-
-    public abstract void xuatDanhSach();
-
-    public abstract void thongKe();
-
-    public abstract void docFile();
-
-    public abstract void ghiFile();
-
-    public abstract void menu();
-
+    // ---- HÀM ĐỌC TẤT CẢ FILE ----
     public void docTatCaFile() {
-        String[] files = {
-                "Dschitietphieunhaphang.txt",
-                "dschitietphieunhaphang.txt",
-                "dodunghoctap.txt"
-        };
-
-        for (String filename : files) {
-            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-                n = Integer.parseInt(br.readLine().trim());
-                ds = new chitietphieunhaphang[n];
-                for (int i = 0; i < n; i++) {
-                    String line = br.readLine();
-                    if (line == null)
-                        break;
-                    String[] parts = line.split(",");
-                    ds[i] = new chitietphieunhaphang(
-                            parts[0],
-                            parts[1],
-                            Integer.parseInt(parts[2].trim()),
-                            Double.parseDouble(parts[3].trim()));
-                }
-            } catch (Exception e) {
-                System.out.println("Lỗi đọc file " + filename + ": " + e.getMessage());
-            }
+        try {
+            dsNhanVien.docFile("nhanvien.txt");
+            dsKhachHang.docFile("khachhang.txt");
+            dsHoaDon.docFile("hoadon.txt");
+            dsPhieuNhapHang.docFile("phieunhaphang.txt");
+            dsDoDungHocTap.docFile("dodunghoctap.txt");
+            dsLoaiHang.docFile("loaihang.txt");
+            dsHangSanXuat.docFile("hangsanxuat.txt");
+            dsChiTietHoaDon.docFile("chitiethoadon.txt");
+            dsChiTietPhieuNhap.docFile("chitietphieunhap.txt");
+            dsSanPham.docFile("sanpham.txt");
+            dsNhaCungCap.docFile("nhacungcap.txt");
+            System.out.println("Đọc tất cả dữ liệu thành công!");
+        } catch (Exception e) {
+            System.out.println("Lỗi đọc file: " + e.getMessage());
         }
     }
+    public abstract void menuChinh();
 }
