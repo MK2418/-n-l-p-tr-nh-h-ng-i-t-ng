@@ -26,8 +26,7 @@ public class QLHD{
                 case 4 -> ds.xoa();
                 case 5 -> ds.sua();
                 case 6 -> ds.timkiem();
-                case 7 -> ds.thongkeTheoThang();
-                case 8 -> ds.thongkeTheoKhachHang();
+                case 7 -> ds.thongkeDaydu();
                 case 0 -> System.out.println("Thoát quản lý hóa đơn.");
                 default -> System.out.println("Chọn sai, vui lòng nhập lại!");
             }

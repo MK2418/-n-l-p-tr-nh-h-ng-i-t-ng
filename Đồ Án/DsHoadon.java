@@ -158,64 +158,126 @@ public class DsHoadon implements dieukien {
 		System.out.println("Không tìm thấy mã hóa đơn này!");
 	}
 	
-	public void thongkeTheoThang() {
-        System.out.println("--- Thống kê hóa đơn theo tháng ---");
-        System.out.print("Nhập tháng (MM): ");
-        int thang = sc.nextInt();
-        System.out.print("Nhập năm (YYYY): ");
-        int nam = sc.nextInt();
-        sc.nextLine(); 
-
-        int soLuongHoaDon = 0;
-        double tongDoanhThu = 0.0;
-
-        System.out.println("\nDanh sách hóa đơn trong tháng " + thang + " năm " + nam + ":");
-        boolean timThay = false;
-
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getNgayxuathd() != null) {
-                if (ds[i].getNgayxuathd().getMonthValue() == thang && 
-                    ds[i].getNgayxuathd().getYear() == nam) {
-                    ds[i].xuat();
-                    soLuongHoaDon++;
-                    tongDoanhThu += ds[i].getTongtien();
-                    timThay = true;
-                }
-            }
-        }
-
-        if (!timThay) {
-             System.out.println("Không có hóa đơn nào trong tháng " + thang + " năm " + nam + ".");
-        } else {
-             System.out.println("----------------------------------------");
-             System.out.println("Tổng kết thống kê tháng " + thang + " năm " + nam + ":");
-             System.out.println("Tổng số lượng hóa đơn: " + soLuongHoaDon);
-             System.out.println("Tổng doanh thu: " + tongDoanhThu);
-             System.out.println("----------------------------------------");
-        }
-    }
 	
-	public void thongkeTheoKhachHang() {
-	    System.out.print("Nhập mã khách hàng cần thống kê: ");
-	    String makh = sc.nextLine();
-	    int soLuong = 0;
-	    double tongTien = 0;
+	public void thongkeDaydu() {
+	    System.out.println("============================================================");
+	    System.out.println("                 THỐNG KÊ HÓA ĐƠN THEO THÁNG                ");
+	    System.out.println("============================================================");
 
-	    System.out.println("\n--- Danh sách hóa đơn của khách hàng " + makh + " ---");
-	    for (int i = 0; i < n; i++) {
-	        if (ds[i].getMaKh().getMakh().equalsIgnoreCase(makh)) {
-	            ds[i].xuat();
-	            soLuong++;
-	            tongTien += ds[i].getTongtien();
+	    for (int nam = 2020; nam <= 2025; nam++) {
+	        boolean coDuLieu = false;
+	        System.out.println("\nNăm " + nam + ":");
+	        System.out.println("------------------------------------------------------------");
+	        System.out.println("Tháng | Số hóa đơn | Tổng doanh thu");
+	        System.out.println("------------------------------------------------------------");
+
+	        for (int thang = 1; thang <= 12; thang++) {
+	            int soLuong = 0;
+	            double tongTien = 0;
+
+	            for (int i = 0; i < n; i++) {
+	                if (ds[i].getNgayxuathd() != null &&
+	                    ds[i].getNgayxuathd().getMonthValue() == thang &&
+	                    ds[i].getNgayxuathd().getYear() == nam) {
+	                    soLuong++;
+	                    tongTien += ds[i].getTongtien();
+	                }
+	            }
+
+	            if (soLuong > 0) {
+	                System.out.println("  " + thang + "   |     " + soLuong + "      |   " + tongTien);
+	                coDuLieu = true;
+	            }
+	        }
+
+	        if (!coDuLieu) {
+	            System.out.println("Không có hóa đơn nào trong năm " + nam + ".");
+	        }
+	    }
+	    
+	    System.out.println("\n============================================================");
+	    System.out.println("                 THỐNG KÊ HÓA ĐƠN THEO QUÝ                  ");
+	    System.out.println("============================================================");
+
+	    for (int nam = 2020; nam <= 2025; nam++) {
+	        boolean coDuLieu = false;
+	        System.out.println("\nNăm " + nam + ":");
+	        System.out.println("------------------------------------------------------------");
+	        System.out.println("Quý  | Số hóa đơn | Tổng doanh thu");
+	        System.out.println("------------------------------------------------------------");
+
+	        for (int quy = 1; quy <= 4; quy++) {
+	            int soLuong = 0;
+	            double tongTien = 0;
+
+	            for (int i = 0; i < n; i++) {
+	                if (ds[i].getNgayxuathd() != null && ds[i].getNgayxuathd().getYear() == nam) {
+	                    int month = ds[i].getNgayxuathd().getMonthValue();
+	                    int quyHienTai = (month - 1) / 3 + 1;
+	                    if (quyHienTai == quy) {
+	                        soLuong++;
+	                        tongTien += ds[i].getTongtien();
+	                    }
+	                }
+	            }
+
+	            if (soLuong > 0) {
+	                System.out.println("  " + quy + "   |     " + soLuong + "      |   " + tongTien);
+	                coDuLieu = true;
+	            }
+	        }
+
+	        if (!coDuLieu) {
+	            System.out.println("Không có hóa đơn nào trong năm " + nam + ".");
 	        }
 	    }
 
-	    if (soLuong == 0) {
-	        System.out.println("❌ Không có hóa đơn nào của khách hàng này.");
-	    } else {
-	        System.out.println("--------------------------------------");
-	        System.out.println("Tổng số hóa đơn: " + soLuong);
-	        System.out.println("Tổng doanh thu: " + tongTien);
+	    System.out.println("\n============================================================");
+	    System.out.println("                 THỐNG KÊ HÓA ĐƠN THEO NĂM                  ");
+	    System.out.println("============================================================");
+
+	    for (int nam = 2020; nam <= 2025; nam++) {
+	        int soLuong = 0;
+	        double tongTien = 0;
+
+	        for (int i = 0; i < n; i++) {
+	            if (ds[i].getNgayxuathd() != null && ds[i].getNgayxuathd().getYear() == nam) {
+	                soLuong++;
+	                tongTien += ds[i].getTongtien();
+	            }
+	        }
+
+	        if (soLuong > 0) {
+	            System.out.println("Năm " + nam + " | Số hóa đơn: " + soLuong + " | Tổng doanh thu: " + tongTien);
+	        }
+	    }
+	    System.out.println("\n=== THỐNG KÊ THEO MÃ KH ===");
+	    for (int i = 0; i < n; i++) {
+	        String maKH = ds[i].getMaKh().getMakh();
+	        int soLuong = 0;
+	        double tongTien = 0;
+
+	        // kiểm tra trùng mã KH
+	        boolean daDem = false;
+	        for (int j = 0; j < i; j++) {
+	            if (ds[j].getMaKh().equals(maKH)) {
+	                daDem = true;
+	                break;
+	            }
+	        }
+	        if (daDem) continue;
+
+	        // đếm số hóa đơn và tổng tiền cho mã KH này
+	        for (int j = 0; j < n; j++) {
+	            if (ds[j].getMaKh().equals(maKH)) {
+	                soLuong++;
+	                tongTien += ds[j].getTongtien();
+	            }
+	        }
+
+	        System.out.println("Mã KH: " + maKH +
+	                           " | Số hóa đơn: " + soLuong +
+	                           " | Tổng doanh thu: " + tongTien);
 	    }
 	}
 }
