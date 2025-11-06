@@ -1,11 +1,62 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Dskhachhang {
+public class Dskhachhang implements dieukien {
     int n;
     Khachhang[] ds;
+    
     Scanner sc = new Scanner(System.in);
 
+    public void docFile(String filename) throws Exception {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            n = Integer.parseInt(br.readLine().trim());
+            ds = new Khachhang[n];
+
+            for (int i = 0; i < n; i++) {
+                String line = br.readLine();
+                if (line == null || line.trim().isEmpty()) break;
+
+                // Định dạng: makh,ho,ten,diaChi,sdt
+                String[] parts = line.split(",");
+
+                String makh = parts[0].trim();
+                String ho = parts[1].trim();
+                String ten = parts[2].trim();
+                String diaChi = parts[3].trim();
+                int sdt = Integer.parseInt(parts[4].trim());
+
+                Khachhang kh = new Khachhang(makh, ho, ten, diaChi, sdt);
+                ds[i] = kh;
+            }
+        }
+        System.out.println("Đọc dữ liệu khách hàng từ file thành công!");
+    }
+
+    public void ghiFile(String filename) throws Exception {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            bw.write(n + "");
+            bw.newLine();
+
+            for (int i = 0; i < n; i++) {
+                if (ds[i] != null) {
+                    bw.write(ds[i].getMakh() + ","
+                            + ds[i].getHo() + ","
+                            + ds[i].getTen() + ","
+                            + ds[i].getDiaChi() + ","
+                            + ds[i].getSdt());
+                    bw.newLine();
+                }
+            }
+        }
+        System.out.println("Ghi dữ liệu khách hàng ra file thành công!");
+    }
+    
+    
+    
     public void xuat() {
         for (int i = 0; i < n; i++) {
             System.out.println("---------------------------");
@@ -13,16 +64,17 @@ public class Dskhachhang {
             ds[i].xuat();
         }
     }
-    
-    public void themKH() {
+    @Override
+    public void them() {
     	ds = Arrays.copyOf(ds, n+1);
     	ds[n] = new Khachhang();
     	ds[n].nhap();
     	n++;
     	System.out.println("Đã thêm khách hàng mới thành công!");
     }
-
-    public void xoaKH() {
+    
+    @Override
+    public void xoa() {
     	System.out.println("Nhập mã khách hàng muốn xóa");
     	String makh = sc.nextLine();
     	for(int i = 0; i<n; i++) {
@@ -39,7 +91,8 @@ public class Dskhachhang {
     	System.out.println("Không tìm thấy mã khách hàng muốn xóa");
     }
 
-    public void timKiemKH() {
+    @Override
+    public void timkiem() {
         System.out.print("Nhap ma khach hang can tim: ");
         String makh = sc.nextLine();
         for (int i = 0; i < n; i++) {
@@ -52,7 +105,10 @@ public class Dskhachhang {
         System.out.println("Khong tim thay nha cung cap voi ma nay.");
     }
 
-    public void suaKH(String makh) {
+    @Override
+    public void sua() {
+    	System.out.print("Nhap ma khach hang can sua: ");
+        String makh = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMakh().equals(makh)) {
                 int k;

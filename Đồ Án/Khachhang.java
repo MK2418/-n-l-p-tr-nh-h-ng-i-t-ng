@@ -1,4 +1,10 @@
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Khachhang {
@@ -20,17 +26,25 @@ public class Khachhang {
 	}
 
 	public void nhap() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Nhập mã khách hàng: ");
-		setMakh(sc.next());
-		System.out.print("Nhập họ khách hàng: ");
-		hokh = sc.next();
-		System.out.print("Nhập tên khách hàng: ");
-		tenkh = sc.next();
-		System.out.print("Nhập địa chỉ khách hàng: ");
-		diachi = sc.next();
-		System.out.print("Nhập số điện thoại khách hàng: ");
-		setSdt(sc.nextInt());
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.print("Nhập số lượng khách hàng cần ghi: ");
+			int n = sc.nextInt();
+
+			for (int i = 0; i < n; i++) {
+				System.out.println("== Nhập khách hàng thứ " + (i + 1) + " ==");
+			
+			System.out.print("Nhập mã khách hàng: ");
+			makh = sc.next();
+			System.out.print("Nhập họ khách hàng: ");
+			hokh = sc.next();
+			System.out.print("Nhập tên khách hàng: ");
+			tenkh = sc.next();
+			System.out.print("Nhập địa chỉ khách hàng: ");
+			diachi = sc.next();
+			System.out.print("Nhập số điện thoại khách hàng: ");
+			sdt =sc.nextInt();
+			}
+		}
 	}
 
 	public void xuat() {
@@ -72,6 +86,4 @@ public class Khachhang {
 	public void setMakh(String makh) {
 		this.makh = makh;
 	}
-
-
 }
