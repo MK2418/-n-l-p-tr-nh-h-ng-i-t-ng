@@ -20,7 +20,7 @@ class Dsnhacungcap implements dieukien {
     Scanner sc = new Scanner(System.in);
 
     public void docFile(String filename) throws Exception {
-        try (BufferedReader br = new BufferedReader(new FileReader("Dsnhacungcap.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             n = Integer.parseInt(br.readLine());
             ds = new Nhacungcap[n];
             for (int i = 0; i < n; i++) {
@@ -165,5 +165,9 @@ class Dsnhacungcap implements dieukien {
     public void setDanhSach(Nhacungcap[] ds, int n) {
         this.ds = ds;
         this.n = n;
+    }
+
+    public Nhacungcap[] getDs() {
+        return ds;
     }
 }
