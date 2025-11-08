@@ -23,4 +23,20 @@ public class Butviet extends Dodunghoctap {
         return String.format("%s,%s,%d,%d,%s,%s,%s,%s,%d",
                 maSP, tenSP, soLuong, donGia, donViTinh, maLoai, maSX, loaibut, kichcongoi);
     }
+
+    public String getloaibut() {
+        return loaibut;
+    }
+
+    public int getkichcongoi() {
+        return kichcongoi;
+    }
+
+    public void setloaibut(String loaibut) {
+        this.loaibut = loaibut;
+    }
+
+    public void setkichcongoi(int kichcongoi) {
+        this.kichcongoi = kichcongoi;
+    }
 }
