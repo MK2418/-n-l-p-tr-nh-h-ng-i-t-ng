@@ -65,7 +65,8 @@ class Dsphieunhaphang {
     }
 
     // ====== Tìm phiếu nhập hàng theo mã ======
-    public PhieuNhapHang timPhieuNhapTheoMa(String ma) {
+    public PhieuNhapHang timPhieuNhap() {
+        String ma = sc.nextLine();
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
                 return ds[i];
@@ -90,7 +91,9 @@ class Dsphieunhaphang {
     }
 
     // ====== Xoá phiếu nhập hàng theo mã ======
-    public void xoaPhieuNhapTheoMa(String ma) {
+    public void xoaPhieuNhapTheoMa() {
+        System.out.println("Nhap ma can xoa ");
+        String ma = sc.nextLine();
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
                 for (int j = i; j < soLuong - 1; j++) {
@@ -106,7 +109,8 @@ class Dsphieunhaphang {
     }
 
     // ====== Sửa thông tin phiếu nhập hàng theo mã ======
-    public void suaNCC(String maPNH) {
+    public void suaPNH() {
+        String maPNH = sc.nextLine();
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
                 int k;

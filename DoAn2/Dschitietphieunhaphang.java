@@ -47,6 +47,7 @@ public class Dschitietphieunhaphang {
             System.out.println("Ma PNH: " + ds[i].getMaPNH());
             System.out.println("Ma Hang: " + ds[i].getMaHang());
             System.out.println("So Luong: " + ds[i].getSoLuong());
+            System.out.println("Don gia " + ds[i].getDonGia());
             System.out.println("Thanh Tien: " + ds[i].Thanhtien());
         }
     }
