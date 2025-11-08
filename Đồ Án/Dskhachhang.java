@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Dskhachhang implements dieukien {
     int n;
     Khachhang[] ds;
-    
+
     Scanner sc = new Scanner(System.in);
 
     public void docFile(String filename) throws Exception {
@@ -18,7 +18,8 @@ public class Dskhachhang implements dieukien {
 
             for (int i = 0; i < n; i++) {
                 String line = br.readLine();
-                if (line == null || line.trim().isEmpty()) break;
+                if (line == null || line.trim().isEmpty())
+                    break;
 
                 // Định dạng: makh,ho,ten,diaChi,sdt
                 String[] parts = line.split(",");
@@ -54,9 +55,7 @@ public class Dskhachhang implements dieukien {
         }
         System.out.println("Ghi dữ liệu khách hàng ra file thành công!");
     }
-    
-    
-    
+
     public void xuat() {
         for (int i = 0; i < n; i++) {
             System.out.println("---------------------------");
@@ -64,31 +63,32 @@ public class Dskhachhang implements dieukien {
             ds[i].xuat();
         }
     }
+
     @Override
     public void them() {
-    	ds = Arrays.copyOf(ds, n+1);
-    	ds[n] = new Khachhang();
-    	ds[n].nhap();
-    	n++;
-    	System.out.println("Đã thêm khách hàng mới thành công!");
+        ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = new Khachhang();
+        ds[n].nhap();
+        n++;
+        System.out.println("Đã thêm khách hàng mới thành công!");
     }
-    
+
     @Override
     public void xoa() {
-    	System.out.println("Nhập mã khách hàng muốn xóa");
-    	String makh = sc.nextLine();
-    	for(int i = 0; i<n; i++) {
-    		if (ds[i].getMakh().equalsIgnoreCase(makh)) {
-    			for(int j = i; j < n -1; j++) {
-    				ds[j]= ds[j+1];
-    			}
-    		ds = Arrays.copyOf(ds, n-1);
-    		n--;
-    		System.out.println("Đã xóa khách hàng thành công");
-    		return;
-    		}
-    	}
-    	System.out.println("Không tìm thấy mã khách hàng muốn xóa");
+        System.out.println("Nhập mã khách hàng muốn xóa");
+        String makh = sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMakh().equalsIgnoreCase(makh)) {
+                for (int j = i; j < n - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, n - 1);
+                n--;
+                System.out.println("Đã xóa khách hàng thành công");
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy mã khách hàng muốn xóa");
     }
 
     @Override
@@ -107,7 +107,7 @@ public class Dskhachhang implements dieukien {
 
     @Override
     public void sua() {
-    	System.out.print("Nhap ma khach hang can sua: ");
+        System.out.print("Nhap ma khach hang can sua: ");
         String makh = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMakh().equals(makh)) {
