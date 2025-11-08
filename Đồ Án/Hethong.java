@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Hethong {
-    public void khoiDong() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int chon;
         QLBH ql;
@@ -22,7 +22,7 @@ public class Hethong {
                 case 1:
                     ql = new QLNCC();
                     ql.menuChinh();
-                    break;
+                    break; 
                 case 2:
                     ql = new QLSP();
                     ql.menuChinh();
@@ -30,11 +30,11 @@ public class Hethong {
                 case 3:
                     ql = new QLHD();
                     ql.menuChinh();
-                    break;
+                    break; 
                 case 4:
                     ql = new QLKH();
                     ql.menuChinh();
-                    break;
+                    break; 
                 case 0:
                     System.out.println("Thoat chuong trinh!");
                     break;
