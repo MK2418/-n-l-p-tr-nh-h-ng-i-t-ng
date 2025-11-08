@@ -156,6 +156,22 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
     }
 
+    public void thongkeTheoMaPNH() {
+        String maPNH;
+        System.out.print("Nhap ma PNH can thong ke: ");
+        maPNH = sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMaPNH().equals(maPNH)) {
+                System.out.println("Thong tin chi tiet phieu nhap hang:");
+                System.out.println("Ma PNH: " + ds[i].getMaPNH());
+                System.out.println("Ma Hang: " + ds[i].getMaHang());
+                System.out.println("So Luong: " + ds[i].getSoLuong());
+                System.out.println("Don Gia: " + ds[i].getDonGia());
+                System.out.println("Thanh Tien: " + ds[i].Thanhtien());
+            }
+        }
+    }
+
     public chitietphieunhaphang[] getDs() {
         return ds;
     }
