@@ -1,3 +1,4 @@
+// File: Dodunghoctap.java
 public abstract class Dodunghoctap {
     public String maSP, tenSP, donViTinh, maLoai, maSX;
     public int soLuong, donGia;
@@ -16,19 +17,63 @@ public abstract class Dodunghoctap {
     public abstract void xuat();
 
     public abstract String toFileString();
-}
 
-    // Get
-    public String getMSP() {return MSP;}
-    public String getTen() {return Ten;}
-    public int getSL() {return SL;}
-    public int getDonGia() {return DonGia;}
-    public String getDVTinh() {return DVTinh;}
-    // set
-    public void setMSP(String MSP) {this.MSP = MSP;}
-    public void setTen(String Ten) {this.Ten = Ten;}
-    public void setSL(int SL) {this.SL = SL;}
-    public void setDonGia(int DonGia) {this.DonGia = DonGia;}
-    public void setDVTinh(String DVTinh) {this.DVTinh = DVTinh;}
-}
+    public Dodunghoctap() {
+    }
 
+    public String getMaSP() {
+        return maSP;
+    }
+
+    public String getTenSP() {
+        return tenSP;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public int getDonGia() {
+        return donGia;
+    }
+
+    public String getDonViTinh() {
+        return donViTinh;
+    }
+
+    public String getMaLoai() {
+        return maLoai;
+    }
+
+    public String getMaSX() {
+        return maSX;
+    }
+
+    public void setMaSP(String maSP) {
+        this.maSP = maSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        this.tenSP = tenSP;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+
+    public void setDonGia(int donGia) {
+        this.donGia = donGia;
+    }
+
+    public void setdonViTinh(String donViTinh) {
+        this.donViTinh = donViTinh;
+    }
+
+    public void setmaLoai(String maLoai) {
+        this.maLoai = maLoai;
+    }
+
+    public void setmaSX(String maSX) {
+        this.maSX = maSX;
+    }
+}
