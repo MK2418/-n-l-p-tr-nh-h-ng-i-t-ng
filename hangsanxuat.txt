@@ -1,0 +1,5 @@
+4
+HSX01,Thiên Long,Ho Chi Minh
+HSX02,Kingstar,Da Nang
+HSX03,Sakura,Ha Noi
+HSX04,PaperOne,Ho Chi Minh
