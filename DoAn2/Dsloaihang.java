@@ -1,28 +1,27 @@
 import java.io.*;
 import java.util.*;
 
-public class Dsnhanvien implements dieukien {
+public class Dsloaihang implements dieukien {
     static int n;
-    static Nhanvien[] ds;
+    static Loaihang[] ds;
     static Scanner sc = new Scanner(System.in);
 
     // ---- Doc file ----
     public void docFile(String filename) throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             n = Integer.parseInt(br.readLine());
-            ds = new Nhanvien[n];
+            ds = new Loaihang[n];
             for (int i = 0; i < n; i++) {
                 String line = br.readLine();
                 if (line == null || line.trim().isEmpty()) break;
 
                 String[] parts = line.split(",");
-                Nhanvien nv = new Nhanvien(
-                    parts[0], // manv
-                    parts[1], // honv
-                    parts[2], // tennv
-                    Double.parseDouble(parts[3]) // luong
+                Loaihang lh = new Loaihang(
+                    parts[0], // malh
+                    parts[1], // tenlh
+                    parts[2]  // mota
                 );
-                ds[i] = nv;
+                ds[i] = lh;
             }
         }
         System.out.println("Doc du lieu tu file thanh cong!");
@@ -46,11 +45,11 @@ public class Dsnhanvien implements dieukien {
     // ---- Xuat danh sach ----
     public void xuat() {
         System.out.println("--------------------------------------------------");
-        System.out.printf("%-5s %-10s %-10s %-10s%n", "STT", "Ma NV", "Ho NV", "Ten NV", "Luong");
+        System.out.printf("%-5s %-10s %-15s %-30s%n", "STT", "Ma LH", "Ten LH", "Mo Ta");
         System.out.println("--------------------------------------------------");
         for (int i = 0; i < n; i++) {
-            System.out.printf("%-5d %-10s %-10s %-10s %-10.0f%n",  (i + 1), 
-                ds[i].getManv(),  ds[i].getHonv(),  ds[i].getTennv(),  ds[i].getLuong());
+            System.out.printf("%-5d %-10s %-15s %-30s%n", (i + 1),
+                ds[i].getMalh(), ds[i].getTenlh(), ds[i].getMota());
         }
         System.out.println("--------------------------------------------------");
     }
@@ -60,59 +59,58 @@ public class Dsnhanvien implements dieukien {
     @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = new Nhanvien();
+        ds[n] = new Loaihang();
         ds[n].nhap();
         n++;
-        System.out.println("Da them nhan vien moi thanh cong!");
+        System.out.println("Da them loai hang moi thanh cong!");
     }
 
     // ---- Xoa ----
     @Override
     public void xoa() {
-        System.out.print("Nhap ma nhan vien muon xoa: ");
-        String manv = sc.nextLine();
+        System.out.print("Nhap ma loai hang muon xoa: ");
+        String malh = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (ds[i].getManv().equalsIgnoreCase(manv)) {
+            if (ds[i].getMalh().equalsIgnoreCase(malh)) {
                 for (int j = i; j < n - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
                 ds = Arrays.copyOf(ds, n - 1);
                 n--;
-                System.out.println("Da xoa nhan vien " + manv);
+                System.out.println("Da xoa loai hang " + malh);
                 return;
             }
         }
-        System.out.println("Khong tim thay nhan vien " + manv);
+        System.out.println("Khong tim thay loai hang " + malh);
     }
 
     // ---- Tim kiem ----
     @Override
     public void timkiem() {
-        System.out.print("Nhap ma nhan vien can tim: ");
-        String manv = sc.nextLine();
+        System.out.print("Nhap ma loai hang can tim: ");
+        String malh = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (ds[i].getManv().equalsIgnoreCase(manv)) {
+            if (ds[i].getMalh().equalsIgnoreCase(malh)) {
                 ds[i].xuat();
                 return;
             }
         }
-        System.out.println("Khong tim thay ma nhan vien nay!");
+        System.out.println("Khong tim thay ma loai hang nay!");
     }
 
     // ---- Sua ----
     @Override
     public void sua() {
-        System.out.print("Nhap ma nhan vien can sua: ");
-        String manv = sc.nextLine();
+        System.out.print("Nhap ma loai hang can sua: ");
+        String malh = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (ds[i].getManv().equalsIgnoreCase(manv)) {
+            if (ds[i].getMalh().equalsIgnoreCase(malh)) {
                 int k;
                 do {
-                    System.out.println("------ Sua thong tin nhan vien ------");
-                    System.out.println("1. Sua ma nhan vien");
-                    System.out.println("2. Sua ho nhan vien");
-                    System.out.println("3. Sua ten nhan vien");
-                    System.out.println("4. Sua luong");
+                    System.out.println("------ Sua thong tin loai hang ------");
+                    System.out.println("1. Sua ma loai hang");
+                    System.out.println("2. Sua ten loai hang");
+                    System.out.println("3. Sua mo ta");
                     System.out.println("0. Thoat");
                     System.out.print("Chon: ");
                     k = Integer.parseInt(sc.nextLine());
@@ -120,19 +118,15 @@ public class Dsnhanvien implements dieukien {
                     switch (k) {
                         case 1:
                             System.out.print("Nhap ma moi: ");
-                            ds[i].setManv(sc.nextLine());
+                            ds[i].setMalh(sc.nextLine());
                             break;
                         case 2:
-                            System.out.print("Nhap ho moi: ");
-                            ds[i].setHonv(sc.nextLine());
+                            System.out.print("Nhap ten moi: ");
+                            ds[i].setTenlh(sc.nextLine());
                             break;
                         case 3:
-                            System.out.print("Nhap ten moi: ");
-                            ds[i].setTennv(sc.nextLine());
-                            break;
-                        case 4:
-                            System.out.print("Nhap luong moi: ");
-                            ds[i].setLuong(Double.parseDouble(sc.nextLine()));
+                            System.out.print("Nhap mo ta moi: ");
+                            ds[i].setMota(sc.nextLine());
                             break;
                         case 0:
                             System.out.println("Thoat sua.");
@@ -144,17 +138,35 @@ public class Dsnhanvien implements dieukien {
                 return;
             }
         }
-        System.out.println("Khong tim thay nhan vien can sua!");
+        System.out.println("Khong tim thay loai hang can sua!");
     }
 
     // ---- Thong ke ----
-    public void thongke() {
-        System.out.println("=== THONG KE NHAN VIEN ===");
-        System.out.println("Tong so nhan vien: " + n);
-        double tongLuong = 0;
+    public void thongkeMota() {
+        String[] motaArr = new String[n];
+        int[] dem = new int[n];
+    
         for (int i = 0; i < n; i++) {
-            tongLuong += ds[i].getLuong();
+            String mota = ds[i].getMota();
+            boolean found = false;
+            for (int j = 0; j < i; j++) {
+                if (motaArr[j].equals(mota)) {
+                    dem[j]++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                motaArr[i] = mota;
+                dem[i] = 1;
+            }
         }
-        System.out.println("Tong luong toan cong ty: " + tongLuong);
+
+        System.out.println("=== So loai hang theo mo ta ===");
+        for (int i = 0; i < n; i++) {
+            if (motaArr[i] != null) {
+                System.out.printf("- %-20s: %d loai hang%n", motaArr[i], dem[i]);
+            }
+        }
     }
 }
