@@ -39,9 +39,13 @@ public class Khachhang {
 	}
 
 	public void xuat() {
-		System.out.println("Khach hang co ma " + makh + " ten " + hokh + " " + tenkh + " dia chi " + diachi
-				+ " so dien thoai " + sdt);
+	    System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
+	        "Mã KH", "Họ KH", "Tên KH", "Địa chỉ", "SĐT");
+	    System.out.println("----------------------------------------------------------------------------");
+	    System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
+	        makh, hokh, tenkh, diachi, sdt);
 	}
+
 
 	public String getHo() {
 		return hokh;

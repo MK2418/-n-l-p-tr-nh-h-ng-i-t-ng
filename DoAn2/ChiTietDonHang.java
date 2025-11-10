@@ -33,9 +33,13 @@ public class ChiTietDonHang {
     }
 
     public void xuat() {
-        System.out.println("Ma hoa don: " + mahd + " | Ma san pham: " + msp + " | So luong: " + sl + " | Don gia: "
-                + dongia + " | Tong tien: " + tongtien);
+        System.out.printf("%-12s %-15s %-10s %-15s %-15s%n",
+            "Mã HĐ", "Mã SP", "Số lượng", "Đơn giá", "Tổng tiền");
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.printf("%-12s %-15s %-10d %-15.2f %-15.2f%n",
+            mahd, msp, sl, dongia, tongtien);
     }
+
 
     public String getMahd() {
         return mahd;
