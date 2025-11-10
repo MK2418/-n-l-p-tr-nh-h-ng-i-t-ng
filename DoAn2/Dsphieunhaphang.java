@@ -53,15 +53,22 @@ class Dsphieunhaphang {
             return;
         }
 
-        System.out.println("\n===== DANH SACH PHIEU NHAP HANG =====");
+        System.out.println("\n================= DANH SACH PHIEU NHAP HANG =================");
+        System.out.printf("| %-4s | %-8s | %-12s | %-10s | %-10s | %-12s |\n",
+                "STT", "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
+        System.out.println("----------------------------------------------------------------");
+
         for (int i = 0; i < soLuong; i++) {
-            System.out.println("\n--- Phieu nhap hang thu  " + (i + 1) + " ---");
-            System.out.println("Ma PNH: " + ds[i].getMaPNH());
-            System.out.println("Ngay nhap: " + ds[i].getNgayNhap());
-            System.out.println("Nhan vien: " + ds[i].getNv());
-            System.out.println("Nha cung cap: " + ds[i].getNcc());
-            System.out.println("Tong tien: " + ds[i].getTongTien());
+            System.out.printf("| %-4d | %-8s | %-12s | %-10s | %-10s | %-12.2f |\n",
+                    (i + 1),
+                    ds[i].getMaPNH(),
+                    ds[i].getNgayNhap(), // LocalDate sẽ tự in dạng yyyy-MM-dd
+                    ds[i].getNv(), // Nếu getNv() trả về đối tượng, nên sửa lại thành getNv().getTenNV()
+                    ds[i].getNcc(), // Tương tự nếu trả về đối tượng NCC
+                    ds[i].getTongTien());
         }
+
+        System.out.println("----------------------------------------------------------------");
     }
 
     // ====== Tìm phiếu nhập hàng theo mã ======
