@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class QLHD extends QLBH {
-    DsHoadon ds = new DsHoadon();
+    DsHoadon ds;
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -32,4 +32,5 @@ public class QLHD extends QLBH {
             }
         } while (chon != 0);
     }
+
 }
