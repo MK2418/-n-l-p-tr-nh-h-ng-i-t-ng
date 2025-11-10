@@ -1,4 +1,0 @@
-3
-LH01,But,But viet du loai
-LH02,Giay,Giay ve
-LH03,So,So hoc sinh
