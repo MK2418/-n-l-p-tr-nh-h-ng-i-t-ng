@@ -32,7 +32,7 @@ public abstract class QLBH {
         }
     }
 
-    public void tongTien() {
+    public static void tongTien() {
         for (PhieuNhapHang pnh : dsPhieuNhapHang.getDs()) {
             double tongTien = 0;
             for (chitietphieunhaphang ct : dsChiTietPhieuNhap.getDs()) {

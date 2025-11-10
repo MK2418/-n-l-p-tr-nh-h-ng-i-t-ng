@@ -72,14 +72,18 @@ class Dsphieunhaphang {
     }
 
     // ====== Tìm phiếu nhập hàng theo mã ======
-    public PhieuNhapHang timPhieuNhap() {
+    public void timPhieuNhap() {
         String ma = sc.nextLine();
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
-                return ds[i];
+                System.out.println(ds[i].getMaPNH());
+                System.out.println(ds[i].getNv());
+                System.out.println(ds[i].getNcc());
+                System.out.println(ds[i].getNgayNhap());
+                System.out.println(ds[i].getTongTien());
             }
         }
-        return null;
+
     }
 
     // ====== Thêm 1 phiếu nhập hàng ======

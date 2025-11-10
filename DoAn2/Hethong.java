@@ -6,7 +6,7 @@ public class Hethong {
         int chon;
         QLBH ql;
         QLBH.docTatCaFile();
-
+        QLBH.tongTien();
         do {
             System.out.println("\n=== MENU CHINH HE THONG ===");
             System.out.println("1. Quan ly nha cung cap");
@@ -16,7 +16,8 @@ public class Hethong {
             System.out.println("5. Quan ly nhan vien");
             System.out.println("6. Quan ly loai hang");
             System.out.println("7. Quan ly hang san xuat");
-            System.out.println("8. Thong ke");
+            System.out.println("8. Quan ly phieu nhap hang");
+            System.out.println("9. Thong ke");
             System.out.println("0. Thoat");
             System.out.print("Chon: ");
             chon = sc.nextInt();
@@ -52,7 +53,9 @@ public class Hethong {
                     ql.menuChinh();
                     break;
                 case 8:
-
+                    ql = new QLPNH();
+                    ql.menuChinh();
+                    break;
                 case 0:
                     System.out.println("Thoat chuong trinh!");
                     break;
