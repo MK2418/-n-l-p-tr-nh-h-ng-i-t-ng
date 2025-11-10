@@ -49,21 +49,15 @@ class Dsnhacungcap implements dieukien {
     }
 
     public void xuat() {
-        System.out.println("==============================================================");
-        System.out.printf("| %-5s | %-10s | %-20s | %-20s | %-12s |\n",
-                "STT", "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
-        System.out.println("==============================================================");
-
         for (int i = 0; i < n; i++) {
-            System.out.printf("| %-5d | %-10s | %-20s | %-20s | %-12s |\n",
-                    (i + 1),
-                    ds[i].getMaNCC(),
-                    ds[i].getTenNCC(),
-                    ds[i].getDiaChi(),
-                    ds[i].getSoDienThoai());
-        }
+            System.out.println("---------------------------");
+            System.out.println("Thong tin nha cung cap thu " + (i + 1) + ": ");
+            System.out.println("Ma NCC: " + ds[i].getMaNCC());
+            System.out.println("Ten NCC: " + ds[i].getTenNCC());
+            System.out.println("Dia Chi: " + ds[i].getDiaChi());
+            System.out.println("So Dien Thoai: " + ds[i].getSoDienThoai());
 
-        System.out.println("==============================================================");
+        }
     }
 
     @Override

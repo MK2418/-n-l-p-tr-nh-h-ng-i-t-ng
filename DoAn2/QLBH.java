@@ -2,13 +2,13 @@ import java.io.*;
 
 public abstract class QLBH {
     // ---- CÁC DANH SÁCH DÙNG CHUNG ----
-    // protected static Dsnhanvien dsNhanVien = new Dsnhanvien();
+    protected static Dsnhanvien dsNhanVien = new Dsnhanvien();
     protected static Dskhachhang dsKhachHang = new Dskhachhang();
     protected static DsHoadon dsHoaDon = new DsHoadon();
     protected static Dsphieunhaphang dsPhieuNhapHang = new Dsphieunhaphang();
     protected static Dsdodunghoctap dsDoDungHocTap = new Dsdodunghoctap();
-    // protected static Dsloaihang dsLoaiHang = new Dsloaihang();
-    // protected static Dshangsanxuat dsHangSanXuat = new Dshangsanxuat();
+    protected static Dsloaihang dsLoaiHang = new Dsloaihang();
+    protected static Dshangsanxuat dsHangSanXuat = new Dshangsanxuat();
     protected static DsCTDH dsChiTietHoaDon = new DsCTDH();
     protected static Dschitietphieunhaphang dsChiTietPhieuNhap = new Dschitietphieunhaphang();
     protected static Dsnhacungcap dsNhaCungCap = new Dsnhacungcap();
@@ -16,13 +16,13 @@ public abstract class QLBH {
     // ---- HÀM ĐỌC TẤT CẢ FILE ----
     public static void docTatCaFile() {
         try {
-            // dsNhanVien.docFile("nhanvien.txt");
+            dsNhanVien.docFile("nhanvien.txt");
             dsKhachHang.docFile("DsKH.txt");
             dsHoaDon.docFile("DsHD.txt");
             dsPhieuNhapHang.docFile("Dsphieunhaphang.txt");
             dsDoDungHocTap.docFile("dodunghoctap.txt");
-            // dsLoaiHang.docFile("loaihang.txt");
-            // dsHangSanXuat.docFile("hangsanxuat.txt");
+            dsLoaiHang.docFile("loaihang.txt");
+            dsHangSanXuat.docFile("hangsanxuat.txt");
             dsChiTietHoaDon.docFile("DsCTHD.txt");
             dsChiTietPhieuNhap.docFile("Dschitietphieunhaphang.txt");
             dsNhaCungCap.docFile("Dsnhacungcap.txt");
@@ -32,7 +32,7 @@ public abstract class QLBH {
         }
     }
 
-    public static void tongTien() {
+    public void tongTien() {
         for (PhieuNhapHang pnh : dsPhieuNhapHang.getDs()) {
             double tongTien = 0;
             for (chitietphieunhaphang ct : dsChiTietPhieuNhap.getDs()) {

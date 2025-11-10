@@ -53,27 +53,19 @@ class Dsphieunhaphang {
             return;
         }
 
-        System.out.println("\n================= DANH SACH PHIEU NHAP HANG =================");
-        System.out.printf("| %-4s | %-8s | %-12s | %-10s | %-10s | %-12s |\n",
-                "STT", "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
-        System.out.println("----------------------------------------------------------------");
-
+        System.out.println("\n===== DANH SACH PHIEU NHAP HANG =====");
         for (int i = 0; i < soLuong; i++) {
-            System.out.printf("| %-4d | %-8s | %-12s | %-10s | %-10s | %-12.2f |\n",
-                    (i + 1),
-                    ds[i].getMaPNH(),
-                    ds[i].getNgayNhap(), // LocalDate sẽ tự in dạng yyyy-MM-dd
-                    ds[i].getNv(), // Nếu getNv() trả về đối tượng, nên sửa lại thành getNv().getTenNV()
-                    ds[i].getNcc(), // Tương tự nếu trả về đối tượng NCC
-                    ds[i].getTongTien());
+            System.out.println("\n--- Phieu nhap hang thu  " + (i + 1) + " ---");
+            System.out.println("Ma PNH: " + ds[i].getMaPNH());
+            System.out.println("Ngay nhap: " + ds[i].getNgayNhap());
+            System.out.println("Nhan vien: " + ds[i].getNv());
+            System.out.println("Nha cung cap: " + ds[i].getNcc());
+            System.out.println("Tong tien: " + ds[i].getTongTien());
         }
-
-        System.out.println("----------------------------------------------------------------");
     }
 
     // ====== Tìm phiếu nhập hàng theo mã ======
-    public PhieuNhapHang timPhieuNhap() {
-        String ma = sc.nextLine();
+    public PhieuNhapHang timPhieuNhapTheoMa(String ma) {
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
                 return ds[i];
@@ -98,9 +90,7 @@ class Dsphieunhaphang {
     }
 
     // ====== Xoá phiếu nhập hàng theo mã ======
-    public void xoaPhieuNhapTheoMa() {
-        System.out.println("Nhap ma can xoa ");
-        String ma = sc.nextLine();
+    public void xoaPhieuNhapTheoMa(String ma) {
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
                 for (int j = i; j < soLuong - 1; j++) {
@@ -116,8 +106,7 @@ class Dsphieunhaphang {
     }
 
     // ====== Sửa thông tin phiếu nhập hàng theo mã ======
-    public void suaPNH() {
-        String maPNH = sc.nextLine();
+    public void suaNCC(String maPNH) {
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
                 int k;
