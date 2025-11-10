@@ -88,12 +88,10 @@ public class Hoadon {
 
     // Ham xuat
     public void xuat() {
-        System.out.println("\n=== Thong tin hoa don ===");
-        System.out.println("Ma hoa don: " + mahd);
-        System.out.println("Ma Khach Hang: " + makh.getMakh());
-        System.out.println("Ma Nhan Vien: " + manv.getManv());
-        System.out.println("Ngay xuat hoa don: " + ngayxuathd);
-        System.out.println("Tong tien: " + tongtien);
-
+        System.out.printf("%-10s %-15s %-15s %-20s %-15s%n",
+            "Mã HĐ", "Mã KH", "Mã NV", "Ngày xuất", "Tổng tiền");
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.printf("%-10s %-15s %-15s %-20s %-15.2f%n",
+            mahd, makh.getMakh(), manv.getManv(), ngayxuathd, tongtien);
     }
 }
