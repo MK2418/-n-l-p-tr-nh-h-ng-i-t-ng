@@ -121,7 +121,7 @@ class Dsnhacungcap implements dieukien {
 
     @Override
     public void sua() {
-        System.out.print("nhập mã nhà cung cấp cần sửa");
+        System.out.print("Nhap ma nha cung cap can sua");
         String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {

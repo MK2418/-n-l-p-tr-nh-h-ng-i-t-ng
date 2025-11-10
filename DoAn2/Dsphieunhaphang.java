@@ -73,6 +73,7 @@ class Dsphieunhaphang {
 
     // ====== Tìm phiếu nhập hàng theo mã ======
     public void timPhieuNhap() {
+        System.out.println("Nhap ma can tim kiem");
         String ma = sc.nextLine();
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
