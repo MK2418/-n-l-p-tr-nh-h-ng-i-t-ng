@@ -23,6 +23,14 @@ public class Hoadon {
         manv = new Nhanvien();
     }
 
+    public Hoadon(Hoadon other) {
+        this.mahd = other.mahd;
+        this.ngayxuathd = other.ngayxuathd;
+        this.tongtien = other.tongtien;
+        this.makh = new Khachhang(other.makh);
+        this.manv = new Nhanvien(other.manv);
+    }
+    
     // Ham get
     public String getMahd() {
         return mahd;

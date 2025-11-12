@@ -17,6 +17,13 @@ public class Nhanvien {
         this.tennv = tennv;
         this.luong = luong;
     }
+    
+    public Nhanvien(Nhanvien other) {
+        this.manv = other.manv;
+        this.honv = other.honv;
+        this.tennv = other.tennv;
+        this.luong = other.luong;
+    }
 
     // ---- Getters & Setters ----
     public String getManv() { return manv; }

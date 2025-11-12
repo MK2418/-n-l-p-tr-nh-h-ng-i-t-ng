@@ -8,8 +8,7 @@ public class ChiTietDonHang {
     private double tongtien;
     Scanner sc = new Scanner(System.in);
 
-    public ChiTietDonHang() {
-    }
+    public ChiTietDonHang() {}
 
     public ChiTietDonHang(String mahd, String msp, int sl, double dongia) {
         this.mahd = mahd;
@@ -17,6 +16,14 @@ public class ChiTietDonHang {
         this.sl = sl;
         this.dongia = dongia;
         this.tongtien = sl * dongia;
+    }
+    
+    public ChiTietDonHang(ChiTietDonHang other) {
+        this.mahd = other.mahd;
+        this.msp = other.msp;
+        this.sl = other.sl;
+        this.dongia = other.dongia;
+        this.tongtien = other.tongtien;
     }
 
     public void nhap() {
