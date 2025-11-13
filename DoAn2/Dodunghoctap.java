@@ -1,8 +1,10 @@
-// File: Dodunghoctap.java
+import java.util.Scanner;
+
 public abstract class Dodunghoctap {
     public String maSP, tenSP, donViTinh, maLoai, maSX;
     public int soLuong, donGia;
 
+    // Hàm có tham số
     public Dodunghoctap(String maSP, String tenSP, int soLuong, int donGia,
             String donViTinh, String maLoai, String maSX) {
         this.maSP = maSP;
@@ -14,13 +16,57 @@ public abstract class Dodunghoctap {
         this.maSX = maSX;
     }
 
-    public abstract void xuat();
+    // Hàm không tham số
+    public Dodunghoctap() {
+        maSP = "";
+        tenSP = "";
+        donViTinh = "";
+        maLoai = "";
+        maSX = "";
+        soLuong = 0;
+        donGia = 0;
+    }
+
+    // Hàm thiết lập sao chép
+    public Dodunghoctap(Dodunghoctap other) {
+        this.maSP = other.maSP;
+        this.tenSP = other.tenSP;
+        this.soLuong = other.soLuong;
+        this.donGia = other.donGia;
+        this.donViTinh = other.donViTinh;
+        this.maLoai = other.maLoai;
+        this.maSX = other.maSX;
+    }
+
+    // Phương thức nhập
+    public void nhap() {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        System.out.print("Nhap ma san pham: ");
+        maSP = sc.nextLine();
+        System.out.print("Nhap ten san pham: ");
+        tenSP = sc.nextLine();
+        System.out.print("Nhap so luong: ");
+        soLuong = Integer.parseInt(sc.nextLine());
+        System.out.print("Nhap don gia: ");
+        donGia = Integer.parseInt(sc.nextLine());
+        System.out.print("Nhap don vi tinh: ");
+        donViTinh = sc.nextLine();
+        System.out.print("Nhap ma loai: ");
+        maLoai = sc.nextLine();
+        System.out.print("Nhap ma san xuat: ");
+        maSX = sc.nextLine();
+    }
+
+    // Phương thức xuất
+    public void xuat() {
+        String ten = tenSP.length() > 15 ? tenSP.substring(0, 12) + "..." : tenSP;
+        System.out.printf("%-10s %-15s %8d %,12d %-8s %-8s %-8s \n",
+                maSP, ten, soLuong, donGia, donViTinh, maLoai, maSX);
+    }
 
     public abstract String toFileString();
 
-    public Dodunghoctap() {
-    }
-
+    // Getter methods
     public String getMaSP() {
         return maSP;
     }
@@ -49,6 +95,7 @@ public abstract class Dodunghoctap {
         return maSX;
     }
 
+    // Setter methods
     public void setMaSP(String maSP) {
         this.maSP = maSP;
     }
@@ -75,5 +122,19 @@ public abstract class Dodunghoctap {
 
     public void setmaSX(String maSX) {
         this.maSX = maSX;
+    }
+
+    // Phương thức toString
+    @Override
+    public String toString() {
+        return "Dodunghoctap{" +
+                "maSP='" + maSP + '\'' +
+                ", tenSP='" + tenSP + '\'' +
+                ", soLuong=" + soLuong +
+                ", donGia=" + donGia +
+                ", donViTinh='" + donViTinh + '\'' +
+                ", maLoai='" + maLoai + '\'' +
+                ", maSX='" + maSX + '\'' +
+                '}';
     }
 }
