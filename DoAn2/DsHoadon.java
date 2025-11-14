@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class DsHoadon{
+public class DsHoadon implements dieukien {
 	static int n;
 	static Hoadon[] ds;
 	static Scanner sc = new Scanner(System.in);
@@ -74,15 +74,15 @@ public class DsHoadon{
 			ds[i].xuat();
 		}
 	}
-
-	public void them(Hoadon hdMoi) {
+	
+	public void themCothamso(Hoadon hdMoi) {
 	    ds = Arrays.copyOf(ds, n + 1);
 	    ds[n] = hdMoi;
 	    n++;
 	    System.out.println("Đã thêm hóa đơn mới: " + hdMoi.getMahd());
 	}
 
-	public void xoa(String mahd) {
+	public void xoaCothamso(String mahd) {
 	    for (int i = 0; i < n; i++) {
 	        if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
 	            for (int j = i; j < n - 1; j++) {
@@ -97,7 +97,7 @@ public class DsHoadon{
 	    System.out.println("Không tìm thấy hóa đơn: " + mahd);
 	}
 
-	public void sua(String mahd, Hoadon hdMoi) {
+	public void suaCothamso(String mahd, Hoadon hdMoi) {
 	    for (int i = 0; i < n; i++) {
 	        if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
 	            ds[i] = hdMoi; 
@@ -108,6 +108,90 @@ public class DsHoadon{
 	    System.out.println("Không tìm thấy hóa đơn: " + mahd);
 	}
 
+	@Override
+	public void them() {
+		ds = Arrays.copyOf(ds, n + 1);
+		ds[n] = new Hoadon();
+		ds[n].nhap();
+		n++;
+		System.out.println("Da them hoa don moi thanh cong!");
+	}
+
+	@Override
+	public void xoa() {
+		System.out.println("Nhap ma hoa don muon xoa: ");
+		String mahd = sc.nextLine();
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getMahd().equals(mahd)) {
+				for (int j = i; j < n - 1; j++) {
+					ds[j] = ds[j + 1];
+				}
+				ds = Arrays.copyOf(ds, n - 1);
+				n--;
+				System.out.println("Da xoa " + mahd);
+				return;
+			}
+		}
+		System.out.println("Khong tim thay " + mahd);
+	}
+
+
+	@Override
+	public void sua() {
+		System.out.print("Nhap ma hoa don can sua: ");
+		String mahd = sc.nextLine();
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+				int k;
+				do {
+					System.out.println("---Sua thong tin hoa don---");
+					System.out.println("1. Sua ma hoa don");
+					System.out.println("2. Sua ma khach hang");
+					System.out.println("3. Sua ma nhan vien");
+					System.out.println("4. Sua tong tien");
+					System.out.println("0. Thoat");
+					System.out.print("Nhap lua chon: ");
+					k = sc.nextInt();
+					sc.nextLine();
+
+					switch (k) {
+						case 1:
+							System.out.println("Vui long nhap ma hoa don moi: ");
+							ds[i].setMahd(sc.nextLine());
+							break;
+						case 2:
+							System.out.println("Vui long nhap ma khach hang moi: ");
+							String makh = sc.nextLine();
+							Khachhang kh = new Khachhang();
+							kh.setMakh(makh);
+							ds[i].setMaKh(kh);
+							break;
+						case 3:
+							System.out.println("Vui long nhap ma nhan vien moi: ");
+							String manv = sc.nextLine();
+							Nhanvien nv = new Nhanvien();
+							nv.setManv(manv);
+							ds[i].setMaNv(nv);
+							break;
+						case 4:
+							System.out.println("Vui long nhap tong tien moi: ");
+							ds[i].setTongtien(sc.nextDouble());
+							sc.nextLine();
+							break;
+						case 0:
+							System.out.println("Thoat sua thong tin.");
+							break;
+						default:
+							System.out.println("Lua chon khong hop le!");
+					}
+				} while (k != 0);
+				return;
+			}
+		}
+		System.out.println("Khong tim thay ma hoa don nay!");
+	}
+	
+	@Override
 	public void timkiem() {
 		System.out.println("Nhap ma hoa don de tim kiem: ");
 		String mahd = sc.nextLine();
