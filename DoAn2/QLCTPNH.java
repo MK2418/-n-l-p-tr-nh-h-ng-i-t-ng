@@ -44,10 +44,10 @@ public class QLCTPNH extends QLBH {
                     String maPNHsua = sc.nextLine();
                     dsChiTietPhieuNhap.suaNCC(maPNHsua);
                     break;
-                case 6:
-                    System.out.println("\n--- THONG KE THEO MA PNH ---");
-                    dsChiTietPhieuNhap.thongkeTheoMaPNH();
-                    break;
+                // case 6:
+                // System.out.println("\n--- THONG KE THEO MA PNH ---");
+                // dsChiTietPhieuNhap.thongkeTheoMaPNH();
+                // break;
                 case 0:
                     System.out.println("Thoat khoi quan ly chi tiet phieu nhap hang.");
                     break;

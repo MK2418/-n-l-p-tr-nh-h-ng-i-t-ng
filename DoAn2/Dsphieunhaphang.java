@@ -52,22 +52,14 @@ class Dsphieunhaphang {
             System.out.println("Chua co phieu nhap nao!");
             return;
         }
-
         System.out.println("\n================= DANH SACH PHIEU NHAP HANG =================");
-        System.out.printf("| %-4s | %-8s | %-12s | %-10s | %-10s | %-12s |\n",
-                "STT", "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
+        System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12s |\n",
+                "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
         System.out.println("----------------------------------------------------------------");
 
         for (int i = 0; i < soLuong; i++) {
-            System.out.printf("| %-4d | %-8s | %-12s | %-10s | %-10s | %-12.2f |\n",
-                    (i + 1),
-                    ds[i].getMaPNH(),
-                    ds[i].getNgayNhap(), // LocalDate sẽ tự in dạng yyyy-MM-dd
-                    ds[i].getNv(), // Nếu getNv() trả về đối tượng, nên sửa lại thành getNv().getTenNV()
-                    ds[i].getNcc(), // Tương tự nếu trả về đối tượng NCC
-                    ds[i].getTongTien());
+            ds[i].xuat();
         }
-
         System.out.println("----------------------------------------------------------------");
     }
 
@@ -77,11 +69,7 @@ class Dsphieunhaphang {
         String ma = sc.nextLine();
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
-                System.out.println(ds[i].getMaPNH());
-                System.out.println(ds[i].getNv());
-                System.out.println(ds[i].getNcc());
-                System.out.println(ds[i].getNgayNhap());
-                System.out.println(ds[i].getTongTien());
+                ds[i].xuat();
             }
         }
 
@@ -90,15 +78,8 @@ class Dsphieunhaphang {
     // ====== Thêm 1 phiếu nhập hàng ======
     public void themPhieuNhap() {
         ds = Arrays.copyOf(ds, soLuong + 1);
-        System.out.print("Nhap ma phieu nhap hang: ");
-        String maPNH = sc.nextLine();
-        System.out.print("Nhap ngay nhap (YYYY-MM-DD): ");
-        LocalDate ngayNhap = LocalDate.parse(sc.nextLine());
-        System.out.print("Nhap ma nhan vien: ");
-        String nv = sc.nextLine();
-        System.out.print("Nhap nha cung cap: ");
-        String ncc = sc.nextLine();
-        ds[soLuong] = new PhieuNhapHang(maPNH, ngayNhap, nv, ncc);
+        ds[soLuong] = new PhieuNhapHang();
+        ds[soLuong].nhap();
         soLuong++;
     }
 

@@ -42,52 +42,29 @@ public class Dschitietphieunhaphang {
 
     public void xuat() {
         System.out.println("===============================================================");
-        System.out.printf("| %-5s | %-10s | %-10s | %-10s | %-10s | %-12s |\n",
-                "STT", "Ma PNH", "Ma Hang", "So Luong", "Don Gia", "Thanh Tien");
+        System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-12s |\n",
+                "Ma PNH", "Ma Hang", "So Luong", "Don Gia", "Thanh Tien");
         System.out.println("===============================================================");
 
         for (int i = 0; i < n; i++) {
-            System.out.printf("| %-5d | %-10s | %-10s | %-10d | %-10.2f | %-12.2f |\n",
-                    (i + 1),
-                    ds[i].getMaPNH(),
-                    ds[i].getMaHang(),
-                    ds[i].getSoLuong(),
-                    ds[i].getDonGia(),
-                    ds[i].Thanhtien());
+            ds[i].xuat();
         }
-
         System.out.println("===============================================================");
     }
 
     public void nhap() {
         for (int i = 0; i < n; i++) {
             System.out.println("Nhap thong tin chi tiet phieu nhap hang thu " + (i + 1) + ": ");
-            System.out.print("Ma PNH: ");
-            String maPNH = sc.nextLine();
-            System.out.print("Ma Hang: ");
-            String maHang = sc.nextLine();
-            System.out.print("So Luong: ");
-            int soLuong = sc.nextInt();
-            System.out.print("Don Gia: ");
-            double donGia = sc.nextDouble();
-            sc.nextLine(); // Consume newline
-            ds[i] = new chitietphieunhaphang(maPNH, maHang, soLuong, donGia);
+            ds[i] = new chitietphieunhaphang();
+            ds[i].nhap();
         }
     }
 
     public void themChiTietPNH() {
         ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = new chitietphieunhaphang();
         System.out.println("Nhap thong tin chi tiet phieu nhap hang thu " + (n + 1) + ": ");
-        System.out.print("Ma PNH: ");
-        String maPNH = sc.nextLine();
-        System.out.print("Ma Hang: ");
-        String maHang = sc.nextLine();
-        System.out.print("So Luong: ");
-        int soLuong = sc.nextInt();
-        System.out.print("Don Gia: ");
-        double donGia = sc.nextDouble();
-        sc.nextLine();
-        ds[n] = new chitietphieunhaphang(maPNH, maHang, soLuong, donGia);
+        ds[n].nhap();
         n++;
         System.out.println("Da them chi tiet phieu nhap hang moi thanh cong!");
     }
@@ -113,10 +90,9 @@ public class Dschitietphieunhaphang {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(maPNH)) {
                 System.out.println("Thong tin chi tiet phieu nhap hang:");
-                System.out.println("Ma PNH: " + ds[i].getMaPNH());
-                System.out.println("Ma Hang: " + ds[i].getMaHang());
-                System.out.println("So Luong: " + ds[i].getSoLuong());
-                System.out.println("Thanh Tien: " + ds[i].Thanhtien());
+                System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-12s |\n",
+                        "Ma PNH", "Ma Hang", "So Luong", "Don Gia", "Thanh Tien");
+                ds[i].xuat();
                 return;
             }
         }
@@ -162,22 +138,6 @@ public class Dschitietphieunhaphang {
             }
         }
         System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
-    }
-
-    public void thongkeTheoMaPNH() {
-        String maPNH;
-        System.out.print("Nhap ma PNH can thong ke: ");
-        maPNH = sc.nextLine();
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getMaPNH().equals(maPNH)) {
-                System.out.println("Thong tin chi tiet phieu nhap hang:");
-                System.out.println("Ma PNH: " + ds[i].getMaPNH());
-                System.out.println("Ma Hang: " + ds[i].getMaHang());
-                System.out.println("So Luong: " + ds[i].getSoLuong());
-                System.out.println("Don Gia: " + ds[i].getDonGia());
-                System.out.println("Thanh Tien: " + ds[i].Thanhtien());
-            }
-        }
     }
 
     public chitietphieunhaphang[] getDs() {

@@ -50,36 +50,31 @@ class Dsnhacungcap implements dieukien {
 
     public void xuat() {
         System.out.println("==============================================================");
-        System.out.printf("| %-5s | %-10s | %-20s | %-20s | %-12s |\n",
-                "STT", "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
+        System.out.printf("| %-10s | %-20s | %-20s | %-13s |\n",
+                "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
         System.out.println("==============================================================");
 
         for (int i = 0; i < n; i++) {
-            System.out.printf("| %-5d | %-10s | %-20s | %-20s | %-12s |\n",
-                    (i + 1),
-                    ds[i].getMaNCC(),
-                    ds[i].getTenNCC(),
-                    ds[i].getDiaChi(),
-                    ds[i].getSoDienThoai());
+            ds[i].xuat();
         }
 
         System.out.println("==============================================================");
+    }
+
+    public void nhap() {
+        for (int i = 0; i < n; i++) {
+            System.out.println("Nhap thong tin nha cung cap thu " + (i + 1) + ": ");
+            ds[i] = new Nhacungcap();
+            ds[i].nhap();
+        }
     }
 
     @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
         System.out.println("Nhap thong tin nha cung cap moi: ");
-        System.out.print("Ma NCC: ");
-        String maNCC = sc.nextLine();
-        System.out.print("Ten NCC: ");
-        String tenNCC = sc.nextLine();
-        System.out.print("Dia Chi: ");
-        String diaChi = sc.nextLine();
-        System.out.print("So Dien Thoai: ");
-        int soDienThoai = sc.nextInt();
-        sc.nextLine(); // bỏ dòng thừa
-        ds[n] = new Nhacungcap(maNCC, tenNCC, diaChi, soDienThoai);
+        ds[n] = new Nhacungcap();
+        ds[n].nhap();
         n++;
         System.out.println("Da them nha cung cap moi thanh cong!");
     }
@@ -108,11 +103,9 @@ class Dsnhacungcap implements dieukien {
         String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equalsIgnoreCase(maNCC)) {
-                System.out.println("Thong tin nha cung cap:");
-                System.out.println("Ma NCC: " + ds[i].getMaNCC());
-                System.out.println("Ten NCC: " + ds[i].getTenNCC());
-                System.out.println("Dia Chi: " + ds[i].getDiaChi());
-                System.out.println("So Dien Thoai: " + ds[i].getSoDienThoai());
+                System.out.printf("| %-10s | %-20s | %-20s | %-13s |\n",
+                        "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
+                ds[i].xuat();
                 return;
             }
         }
