@@ -50,12 +50,34 @@ public class DsCTDH implements dieukien {
     }
 
     public void xuat() {
-        for (int i = 0; i < n; i++) {
-            System.out.println("------------------------");
-            System.out.println("Thong tin chi tiet don hang thu " + (i + 1) + ": ");
-            ds[i].xuat();
+        if (n == 0 || ds == null) {
+            System.out.println("Danh sach chi tiet don hang trong!");
+            return;
         }
+
+        System.out.println("========================================================================================================");
+        System.out.printf("%-10s %-10s %10s %15s %15s\n",
+                "MaHD", "MaSP", "SoLuong", "DonGia", "ThanhTien");
+        System.out.println("========================================================================================================");
+
+        for (int i = 0; i < n; i++) {
+            ChiTietDonHang ct = ds[i];
+
+            double thanhTien = ct.getSl() * ct.getDongia();
+
+            System.out.printf("%-10s %-10s %10d %,15.0f %,15.0f\n",
+                    ct.getMahd(),
+                    ct.getMsp(),
+                    ct.getSl(),
+                    ct.getDongia(),
+                    thanhTien
+            );
+        }
+
+        System.out.println("========================================================================================================");
+        System.out.println("Tong so chi tiet don hang: " + n);
     }
+
     public void themCothamso(ChiTietDonHang ctdh) {
         ds = Arrays.copyOf(ds, n + 1);          
         ds[n] = ctdh;
@@ -71,22 +93,22 @@ public class DsCTDH implements dieukien {
                 }
                 ds = Arrays.copyOf(ds, n - 1);
                 n--;
-                System.out.println("Đã xóa " + mahd + " - " + msp);
+                System.out.println("Da xoa " + mahd + " - " + msp);
                 return;
             }
         }
-        System.out.println("Không tìm thấy " + mahd + " - " + msp);
+        System.out.println("Khong tim thay " + mahd + " - " + msp);
     }
     
     public void suaCothamso(String mahd, String msp, ChiTietDonHang ctdhMoi) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMahd().equalsIgnoreCase(mahd) && ds[i].getMsp().equalsIgnoreCase(msp)) {
                 ds[i] = ctdhMoi;
-                System.out.println("Đã sửa thông tin chi tiết đơn hàng " + mahd + " - " + msp);
+                System.out.println("Da ua thong tin chi tiet don hang " + mahd + " - " + msp);
                 return;
             }
         }
-        System.out.println("Không tìm thấy chi tiết đơn hàng " + mahd + " - " + msp);
+        System.out.println("Khong tim thay chi tiet don hang " + mahd + " - " + msp);
     }
     
     @Override

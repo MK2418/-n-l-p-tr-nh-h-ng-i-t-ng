@@ -68,18 +68,40 @@ public class DsHoadon implements dieukien {
 	}
 
 	public void xuat() {
-		for (int i = 0; i < n; i++) {
-			System.out.println("------------------------");
-			System.out.println("Thong tin hoa don thu " + (i + 1) + ": ");
-			ds[i].xuat();
-		}
+	    if (n == 0 || ds == null) {
+	        System.out.println("Danh sach hoa don trong!");
+	        return;
+	    }
+
+	    System.out.println("=================================================================================================================");
+	    System.out.printf("%-10s %-10s %-10s %15s %-15s\n",
+	            "MaHD", "MaKH", "MaNV", "TongTien", "NgayXuat");
+	    System.out.println("=================================================================================================================");
+
+	    for (int i = 0; i < n; i++) {
+	        Hoadon hd = ds[i];
+	        if (hd != null) {
+	            String ngay = (hd.getNgayxuathd() != null) ? hd.getNgayxuathd().toString() : " ";
+	            System.out.printf("%-10s %-10s %-10s %,15.0f %-15s\n",
+	                    hd.getMahd(),
+	                    hd.getMaKh().getMakh(),
+	                    hd.getMaNv().getManv(),
+	                    hd.getTongtien(),
+	                    ngay
+	            );
+	        }
+	    }
+
+	    System.out.println("=================================================================================================================");
+	    System.out.println("Tong so: " + n + " hoa don");
 	}
+
 	
 	public void themCothamso(Hoadon hdMoi) {
 	    ds = Arrays.copyOf(ds, n + 1);
 	    ds[n] = hdMoi;
 	    n++;
-	    System.out.println("Đã thêm hóa đơn mới: " + hdMoi.getMahd());
+	    System.out.println("Da them hoa don moi: " + hdMoi.getMahd());
 	}
 
 	public void xoaCothamso(String mahd) {
@@ -90,22 +112,22 @@ public class DsHoadon implements dieukien {
 	            }
 	            ds = Arrays.copyOf(ds, n - 1);
 	            n--;
-	            System.out.println("Đã xóa hóa đơn: " + mahd);
+	            System.out.println("Da xoa hoa donn: " + mahd);
 	            return;
 	        }
 	    }
-	    System.out.println("Không tìm thấy hóa đơn: " + mahd);
+	    System.out.println("Khong tim thay hoa don: " + mahd);
 	}
 
 	public void suaCothamso(String mahd, Hoadon hdMoi) {
 	    for (int i = 0; i < n; i++) {
 	        if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
 	            ds[i] = hdMoi; 
-	            System.out.println("Đã sửa hóa đơn: " + mahd);
+	            System.out.println("Da sua hoa don: " + mahd);
 	            return;
 	        }
 	    }
-	    System.out.println("Không tìm thấy hóa đơn: " + mahd);
+	    System.out.println("Khong tim thay hoa don: " + mahd);
 	}
 
 	@Override

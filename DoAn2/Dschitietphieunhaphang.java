@@ -224,6 +224,30 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
     }
 
+    public void thongke() {
+        String[] ma = new String[n];
+        int[] soluong = new int[n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            boolean found = false;
+            String mapn = ds[i].getMaPNH();
+            for (int j = 0; j < count; j++) {
+                if (ma[j].equals(mapn)) {
+                    soluong[j]++;
+                    found = true;
+                }
+            }
+            if (!found) {
+                ma[count] = mapn;
+                soluong[count] = 1;
+                count++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.println(ma[i] + ": " + soluong[i] + " don hang");
+        }
+    }
+
     public chitietphieunhaphang[] getDs() {
         return ds;
     }
