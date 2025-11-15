@@ -14,6 +14,7 @@ public class QLNCC extends QLBH {
             System.out.println("3. Xoa nha cung cap");
             System.out.println("4. Sua thong tin nha cung cap");
             System.out.println("5. Tim kiem nha cung cap");
+            System.out.println("6. Thong ke nha cung cap theo dia chi");
             System.out.println("0. Thoat");
             System.out.print("Nhap lua chon cua ban: ");
             choice = sc.nextInt();
@@ -40,6 +41,9 @@ public class QLNCC extends QLBH {
                     System.out.println("\n--- TIM KIEM NHA CUNG CAP ---");
                     dsNhaCungCap.timkiem();
                     break;
+                case 6:
+                    System.out.println("\n--- THONG KE NHA CHUNG CAP THEO DIA CHI ---");
+                    dsNhaCungCap.thongke();
                 case 0:
                     System.out.println("Thoat khoi quan ly nha cung cap.");
                     break;

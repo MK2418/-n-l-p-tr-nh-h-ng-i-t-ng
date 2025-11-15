@@ -237,6 +237,32 @@ class Dsphieunhaphang {
         System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
     }
 
+    public void thongke() {
+        String[] ma = new String[soLuong];
+        int[] n = new int[soLuong];
+        int count = 0;
+        for (int i = 0; i < soLuong; i++) {
+            boolean found = false;
+            String mancc = ds[i].getNcc();
+            for (int j = 0; j < count; j++) {
+                if (ma[j].equals(mancc)) {
+                    n[j]++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                ma[count] = mancc;
+                n[count] = 1;
+                count++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.println(ma[i] + ": co " + n[i] + " phieu nhap hang");
+        }
+
+    }
+
     public PhieuNhapHang[] getDs() {
         return ds;
     }
