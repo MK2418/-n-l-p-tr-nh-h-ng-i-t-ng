@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.Scanner;
 
 public class DsCTDH implements dieukien {
     private int n;
@@ -61,21 +62,11 @@ public class DsCTDH implements dieukien {
         System.out.println("========================================================================================================");
 
         for (int i = 0; i < n; i++) {
-            ChiTietDonHang ct = ds[i];
-
-            double thanhTien = ct.getSl() * ct.getDongia();
-
-            System.out.printf("%-10s %-10s %10d %,15.0f %,15.0f\n",
-                    ct.getMahd(),
-                    ct.getMsp(),
-                    ct.getSl(),
-                    ct.getDongia(),
-                    thanhTien
-            );
+            ds[i].xuat();
         }
 
+
         System.out.println("========================================================================================================");
-        System.out.println("Tong so chi tiet don hang: " + n);
     }
 
     public void themCothamso(ChiTietDonHang ctdh) {

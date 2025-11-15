@@ -28,8 +28,8 @@ public class QLHD extends QLBH {
                 case 3 -> ds.xoa();
                 case 4 -> ds.sua();
                 case 5 -> ds.timkiem();
-                case 6 -> ds.thongkeDaydu();
-                case 7 -> dsct.thongke();
+//                case 6 -> ds.thongkeDaydu();
+//                case 7 -> dsct.thongke();
                 case 0 -> System.out.println("Thoat quan ly hoa don.");
                 default -> System.out.println("Chon sai, vui long nhap lai!");
             }

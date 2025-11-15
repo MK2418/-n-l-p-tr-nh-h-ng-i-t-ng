@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,36 +22,12 @@ public class DsHoadon implements dieukien {
 			ds = new Hoadon[n];
 			for (int i = 0; i < n; i++) {
 				String line = br.readLine();
-				if (line == null || line.trim().isEmpty())
+				if (line == null)
 					break;
-
 				String[] parts = line.split(",");
-
-				String mahd = parts[0];
-				String makh = parts[1];
-				String manv = parts[2];
-				double tongtien = Double.parseDouble(parts[3]);
-				String ngay = parts.length > 4 ? parts[4] : "";
-
-				Khachhang kh = new Khachhang();
-				kh.setMakh(makh);
-				Nhanvien nv = new Nhanvien();
-				nv.setManv(manv);
-
-				Hoadon hd = new Hoadon();
-				hd.setMahd(mahd);
-				hd.setMaKh(kh);
-				hd.setMaNv(nv);
-				hd.setTongtien(tongtien);
-
-				if (!ngay.isEmpty()) {
-					hd.setNgayxuathd(java.time.LocalDate.parse(ngay));
-				}
-
-				ds[i] = hd;
+				ds[i] = new Hoadon(parts[0], parts[1], parts[2], LocalDate.parse(parts[3]));
 			}
 		}
-		System.out.println("Doc du lieu tu file thanh cong!");
 	}
 
 	public void ghiFile(String filename) throws Exception {
@@ -61,8 +38,8 @@ public class DsHoadon implements dieukien {
 				if (ds[i] != null) {
 					String ngay = ds[i].getNgayxuathd() != null ? ds[i].getNgayxuathd().toString() : "";
 					bw.write(ds[i].getMahd() + ","
-							+ ds[i].getMaKh().getMakh() + ","
-							+ ds[i].getMaNv().getManv() + ","
+							+ ds[i].getMaKh() + ","
+							+ ds[i].getMaNv() + ","
 							+ ds[i].getTongtien() + ","
 							+ ngay);
 					bw.newLine();
@@ -80,25 +57,15 @@ public class DsHoadon implements dieukien {
 
 	    System.out.println("=================================================================================================================");
 	    System.out.printf("%-10s %-10s %-10s %15s %-15s\n",
-	            "MaHD", "MaKH", "MaNV", "TongTien", "NgayXuat");
+	            "MaHD", "MaKH", "MaNV", "NgayXuat", "TongTien");
 	    System.out.println("=================================================================================================================");
 
 	    for (int i = 0; i < n; i++) {
-	        Hoadon hd = ds[i];
-	        if (hd != null) {
-	            String ngay = (hd.getNgayxuathd() != null) ? hd.getNgayxuathd().toString() : " ";
-	            System.out.printf("%-10s %-10s %-10s %,15.0f %-15s\n",
-	                    hd.getMahd(),
-	                    hd.getMaKh().getMakh(),
-	                    hd.getMaNv().getManv(),
-	                    hd.getTongtien(),
-	                    ngay
-	            );
-	        }
-	    }
+            ds[i].xuat();
+        }
+
 
 	    System.out.println("=================================================================================================================");
-	    System.out.println("Tong so: " + n + " hoa don");
 	}
 
 	
@@ -188,16 +155,12 @@ public class DsHoadon implements dieukien {
 							break;
 						case 2:
 							System.out.println("Vui long nhap ma khach hang moi: ");
-							String makh = sc.nextLine();
-							Khachhang kh = new Khachhang();
-							kh.setMakh(makh);
+							String kh = sc.nextLine();
 							ds[i].setMaKh(kh);
 							break;
 						case 3:
 							System.out.println("Vui long nhap ma nhan vien moi: ");
-							String manv = sc.nextLine();
-							Nhanvien nv = new Nhanvien();
-							nv.setManv(manv);
+							String nv = sc.nextLine();
 							ds[i].setMaNv(nv);
 							break;
 						case 4:
@@ -326,13 +289,13 @@ public class DsHoadon implements dieukien {
 
 		System.out.println("\n=== THONG KÊ THEO MA KH ===");
 		for (int i = 0; i < n; i++) {
-			String maKH = ds[i].getMaKh().getMakh();
+			String maKH = ds[i].getMaKh();
 			int soLuong = 0;
 			double tongTien = 0;
 
 			boolean daDem = false;
 			for (int j = 0; j < i; j++) {
-				if (ds[j].getMaKh().getMakh().equals(maKH)) {
+				if (ds[j].getMaKh().equals(maKH)) {
 					daDem = true;
 					break;
 				}
@@ -341,7 +304,7 @@ public class DsHoadon implements dieukien {
 				continue;
 
 			for (int j = 0; j < n; j++) {
-				if (ds[j].getMaKh().getMakh().equals(maKH)) {
+				if (ds[j].getMaKh().equals(maKH)) {
 					soLuong++;
 					tongTien += ds[j].getTongtien();
 				}
@@ -352,9 +315,8 @@ public class DsHoadon implements dieukien {
 					" | Tong doanh thu: " + tongTien);
 		}
 	}
-	
-	
-	public Hoadon[] getDs() {
-        return ds;
-    }
+
+	public Hoadon[] getDS() {
+		return ds;
+	}
 }

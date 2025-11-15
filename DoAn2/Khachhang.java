@@ -46,12 +46,10 @@ public class Khachhang {
 	}
 
 	public void xuat() {
-	    System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
-	        "Mã KH", "Họ KH", "Tên KH", "Địa chỉ", "SĐT");
-	    System.out.println("----------------------------------------------------------------------------");
-	    System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
+	    System.out.printf("| %-10s | %-15s | %-15s | %-25s | %-15s |\n",
 	        makh, hokh, tenkh, diachi, sdt);
 	}
+
 
 
 	public String getHo() {

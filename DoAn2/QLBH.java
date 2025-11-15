@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 
 public abstract class QLBH {
     // ---- CÁC DANH SÁCH DÙNG CHUNG ----
@@ -45,7 +46,7 @@ public abstract class QLBH {
     }
     
     public static void tongTienHoadon() {
-        for (Hoadon hd : dsHoaDon.getDs()) {
+        for (Hoadon hd : dsHoaDon.getDS()) {
             double tongtien = 0;
             // duyệt danh sách CHI TIẾT ĐƠN HÀNG, không phải dsHoaDon
             for (ChiTietDonHang ct : dsChiTietHoaDon.getDs()) {
@@ -58,9 +59,8 @@ public abstract class QLBH {
             hd.setTongtien(tongtien);
         }
     }
+   
     
-    
-
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }

@@ -2,64 +2,63 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Hoadon {
-    String mahd;
-    LocalDate ngayxuathd;
-    double tongtien;
-    private Khachhang makh;
-    private Nhanvien manv;
-    
- // Ham thiet lap khong tham so
-    public Hoadon() {
-    	mahd = "";
-        makh = new Khachhang();
-        manv = new Nhanvien();
-        ngayxuathd = LocalDate.now();
-        tongtien = 0;
-    }
+	private String mahd;
+    private LocalDate ngayxuathd;
+    private double tongtien;
+    private String makh;
+    private String manv;
 
     // Ham thiet lap co tham so
-    public Hoadon(String mahd, LocalDate ngayxuathd, Khachhang makh, Nhanvien manv) {
+    public Hoadon(String mahd, String makh, String manv, LocalDate ngayxuathd) {
         this.mahd = mahd;
         this.ngayxuathd = ngayxuathd;
         this.makh = makh;
         this.manv = manv;
     }
 
+    public Hoadon(String mahd, String makh, String manv, double tien, LocalDate ngayxuathd) {
+        this.mahd = mahd;
+        this.ngayxuathd = ngayxuathd;
+        this.makh = makh;
+        this.manv = manv;
+        this.tongtien = tien;
+    }
+
+    // Ham thiet lap khong tham so
+    public Hoadon() {
+        mahd = "";
+        ngayxuathd = LocalDate.now();
+        tongtien = 0.0;
+        makh = "";
+        manv = "";
+    }
+
     public Hoadon(Hoadon other) {
         this.mahd = other.mahd;
         this.ngayxuathd = other.ngayxuathd;
-        this.makh = new Khachhang(other.makh);
-        this.manv = new Nhanvien(other.manv);
+        this.tongtien = other.tongtien;
+        this.makh = other.makh;
+        this.manv = other.manv;
     }
-    
+   
  // Ham nhap
     public void nhap() {
         Scanner sc = new Scanner(System.in);
-        makh = new Khachhang();
-        manv = new Nhanvien();
 
         System.out.print("Nhap ma hoa don: ");
         mahd = sc.nextLine();
-
-        System.out.print("Ma Khach Hang: ");
-        makh.setMakh(sc.nextLine());
-
         System.out.print("Ma Nhan Vien: ");
-        manv.setManv(sc.nextLine());
-
-        System.out.print("Tong tien: ");
-        tongtien = sc.nextDouble();
-        // tổng tiền của chi tiết hóa đơn...
-
+        manv = sc.nextLine();
+        System.out.print("Ma Khach Hang: ");
+        makh = sc.nextLine();
+        System.out.println("Nhap ngay xuat hoa don ");
+        ngayxuathd = LocalDate.parse(sc.nextLine());
     }
 
     // Ham xuat
     public void xuat() {
-        System.out.printf("%-10s %-15s %-15s %-20s %-15s%n",
-            "Mã HĐ", "Mã KH", "Mã NV", "Ngày xuất", "Tổng tiền");
-        System.out.println("--------------------------------------------------------------------------");
         System.out.printf("%-10s %-15s %-15s %-20s %-15.2f%n",
-            mahd, makh.getMakh(), manv.getManv(), ngayxuathd, tongtien);
+                mahd, makh, manv, ngayxuathd, tongtien);
     }
     
     // Ham get
@@ -75,11 +74,11 @@ public class Hoadon {
         return tongtien;
     }
 
-    public Khachhang getMaKh() {
+    public String getMaKh() {
         return makh;
     }
 
-    public Nhanvien getMaNv() {
+    public String getMaNv() {
         return manv;
     }
 
@@ -96,11 +95,11 @@ public class Hoadon {
         this.tongtien = tongtien;
     }
 
-    public void setMaKh(Khachhang makh) {
+    public void setMaKh(String makh) {
         this.makh = makh;
     }
 
-    public void setMaNv(Nhanvien manv) {
+    public void setMaNv(String manv) {
         this.manv = manv;
     }
 
