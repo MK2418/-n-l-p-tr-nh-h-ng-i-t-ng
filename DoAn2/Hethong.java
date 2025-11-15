@@ -5,7 +5,7 @@ public class Hethong {
         Scanner sc = new Scanner(System.in);
         int chon;
         QLBH ql;
-
+        QLBH.docTatCaFile();
         QLBH.tongTien();
         do {
             System.out.println("\n=== MENU CHINH HE THONG ===");
@@ -79,4 +79,5 @@ public class Hethong {
 
         sc.close();
     }
+
 }
