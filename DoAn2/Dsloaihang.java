@@ -44,9 +44,10 @@ public class Dsloaihang implements dieukien {
 
     // ---- Xuat danh sach ----
     public void xuat() {
+        System.out.printf("%-5s %-15s %-20s %-15s%n",
+        "STT", "Ma loai hang", "Ten loai hang", "Mota");
         for (int i = 0; i < n; i++) {
-            System.out.println("------------------------");
-            System.out.println("Thong tin loai hang thu " + (i + 1) + ": ");
+            System.out.printf("%-5d", (i + 1));
             ds[i].xuat();
         }
     }

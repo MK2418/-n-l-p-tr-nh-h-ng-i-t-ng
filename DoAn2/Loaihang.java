@@ -21,11 +21,10 @@ public class Loaihang {
     }
 
     public void xuat() {
-        System.out.printf("%-20s %-15s %-20s%n",
-        "Ma loai hang", "Ten loai hang", "Mo ta");
-        System.out.println("-------------------------------------------------------");
-        System.out.printf("%-20s %-15 %-20s%n", malh, tenlh, mota);
+        System.out.printf("%-15s %-20s %-15s%n", malh, tenlh, mota);
+        System.out.println("---------------------------------------------------------");
     }
+
 
     public String toString() {
         return malh + "," + tenlh + "," + mota;

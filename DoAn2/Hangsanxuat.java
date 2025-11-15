@@ -37,10 +37,8 @@ public class Hangsanxuat {
     }
 
     public void xuat() {
-        System.out.printf("%-20s %-20s %-15s%n",
-        "Ma hang san xuat", "Ten hang san xuat", "Dia chi");
-        System.out.println("-------------------------------------------------------");
-        System.out.printf("%-20s %-20s %15s%n", mahsx, tenhsx, diachi);
+        System.out.printf("%-15s %-20s %-15s%n", mahsx, tenhsx, diachi);
+        System.out.println("---------------------------------------------------------------");
     }
 
     @Override
