@@ -69,6 +69,7 @@ class Dsnhacungcap implements dieukien {
         }
     }
 
+    // Ham co ban khong tham so
     @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
@@ -116,6 +117,94 @@ class Dsnhacungcap implements dieukien {
     public void sua() {
         System.out.print("Nhap ma nha cung cap can sua");
         String maNCC = sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMaNCC().equals(maNCC)) {
+                int k;
+                do {
+                    System.out.println("\n--- Sua thong tin nha cung cap ---");
+                    System.out.println("1. Sua ma nha cung cap");
+                    System.out.println("2. Sua ten nha cung cap");
+                    System.out.println("3. Sua dia chi");
+                    System.out.println("4. Sua so dien thoai");
+                    System.out.println("0. Thoat sua");
+                    System.out.print("Nhap lua chon: ");
+                    k = sc.nextInt();
+                    sc.nextLine(); // bỏ dòng thừa
+
+                    switch (k) {
+                        case 1:
+                            System.out.print("Nhap ma moi: ");
+                            ds[i].setMaNCC(sc.nextLine());
+                            break;
+                        case 2:
+                            System.out.print("Nhap ten moi: ");
+                            ds[i].setTenNCC(sc.nextLine());
+                            break;
+                        case 3:
+                            System.out.print("Nhap dia chi moi: ");
+                            ds[i].setDiaChi(sc.nextLine());
+                            break;
+                        case 4:
+                            System.out.print("Nhap so dien thoai moi: ");
+                            ds[i].setSoDienThoai(sc.nextInt());
+                            break;
+                        case 0:
+                            System.out.println("Da thoat sua thong tin.");
+                            break;
+                        default:
+                            System.out.println("Lua chon khong hop le!");
+                            break;
+                    }
+                } while (k != 0);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay nha cung cap voi ma nay.");
+    }
+
+    // Ham co ban co tham so
+    public void themcothamso(String ma, String ten, String diachi, int sdt) {
+        ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = new Nhacungcap();
+        ds[n].setMaNCC(ma);
+        ds[n].setTenNCC(ten);
+        ds[n].setDiaChi(diachi);
+        ds[n].setSoDienThoai(sdt);
+        n++;
+        System.out.println("Da them nha cung cap moi thanh cong!");
+    }
+
+    public void xoacothamso(String ma) {
+        String maNCC = ma;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMaNCC().equals(maNCC)) {
+                for (int j = i; j < n - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, n - 1);
+                n--;
+                System.out.println("Da xoa nha cung cap co ma " + maNCC);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay nha cung cap co ma " + maNCC);
+    }
+
+    public void timkiemcothamso(String ma) {
+        String maNCC = ma;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMaNCC().equalsIgnoreCase(maNCC)) {
+                System.out.printf("| %-10s | %-20s | %-20s | %-13s |\n",
+                        "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
+                ds[i].xuat();
+                return;
+            }
+        }
+        System.out.println("Khong tim thay nha cung cap voi ma nay.");
+    }
+
+    public void suacothamso(String ma) {
+        String maNCC = ma;
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {
                 int k;

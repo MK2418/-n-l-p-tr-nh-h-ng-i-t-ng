@@ -30,9 +30,9 @@ public class QLCTPNH extends QLBH {
                     break;
                 case 3:
                     System.out.println("\n--- XOA CHI TIET PHIEU NHAP HANG ---");
-                    System.out.print("Nhap ma PNH can xoa: ");
+
                     String maPNH = sc.nextLine();
-                    dsChiTietPhieuNhap.xoaChiTietPNH(maPNH);
+                    dsChiTietPhieuNhap.xoaChiTietPNH();
                     break;
                 case 4:
                     System.out.println("\n--- TIM KIEM CHI TIET PHIEU NHAP HANG ---");
@@ -40,9 +40,7 @@ public class QLCTPNH extends QLBH {
                     break;
                 case 5:
                     System.out.println("\n--- SUA CHI TIET PHIEU NHAP HANG ---");
-                    System.out.print("Nhap ma PNH can sua: ");
-                    String maPNHsua = sc.nextLine();
-                    dsChiTietPhieuNhap.suaNCC(maPNHsua);
+                    dsChiTietPhieuNhap.suaNCC();
                     break;
                 // case 6:
                 // System.out.println("\n--- THONG KE THEO MA PNH ---");
