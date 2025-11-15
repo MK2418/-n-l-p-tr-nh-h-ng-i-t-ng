@@ -42,7 +42,7 @@ public class Dskhachhang implements dieukien {
                 ds[i] = kh;
             }
         }
-        System.out.println("Doc du lieu tu file thanh cong!");
+        System.out.println("Doc du lieu tu file Dskhachhang thanh cong!");
     }
 
     public void ghiFile(String filename) throws Exception {
