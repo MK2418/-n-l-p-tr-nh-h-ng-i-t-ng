@@ -7,7 +7,7 @@ public class QLHD extends QLBH {
     public void menuChinh() {
         int choice;
         do {
-            System.out.println("\n===== QUAN LY CHI TIET PHIEU NHAP HANG =====");
+            System.out.println("\n===== QUAN LY HOA DON =====");
             System.out.println("1. Xem danh sach hoa don");
             System.out.println("2. Them hoa don");
             System.out.println("3. Xoa hoa don");
@@ -21,23 +21,23 @@ public class QLHD extends QLBH {
             
             switch (choice) {
                 case 1:
-                    System.out.println("\n--- danh sach cho tiet hoa don ---");
+                    System.out.println("\n--- danh sach hoa don ---");
                     dsHoaDon.xuat();
                     break;
                 case 2:
-                    System.out.println("\n--- them chi tiet hoa don moi ---");
+                    System.out.println("\n--- them hoa don moi ---");
                     dsHoaDon.them();
                     break;
                 case 3:
-                    System.out.println("\n--- xoa chi tiet hoa don moi ---");
+                    System.out.println("\n--- xoa hoa don moi ---");
                     dsHoaDon.xoa();
                     break;
                 case 4:
-                    System.out.println("\n--- tim kiem chi tiet hoa don ---");
+                    System.out.println("\n--- tim kiem hoa don ---");
                     dsHoaDon.timkiem();
                     break;
                 case 5:
-                    System.out.println("\n--- sua chi tiet hoa don ---");
+                    System.out.println("\n--- sua hoa don ---");
                     dsHoaDon.sua();
                     break;
                 case 0:
@@ -51,3 +51,4 @@ public class QLHD extends QLBH {
     }
 
 }
+
