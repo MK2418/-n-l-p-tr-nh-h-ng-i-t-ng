@@ -107,5 +107,4 @@ public class Hoadon {
         System.out.printf("%-10s %-15s %-15s %-20s %-15.2f%n",
                 mahd, makh, manv, ngayxuathd, tongtien);
     }
-
 }

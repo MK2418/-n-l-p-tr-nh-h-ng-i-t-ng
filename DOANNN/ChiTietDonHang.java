@@ -90,5 +90,4 @@ public class ChiTietDonHang {
     public double getTongtien() {
         return tongtien;
     }
-
 }

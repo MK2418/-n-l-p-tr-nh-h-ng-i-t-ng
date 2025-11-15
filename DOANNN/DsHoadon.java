@@ -27,16 +27,11 @@ public class DsHoadon implements dieukien {
 
 	public void ghiFile(String filename) throws Exception {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
-			bw.write(n + "");
+			bw.write(String.valueOf(n));
 			bw.newLine();
 			for (int i = 0; i < n; i++) {
 				if (ds[i] != null) {
-					String ngay = ds[i].getNgayxuathd() != null ? ds[i].getNgayxuathd().toString() : "";
-					bw.write(ds[i].getMahd() + ","
-							+ ds[i].getMaKh() + ","
-							+ ds[i].getMaNv() + ","
-							+ ds[i].getTongtien() + ","
-							+ ngay);
+					bw.write(ds[i].toFileString());
 					bw.newLine();
 				}
 			}

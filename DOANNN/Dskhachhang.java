@@ -42,15 +42,11 @@ public class Dskhachhang implements dieukien {
 
     public void ghiFile(String filename) throws Exception {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
-            bw.write(n + "");
+            bw.write(String.valueOf(n));
             bw.newLine();
             for (int i = 0; i < n; i++) {
                 if (ds[i] != null) {
-                    bw.write(ds[i].getMakh() + ","
-                            + ds[i].getHo() + ","
-                            + ds[i].getTen() + ","
-                            + ds[i].getDiaChi() + ","
-                            + ds[i].getSdt());
+                    bw.write(ds[i].toFileString());
                     bw.newLine();
                 }
             }

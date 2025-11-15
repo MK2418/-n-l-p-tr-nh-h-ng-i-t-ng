@@ -34,11 +34,6 @@ class chitietphieunhaphang {
                 maPNH, maHang, soLuong, donGia, getThanhtien());
     }
 
-    public String toFileString() {
-        return String.format("%s,%s,%s,%s,%s",
-                maPNH, maHang, soLuong, donGia, getThanhtien());
-    }
-
     public void nhap() {
         System.out.print("Ma PNH: ");
         this.maPNH = sc.nextLine();
@@ -48,6 +43,11 @@ class chitietphieunhaphang {
         this.soLuong = sc.nextInt();
         System.out.print("Don Gia: ");
         this.donGia = sc.nextDouble();
+    }
+
+    public String toFileString() {
+        return String.format("%s,%s,%s,%s,%s",
+                maPNH, maHang, soLuong, donGia, getThanhtien());
     }
 
     public String getMaPNH() {
@@ -91,4 +91,3 @@ class chitietphieunhaphang {
         this.donGia = donGia;
     }
 }
-

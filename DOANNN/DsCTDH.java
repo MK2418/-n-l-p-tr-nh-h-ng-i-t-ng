@@ -34,19 +34,16 @@ public class DsCTDH implements dieukien {
 
     public void ghiFile(String filename) throws Exception {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
-            bw.write(n + "");
+            bw.write(String.valueOf(n));
             bw.newLine();
             for (int i = 0; i < n; i++) {
                 if (ds[i] != null) {
-                    bw.write(ds[i].getMahd() + "," +
-                            ds[i].getMsp() + "," +
-                            ds[i].getSl() + "," +
-                            ds[i].getDongia());
+                    bw.write(ds[i].toFileString());
                     bw.newLine();
                 }
             }
         }
-        System.out.println("Ghi file thanh cong!");
+        System.out.println("Ghi du lieu vao file thanh cong!");
     }
 
     public void xuat() {

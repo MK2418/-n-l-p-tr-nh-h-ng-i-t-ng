@@ -91,5 +91,4 @@ public class Khachhang {
 	public void setMakh(String makh) {
 		this.makh = makh;
 	}
-
 }
