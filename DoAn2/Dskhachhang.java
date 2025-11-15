@@ -64,27 +64,22 @@ public class Dskhachhang implements dieukien {
             return;
         }
 
-        System.out.println("========================================================================================================");
-        System.out.printf("%-10s %-15s %-10s %-25s %-12s\n",
+        System.out.println(
+                "=======================================================================================");
+        System.out.printf("%-10s %-15s %-15s %-25s %-15s\n",
                 "MaKH", "Ho", "Ten", "Dia Chi", "SDT");
-        System.out.println("========================================================================================================");
+        System.out.println(
+                "=======================================================================================");
 
         for (int i = 0; i < n; i++) {
-            Khachhang kh = ds[i];
-            if (kh != null) {
-                System.out.printf("%-10s %-15s %-10s %-25s %-12d\n",
-                        kh.getMakh(),
-                        kh.getHo(),
-                        kh.getTen(),
-                        kh.getDiaChi(),
-                        kh.getSdt());
-            }
+            ds[i].xuat();
         }
 
-        System.out.println("========================================================================================================");
+        System.out.println(
+                "=======================================================================================");
         System.out.println("Tong so: " + n + " khach hang");
     }
-    
+
     public void them(Khachhang khMoi) {
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = khMoi;
@@ -117,7 +112,7 @@ public class Dskhachhang implements dieukien {
         }
         System.out.println("Khong tim thay khach hang: " + makh);
     }
-    
+
     @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
@@ -198,7 +193,7 @@ public class Dskhachhang implements dieukien {
         }
         System.out.println("Khong tim thay ma khach hang nay!");
     }
-    
+
     @Override
     public void timkiem() {
         System.out.println("Nhap ma khach hang de tim kiem: ");

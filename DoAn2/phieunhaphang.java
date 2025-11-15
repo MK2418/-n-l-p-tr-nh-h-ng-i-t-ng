@@ -41,7 +41,7 @@ class PhieuNhapHang {
 
     public void xuat() {
         System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12.2f |\n",
-                maPNH, ngayNhap, nv, ncc, getTongTien());
+                maPNH, ngayNhap, nv, ncc, tongTien);
     }
 
     public void nhap() {

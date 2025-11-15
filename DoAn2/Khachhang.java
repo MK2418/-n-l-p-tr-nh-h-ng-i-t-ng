@@ -13,7 +13,8 @@ public class Khachhang {
 	private String diachi;
 	private int sdt;
 
-	public Khachhang() {}
+	public Khachhang() {
+	}
 
 	public Khachhang(String makh, String hokh, String tenkh, String diachi, int sdt) {
 		this.setMakh(makh);
@@ -24,13 +25,13 @@ public class Khachhang {
 	}
 
 	public Khachhang(Khachhang other) {
-        this.setMakh(other.makh);
-        this.hokh = other.hokh;
-        this.tenkh = other.tenkh;
-        this.diachi = other.diachi;
-        this.setSdt(other.sdt);
-    }
-	
+		this.setMakh(other.makh);
+		this.hokh = other.hokh;
+		this.tenkh = other.tenkh;
+		this.diachi = other.diachi;
+		this.setSdt(other.sdt);
+	}
+
 	public void nhap() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap ma khach hang: ");
@@ -46,13 +47,10 @@ public class Khachhang {
 	}
 
 	public void xuat() {
-	    System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
-	        "Mã KH", "Họ KH", "Tên KH", "Địa chỉ", "SĐT");
-	    System.out.println("----------------------------------------------------------------------------");
-	    System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
-	        makh, hokh, tenkh, diachi, sdt);
+		System.out.println("----------------------------------------------------------------------------------");
+		System.out.printf("%-10s %-15s %-15s %-25s %-15s%n",
+				makh, hokh, tenkh, diachi, sdt);
 	}
-
 
 	public String getHo() {
 		return hokh;
