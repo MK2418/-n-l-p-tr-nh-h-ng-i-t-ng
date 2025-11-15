@@ -48,6 +48,11 @@ public class ChiTietDonHang {
                 mahd, msp, sl, dongia, tongtien);
     }
 
+    public String toFileString() {
+        return String.format("%s,%s,%s,%s,%s",
+                mahd, msp, sl, dongia, tongtien);
+    }
+
     public String getMahd() {
         return mahd;
     }
@@ -85,4 +90,5 @@ public class ChiTietDonHang {
     public double getTongtien() {
         return tongtien;
     }
+
 }
