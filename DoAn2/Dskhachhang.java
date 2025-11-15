@@ -59,18 +59,37 @@ public class Dskhachhang implements dieukien {
     }
 
     public void xuat() {
-        for (int i = 0; i < n; i++) {
-            System.out.println("------------------------");
-            System.out.println("Thong tin khach hang thu " + (i + 1) + ": ");
-            ds[i].xuat();
+        if (n == 0 || ds == null) {
+            System.out.println("Danh sach khach hang trong!");
+            return;
         }
+
+        System.out.println("========================================================================================================");
+        System.out.printf("%-10s %-15s %-10s %-25s %-12s\n",
+                "MaKH", "Ho", "Ten", "Dia Chi", "SDT");
+        System.out.println("========================================================================================================");
+
+        for (int i = 0; i < n; i++) {
+            Khachhang kh = ds[i];
+            if (kh != null) {
+                System.out.printf("%-10s %-15s %-10s %-25s %-12d\n",
+                        kh.getMakh(),
+                        kh.getHo(),
+                        kh.getTen(),
+                        kh.getDiaChi(),
+                        kh.getSdt());
+            }
+        }
+
+        System.out.println("========================================================================================================");
+        System.out.println("Tong so: " + n + " khach hang");
     }
     
     public void them(Khachhang khMoi) {
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = khMoi;
         n++;
-        System.out.println("Đã thêm khách hàng mới: " + khMoi.getMakh());
+        System.out.println("Da them khach hang moi: " + khMoi.getMakh());
     }
 
     public void xoa(String makh) {
@@ -81,22 +100,22 @@ public class Dskhachhang implements dieukien {
                 }
                 ds = Arrays.copyOf(ds, n - 1);
                 n--;
-                System.out.println("Đã xóa khách hàng: " + makh);
+                System.out.println("Da xoa khach hang: " + makh);
                 return;
             }
         }
-        System.out.println("Không tìm thấy khách hàng: " + makh);
+        System.out.println("Khong tim thay khach hang: " + makh);
     }
 
     public void sua(String makh, Khachhang khMoi) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMakh().equalsIgnoreCase(makh)) {
                 ds[i] = khMoi;
-                System.out.println("Đã sửa khách hàng: " + makh);
+                System.out.println("Da sua khach hang: " + makh);
                 return;
             }
         }
-        System.out.println("Không tìm thấy khách hàng: " + makh);
+        System.out.println("Khong tim thay khach hang: " + makh);
     }
     
     @Override
