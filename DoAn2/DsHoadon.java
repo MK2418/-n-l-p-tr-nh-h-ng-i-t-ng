@@ -28,25 +28,26 @@ public class DsHoadon implements dieukien {
 				ds[i] = new Hoadon(parts[0], parts[1], parts[2], LocalDate.parse(parts[3]));
 			}
 		}
+		System.out.println("Doc du lieu tu file DsHoadons thanh cong!");
 	}
 
 	public void ghiFile(String filename) throws Exception {
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
-			bw.write(n + "");
-			bw.newLine();
-			for (int i = 0; i < n; i++) {
-				if (ds[i] != null) {
-					String ngay = ds[i].getNgayxuathd() != null ? ds[i].getNgayxuathd().toString() : "";
-					bw.write(ds[i].getMahd() + ","
-							+ ds[i].getMaKh() + ","
-							+ ds[i].getMaNv() + ","
-							+ ds[i].getTongtien() + ","
-							+ ngay);
-					bw.newLine();
-				}
-			}
-		}
-		System.out.println("Ghi du lieu vao file thanh cong!");
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+	        bw.write(n + "");
+	        bw.newLine();
+	        for (int i = 0; i < n; i++) {
+	            if (ds[i] != null) {
+	                String ngay = ds[i].getNgayxuathd() != null ? ds[i].getNgayxuathd().toString() : "";
+	                bw.write(ds[i].getMahd() + ","
+	                        + ds[i].getMaKh() + ","
+	                        + ds[i].getMaNv() + ","
+	                        + ngay + ","
+	                        + ds[i].getTongtien());
+	                bw.newLine();
+	            }
+	        }
+	    }
+	    System.out.println("Ghi du lieu vao file DsHoadon thanh cong!");
 	}
 
 	public void xuat() {
@@ -63,8 +64,6 @@ public class DsHoadon implements dieukien {
 	    for (int i = 0; i < n; i++) {
             ds[i].xuat();
         }
-
-
 	    System.out.println("=================================================================================================================");
 	}
 
