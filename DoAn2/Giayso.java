@@ -41,9 +41,8 @@ public class Giayso extends Dodunghoctap {
     // Phương thức xuất
     @Override
     public void xuat() {
-        String ten = tenSP.length() > 15 ? tenSP.substring(0, 12) + "..." : tenSP;
-        System.out.printf("%-10s %-15s %8d %,12d %-8s %-8s %-8s %-12s %-10s\n",
-                maSP, ten, soLuong, donGia, donViTinh, maLoai, maSX, doDay, khoGiay);
+        super.xuat(); // Gọi xuất từ class cha
+        System.out.printf(" %-12s %10s\n", doDay, khoGiay);
     }
 
     @Override
