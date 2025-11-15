@@ -1,38 +1,53 @@
 import java.util.Scanner;
 
 public class QLHD extends QLBH {
-
     Scanner sc = new Scanner(System.in);
 
     @Override
     public void menuChinh() {
-        int chon;
+        int choice;
         do {
-            System.out.println("\n=== MENU QUAN LY HOA DON ===");
-            System.out.println("1. Xuat danh sach hoa don");
-            System.out.println("2. Them hoa don moi");
+            System.out.println("\n===== QUAN LY CHI TIET PHIEU NHAP HANG =====");
+            System.out.println("1. Xem danh sach hoa don");
+            System.out.println("2. Them hoa don");
             System.out.println("3. Xoa hoa don");
-            System.out.println("4. Sua hoa don");
-            System.out.println("5. Tim hoa don");
-            System.out.println("6. Thong ke hoa don theo ma khach hang");
-            System.out.println("7. Thong ke chi tiet hoa don");
+            System.out.println("4. Tim kiem hoa don");
+            System.out.println("5. Sua hoa don");
+            System.out.println("6. Thong ke theo ma hoa don");
             System.out.println("0. Thoat");
-            System.out.print("Chon: ");
-            chon = sc.nextInt();
-            sc.nextLine();
+            System.out.print("Nhap lua chon cua ban: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // Consume newline
+            
+            switch (choice) {
+                case 1:
+                    System.out.println("\n--- danh sach cho tiet hoa don ---");
+                    dsHoaDon.xuat();
+                    break;
+                case 2:
+                    System.out.println("\n--- them chi tiet hoa don moi ---");
+                    dsHoaDon.them();
+                    break;
+                case 3:
+                    System.out.println("\n--- xoa chi tiet hoa don moi ---");
+                    dsHoaDon.xoa();
+                    break;
+                case 4:
+                    System.out.println("\n--- tim kiem chi tiet hoa don ---");
+                    dsHoaDon.timkiem();
+                    break;
+                case 5:
+                    System.out.println("\n--- sua chi tiet hoa don ---");
+                    dsHoaDon.sua();
+                    break;
+                case 0:
+                    System.out.println("Thoat khoi quan ly hoa don.");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le. Vui long thu lai.");
 
-            switch (chon) {
-                case 1 -> dsHoaDon.xuat();
-                case 2 -> dsHoaDon.them();
-                case 3 -> dsHoaDon.xoa();
-                case 4 -> dsHoaDon.sua();
-                case 5 -> dsHoaDon.timkiem();
-                // case 6 -> ds.thongkeDaydu();
-                // case 7 -> dsct.thongke();
-                case 0 -> System.out.println("Thoat quan ly hoa don.");
-                default -> System.out.println("Chon sai, vui long nhap lai!");
             }
-        } while (chon != 0);
+        } while (choice != 0);
     }
 
 }
