@@ -31,20 +31,20 @@ public class Butviet extends Dodunghoctap {
     // Phương thức nhập
     @Override
     public void nhap() {
-        super.nhap();
-        java.util.Scanner sc = new java.util.Scanner(System.in);
-        System.out.print("Nhap loai but: ");
-        loaibut = sc.nextLine();
-        System.out.print("Nhap kich co ngoi: ");
-        kichcongoi = Integer.parseInt(sc.nextLine());
+        super.nhap(); // Gọi nhập từ class cha
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Loai but: ");
+        this.loaibut = sc.nextLine();
+        System.out.print("Kich co ngoi: ");
+        this.kichcongoi = Integer.parseInt(sc.nextLine());
     }
 
     // Phương thức xuất
     @Override
     public void xuat() {
-        String ten = tenSP.length() > 15 ? tenSP.substring(0, 12) + "..." : tenSP;
-        System.out.printf("%-10s %-15s %8d %,12d %-8s %-8s %-8s %-12s %10d\n",
-                maSP, ten, soLuong, donGia, donViTinh, maLoai, maSX, loaibut, kichcongoi);
+        super.xuat(); // Gọi xuất từ class cha
+        System.out.printf(" %-12s %10s\n", loaibut, kichcongoi);
+        ;
     }
 
     // Ghi vào file

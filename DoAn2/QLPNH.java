@@ -13,6 +13,7 @@ public class QLPNH extends QLBH {
             System.out.println("3. Xoa phieu nhap hang");
             System.out.println("4. Sua thong tin phieu nhap hang");
             System.out.println("5. Tim kiem phieu nhap hang");
+            System.out.println("6 Thong ke theo nha cung cap");
             System.out.println("0. Thoat");
             System.out.print("Nhap lua chon cua ban: ");
             choice = sc.nextInt();
@@ -41,6 +42,9 @@ public class QLPNH extends QLBH {
                     System.out.println("\n--- TIM KIEM PHIEU NHAP HANG ---");
                     dsPhieuNhapHang.timPhieuNhap();
                     break;
+                case 6:
+                    System.out.println("\n--- THONG KE THEO NHA CUNG CAP ---");
+                    dsPhieuNhapHang.thongke();
                 default:
                     break;
             }

@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class QLHSX extends QLBH {
-    Dshangsanxuat ds = new Dshangsanxuat();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -21,14 +20,38 @@ public class QLHSX extends QLBH {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> ds.xuat();
-                case 2 -> ds.them();
-                case 3 -> ds.xoa();
-                case 4 -> ds.sua();
-                case 5 -> ds.timkiem();
-                case 6 -> ds.thongke();
-                case 0 -> System.out.println("Thoat quan ly hang san xuat.");
-                default -> System.out.println("Chon sai, vui long nhap lai!");
+                case 1: {
+                    System.out.println("========== Danh sách hang san xuat ==========");
+                    dsHangSanXuat.xuat();
+                    break;
+                }
+                case 2: {
+                    System.out.println("========== Them hang san xuat ==========");
+                    dsHangSanXuat.them();
+                    break;
+                }
+                case 3: {
+                    System.out.println("========== Xoa hang san xuat ==========");
+                    dsHangSanXuat.xoa();
+                    break;
+                }
+                case 4: {
+                    System.out.println("========== Sua hang san xuat ==========");
+                    dsHangSanXuat.sua();
+                    break;
+                }
+                case 5: {
+                    System.out.println("========== Tim hang san xuat ==========");
+                    dsHangSanXuat.timkiem();
+                    break;
+                }
+                case 6: {
+                    System.out.println("========== Thong ke hang san xuat theo do dai ten hang san xuat ==========");
+                    dsHangSanXuat.thongke();
+                    break;
+                }
+                case 0: System.out.println("Thoat quan ly hang san xuat.");
+                default: System.out.println("Chon sai, vui long nhap lai!");
             }
         } while (chon != 0);
     }

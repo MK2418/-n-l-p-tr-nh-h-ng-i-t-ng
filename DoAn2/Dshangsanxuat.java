@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-public class Dshangsanxuat implements dieukien {
-    static int n;
-    static Hangsanxuat[] ds;
-    static Scanner sc = new Scanner(System.in);
+public class Dshangsanxuat{
+    private int n;
+    private Hangsanxuat[] ds;
+    private Scanner sc = new Scanner(System.in);
 
     // --- Doc file ---
     public void docFile(String filename) throws Exception {
@@ -39,8 +39,10 @@ public class Dshangsanxuat implements dieukien {
 
     // --- Xuat danh sach ---
     public void xuat() {
+        System.out.println("---------------------------------------------------------------");
         System.out.printf("%-5s %-15s %-20s %-15s%n",
         "STT", "Ma hang san xuat", "Ten hang san xuat", "Dia chi");
+        System.out.println("---------------------------------------------------------------");
         for (int i = 0; i < n; i++) {
             System.out.printf("%-5d", (i + 1));
             ds[i].xuat();
@@ -72,19 +74,45 @@ public class Dshangsanxuat implements dieukien {
         System.out.println("Khong tim thay hang san xuat " + maHSX);
     }
 
-    public void sua(String maHSX, Hangsanxuat hsxSua) {
+    public void sua(String mahsx) {
+        System.out.print("Nhap ma hang san xuat can sua: ");
+        mahsx = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (ds[i].getMahsx().equalsIgnoreCase(maHSX)) {
-                ds[i] = hsxSua;
-                System.out.println("Da sua hang san xuat: " + maHSX);
+            if (ds[i].getMahsx().equalsIgnoreCase(mahsx)) {
+                int chon;
+                do {
+                    System.out.println("=== SUA HANG SAN XUAT ===");
+                    System.out.println("1. Sua ma HSX");
+                    System.out.println("2. Sua ten HSX");
+                    System.out.println("3. Sua dia chi");
+                    System.out.println("0. Thoat");
+                    System.out.print("Chon: ");
+                    chon = Integer.parseInt(sc.nextLine());
+
+                    switch (chon) {
+                        case 1 -> {
+                            System.out.print("Nhap ma moi: ");
+                            ds[i].setMahsx(sc.nextLine());
+                        }
+                        case 2 -> {
+                            System.out.print("Nhap ten moi: ");
+                            ds[i].setTenhsx(sc.nextLine());
+                        }
+                        case 3 -> {
+                            System.out.print("Nhap dia chi moi: ");
+                            ds[i].setDiachi(sc.nextLine());
+                        }
+                        case 0 -> System.out.println("Thoat sua.");
+                        default -> System.out.println("Lua chon khong hop le!");
+                    }
+                } while (chon != 0);
                 return;
             }
         }
-        System.out.println("Khong tim thay hang san xuat " + maHSX);
+        System.out.println("Khong tim thay hang san xuat can sua!");;
     }
 
     // --- Them ---
-    @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = new Hangsanxuat();
@@ -94,7 +122,6 @@ public class Dshangsanxuat implements dieukien {
     }
 
     // --- Xoa ---
-    @Override
     public void xoa() {
         System.out.print("Nhap ma hang san xuat can xoa: ");
         String mahsx = sc.nextLine();
@@ -111,9 +138,9 @@ public class Dshangsanxuat implements dieukien {
     }
 
     // --- Tim kiem ---
-    @Override
     public void timkiem() {
         System.out.print("Nhap ma hang san xuat can tim: ");
+        System.out.println("---------------------------------------------------------------");
         String mahsx = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMahsx().equalsIgnoreCase(mahsx)) {
@@ -125,7 +152,6 @@ public class Dshangsanxuat implements dieukien {
     }
 
     // --- Sua ---
-    @Override
     public void sua() {
         System.out.print("Nhap ma hang san xuat can sua: ");
         String mahsx = sc.nextLine();
@@ -181,4 +207,16 @@ public class Dshangsanxuat implements dieukien {
         System.out.println("Ten dai (>10 ky tu): " + dai);
     }
 
+    public Hangsanxuat[] getDanhsach() {
+        return ds;
+    }
+
+    public int getSoLuong() {
+        return n;
+    }
+
+    public void setDanhSach(Hangsanxuat[] ds, int n) {
+        this.ds = ds;
+        this.n = n;
+    }
 }

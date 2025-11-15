@@ -250,6 +250,32 @@ class Dsnhacungcap implements dieukien {
         System.out.println("Khong tim thay nha cung cap voi ma nay.");
     }
 
+    public void thongke() {
+        System.out.println("Thong ke theo thanh pho ");
+        String[] thanhpho = new String[n];
+        int[] soluong = new int[n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            String tp = ds[i].getDiaChi();
+            boolean found = false;
+            for (int j = 0; j < count; j++) {
+                if (thanhpho[j].equals(tp)) {
+                    soluong[j]++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                thanhpho[count] = tp;
+                soluong[count] = 1;
+                count++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.println(thanhpho[i] + ": " + soluong[i] + " nha cung cap");
+        }
+    }
+
     public void setDanhSach(Nhacungcap[] ds, int n) {
         this.ds = ds;
         this.n = n;
