@@ -1,35 +1,52 @@
 import java.util.Scanner;
 
 public class QLKH extends QLBH {
-    Dskhachhang ds;
     Scanner sc = new Scanner(System.in);
 
     @Override
     public void menuChinh() {
-        int chon;
+        int choice;
         do {
-            System.out.println("\n=== MENU QUAN LY KHACH HANG ===");
-            System.out.println("1. Xuat danh sach khach hang");
-            System.out.println("2. Them khach hang moi");
+            System.out.println("\n===== QUAN LY CHI TIET PHIEU NHAP HANG =====");
+            System.out.println("1. Xem danh sach khach hang");
+            System.out.println("2. Them khach hang");
             System.out.println("3. Xoa khach hang");
-            System.out.println("4. Sua khach hang");
-            System.out.println("5. Tim khach hang");
-            System.out.println("6. Thong ke khach hang theo ma khach hang");
+            System.out.println("4. Tim kiem khach hang");
+            System.out.println("5. Sua khach hang");
+            System.out.println("6. Thong ke theo ma khach hang");
             System.out.println("0. Thoat");
-            System.out.print("Chon: ");
-            chon = sc.nextInt();
-            sc.nextLine();
+            System.out.print("Nhap lua chon cua ban: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // Consume newline
 
-            switch (chon) {
-                case 1 -> ds.xuat();
-                case 2 -> ds.them();
-                case 3 -> ds.xoa();
-                case 4 -> ds.sua();
-                case 5 -> ds.timkiem();
-                case 6 -> ds.thongke();
-                case 0 -> System.out.println("Thoat quan ly khach hang.");
-                default -> System.out.println("Chon sai, vui long nhap lai!");
+            switch (choice) {
+                case 1:
+                    System.out.println("\n--- danh sach khach hang ---");
+                    dsHoaDon.xuat();
+                    break;
+                case 2:
+                    System.out.println("\n--- them khach hang moi ---");
+                    dsHoaDon.them();
+                    break;
+                case 3:
+                    System.out.println("\n--- xoa khach hang ---");
+                    dsHoaDon.xoa();
+                    break;
+                case 4:
+                    System.out.println("\n--- tim kiem khach hang ---");
+                    dsHoaDon.timkiem();
+                    break;
+                case 5:
+                    System.out.println("\n--- sua khach hang ---");
+                    dsHoaDon.sua();
+                    break;
+                case 0:
+                    System.out.println("Thoat khoi quan ly khach hang.");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le. Vui long thu lai.");
             }
-        } while (chon != 0);
+        } while (choice != 0);
     }
+
 }

@@ -16,19 +16,19 @@ public class Khachhang {
 	public Khachhang() {}
 
 	public Khachhang(String makh, String hokh, String tenkh, String diachi, int sdt) {
-		this.setMakh(makh);
+		this.makh = makh;
 		this.hokh = hokh;
 		this.tenkh = tenkh;
 		this.diachi = diachi;
-		this.setSdt(sdt);
+		this.sdt = sdt;
 	}
 
 	public Khachhang(Khachhang other) {
-        this.setMakh(other.makh);
+        this.makh = other.makh;
         this.hokh = other.hokh;
         this.tenkh = other.tenkh;
         this.diachi = other.diachi;
-        this.setSdt(other.sdt);
+        this.sdt = other.sdt;
     }
 	
 	public void nhap() {
@@ -49,8 +49,6 @@ public class Khachhang {
 	    System.out.printf("| %-10s | %-15s | %-15s | %-25s | %-15s |\n",
 	        makh, hokh, tenkh, diachi, sdt);
 	}
-
-
 
 	public String getHo() {
 		return hokh;

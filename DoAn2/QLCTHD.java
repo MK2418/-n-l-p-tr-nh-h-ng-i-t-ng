@@ -41,7 +41,7 @@ public class QLCTHD extends QLBH {
                     dsChiTietHoaDon.sua();
                     break;
                 case 0:
-                    System.out.println("Thoat khoi quan ly chi tiet phieu nhap hang.");
+                    System.out.println("Thoat khoi quan ly chi tiet hoa don.");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le. Vui long thu lai.");
