@@ -43,6 +43,23 @@ public abstract class QLBH {
             pnh.setTongTien(tongTien);
         }
     }
+    
+    public static void tongTienHoadon() {
+        for (Hoadon hd : dsHoaDon.getDs()) {
+            double tongtien = 0;
+            // duyệt danh sách CHI TIẾT ĐƠN HÀNG, không phải dsHoaDon
+            for (ChiTietDonHang ct : dsChiTietHoaDon.getDs()) {
+                // nếu mã hóa đơn trùng mới cộng tiền
+                if (ct.getMahd().equalsIgnoreCase(hd.getMahd())) {
+                    tongtien += ct.getSl() * ct.getDongia();
+                }
+            }
+            // set tổng tiền cho hóa đơn
+            hd.setTongtien(tongtien);
+        }
+    }
+    
+    
 
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();

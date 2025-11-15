@@ -7,28 +7,59 @@ public class Hoadon {
     double tongtien;
     private Khachhang makh;
     private Nhanvien manv;
-
-    // Ham thiet lap co tham so
-    public Hoadon(String mahd, LocalDate ngayxuathd, double tongtien, Khachhang makh, Nhanvien manv) {
-        this.mahd = mahd;
-        this.ngayxuathd = ngayxuathd;
-        this.tongtien = tongtien;
-        this.makh = makh;
-        this.manv = manv;
-    }
-
-    // Ham thiet lap khong tham so
+    
+ // Ham thiet lap khong tham so
     public Hoadon() {
+    	mahd = "";
         makh = new Khachhang();
         manv = new Nhanvien();
+        ngayxuathd = LocalDate.now();
+        tongtien = 0;
+    }
+
+    // Ham thiet lap co tham so
+    public Hoadon(String mahd, LocalDate ngayxuathd, Khachhang makh, Nhanvien manv) {
+        this.mahd = mahd;
+        this.ngayxuathd = ngayxuathd;
+        this.makh = makh;
+        this.manv = manv;
     }
 
     public Hoadon(Hoadon other) {
         this.mahd = other.mahd;
         this.ngayxuathd = other.ngayxuathd;
-        this.tongtien = other.tongtien;
         this.makh = new Khachhang(other.makh);
         this.manv = new Nhanvien(other.manv);
+    }
+    
+ // Ham nhap
+    public void nhap() {
+        Scanner sc = new Scanner(System.in);
+        makh = new Khachhang();
+        manv = new Nhanvien();
+
+        System.out.print("Nhap ma hoa don: ");
+        mahd = sc.nextLine();
+
+        System.out.print("Ma Khach Hang: ");
+        makh.setMakh(sc.nextLine());
+
+        System.out.print("Ma Nhan Vien: ");
+        manv.setManv(sc.nextLine());
+
+        System.out.print("Tong tien: ");
+        tongtien = sc.nextDouble();
+        // tổng tiền của chi tiết hóa đơn...
+
+    }
+
+    // Ham xuat
+    public void xuat() {
+        System.out.printf("%-10s %-15s %-15s %-20s %-15s%n",
+            "Mã HĐ", "Mã KH", "Mã NV", "Ngày xuất", "Tổng tiền");
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.printf("%-10s %-15s %-15s %-20s %-15.2f%n",
+            mahd, makh.getMakh(), manv.getManv(), ngayxuathd, tongtien);
     }
     
     // Ham get
@@ -73,33 +104,5 @@ public class Hoadon {
         this.manv = manv;
     }
 
-    // Ham nhap
-    public void nhap() {
-        Scanner sc = new Scanner(System.in);
-        makh = new Khachhang();
-        manv = new Nhanvien();
-
-        System.out.print("Nhap ma hoa don: ");
-        mahd = sc.nextLine();
-
-        System.out.print("Ma Khach Hang: ");
-        makh.setMakh(sc.nextLine());
-
-        System.out.print("Ma Nhan Vien: ");
-        manv.setManv(sc.nextLine());
-
-        System.out.print("Tong tien: ");
-        tongtien = sc.nextDouble();
-        // tổng tiền của chi tiết hóa đơn...
-
-    }
-
-    // Ham xuat
-    public void xuat() {
-        System.out.printf("%-10s %-15s %-15s %-20s %-15s%n",
-            "Mã HĐ", "Mã KH", "Mã NV", "Ngày xuất", "Tổng tiền");
-        System.out.println("--------------------------------------------------------------------------");
-        System.out.printf("%-10s %-15s %-15s %-20s %-15.2f%n",
-            mahd, makh.getMakh(), manv.getManv(), ngayxuathd, tongtien);
-    }
+    
 }

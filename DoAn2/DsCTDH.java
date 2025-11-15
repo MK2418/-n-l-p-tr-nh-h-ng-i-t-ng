@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class DsCTDH implements dieukien {
-    static int n;
-    static ChiTietDonHang[] ds;
-    static Scanner sc = new Scanner(System.in);
+    private int n;
+    private ChiTietDonHang[] ds;
+    private Scanner sc = new Scanner(System.in);
 
     public DsCTDH() {
         ds = new ChiTietDonHang[0];
@@ -216,18 +216,50 @@ public class DsCTDH implements dieukien {
         return false;
     }
     
-    public void thongke() {
-        System.out.println("=== THONG KE CHI TIET DON HANG ===");
-        System.out.println("Tong so chi tiet don hang: " + n);
+    public void thongKeTheoMa() {
+        System.out.print("Nhap ma hoa don can thong ke: ");
+        String mahd = sc.nextLine();
 
-        System.out.println("Danh sach chi tiet:");
+        double tongTien = 0;
+        int dem = 0;
+
+        System.out.println("\n========================================================================================================");
+        System.out.println("                         THONG KE CHI TIET THEO MA HOA DON: " + mahd);
+        System.out.println("========================================================================================================");
+
+        System.out.printf("%-10s %-10s %10s %15s %15s\n",
+                "MaHD", "MaSP", "SoLuong", "DonGia", "ThanhTien");
+        System.out.println("--------------------------------------------------------------------------------------------------------");
+
         for (int i = 0; i < n; i++) {
-            System.out.println((i + 1) + ". MaHD: " + ds[i].getMahd()
-                    + " | MaSP: " + ds[i].getMsp()
-                    + " | SL: " + ds[i].getSl()
-                    + " | Don gia: " + ds[i].getDongia());
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+
+                double thanhTien = ds[i].getSl() * ds[i].getDongia();
+                tongTien += thanhTien;
+                dem++;
+
+                System.out.printf("%-10s %-10s %10d %,15.0f %,15.0f\n",
+                        ds[i].getMahd(),
+                        ds[i].getMsp(),
+                        ds[i].getSl(),
+                        ds[i].getDongia(),
+                        thanhTien
+                );
+            }
         }
+
+        if (dem == 0) {
+            System.out.println("Khong tim thay chi tiet cua hoa don: " + mahd);
+            return;
+        }
+
+        System.out.println("--------------------------------------------------------------------------------------------------------");
+        System.out.printf("Tong so chi tiet: %d\n", dem);
+        System.out.printf("TONG TIEN HOA DON: %,15.0f VND\n", tongTien);
+        System.out.println("========================================================================================================");
     }
-
-
+    
+    public ChiTietDonHang[] getDs() {
+        return ds;
+    }
 }

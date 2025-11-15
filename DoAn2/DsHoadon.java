@@ -6,10 +6,15 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class DsHoadon implements dieukien {
-	static int n;
-	static Hoadon[] ds;
-	static Scanner sc = new Scanner(System.in);
+	private int n;
+	private Hoadon[] ds;
+	private Scanner sc = new Scanner(System.in);
 
+	public DsHoadon() {
+        ds = new Hoadon[0];
+        n = 0;
+    }
+	
 	public void docFile(String filename) throws Exception {
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 			n = Integer.parseInt(br.readLine());
@@ -347,4 +352,9 @@ public class DsHoadon implements dieukien {
 					" | Tong doanh thu: " + tongTien);
 		}
 	}
+	
+	
+	public Hoadon[] getDs() {
+        return ds;
+    }
 }

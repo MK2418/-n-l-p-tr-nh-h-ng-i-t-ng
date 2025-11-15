@@ -9,6 +9,11 @@ public class Dskhachhang implements dieukien {
     static int n;
     static Khachhang[] ds;
     static Scanner sc = new Scanner(System.in);
+    
+    public Dskhachhang() {
+        ds = new Khachhang[0];
+        n = 0;
+    }
 
     public void docFile(String filename) throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
