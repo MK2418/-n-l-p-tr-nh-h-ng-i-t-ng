@@ -63,10 +63,13 @@ class Dsphieunhaphang {
         System.out.println("----------------------------------------------------------------");
     }
 
+    // Ham co ban khong tham so
     // ====== Tìm phiếu nhập hàng theo mã ======
     public void timPhieuNhap() {
         System.out.println("Nhap ma can tim kiem");
         String ma = sc.nextLine();
+        System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12s |\n",
+                "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
                 ds[i].xuat();
@@ -103,6 +106,92 @@ class Dsphieunhaphang {
     // ====== Sửa thông tin phiếu nhập hàng theo mã ======
     public void suaPNH() {
         String maPNH = sc.nextLine();
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getMaPNH().equals(maPNH)) {
+                int k;
+                do {
+                    System.out.println("\n--- Sua thong tin phieu nhap hang ---");
+                    System.out.println("1. Sua ma phieu nhap hang");
+                    System.out.println("2. Sua ngay nhap hang");
+                    System.out.println("3. Sua nhan vien");
+                    System.out.println("4. Sua nha cung cap");
+                    System.out.println("0. Thoat sua");
+                    System.out.print("Nhap lua chon: ");
+                    k = sc.nextInt();
+                    sc.nextLine(); // bỏ dòng thừa
+
+                    switch (k) {
+                        case 1:
+                            System.out.print("Nhap ma phieu nhap hang moi: ");
+                            ds[i].setMaPNH(sc.nextLine());
+                            break;
+                        case 2:
+                            System.out.print("Nhap ngay nhap hang moi: ");
+                            ds[i].setNgayNhap(LocalDate.parse(sc.nextLine()));
+                            break;
+                        case 3:
+                            System.out.print("Nhap ma nhan vien moi: ");
+                            ds[i].setNv(sc.nextLine());
+                            break;
+                        case 4:
+                            System.out.print("Nhap nha cung cap moi: ");
+                            ds[i].setNcc(sc.nextLine());
+                            break;
+                        case 0:
+                            System.out.println("Da thoat sua thong tin.");
+                            break;
+                        default:
+                            System.out.println("Lua chon khong hop le!");
+                            break;
+                    }
+                } while (k != 0);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay phieu nhap hang voi ma nay.");
+    }
+
+    // Ham co ban co tham so
+    public void timPhieuNhapcothamso(String ma) {
+        String manh = ma;
+        System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12s |\n",
+                "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getMaPNH().equalsIgnoreCase(manh)) {
+                ds[i].xuat();
+            }
+        }
+
+    }
+
+    public void themPhieuNhap(String ma, LocalDate ngay, String nv, String ncc) {
+        ds = Arrays.copyOf(ds, soLuong + 1);
+        ds[soLuong] = new PhieuNhapHang();
+        ds[soLuong].setMaPNH(ma);
+        ds[soLuong].setNgayNhap(ngay);
+        ds[soLuong].setNv(nv);
+        ds[soLuong].setNcc(ncc);
+        soLuong++;
+    }
+
+    public void xoaPhieuNhapTheoMacothamso(String mapnh) {
+        String ma = mapnh;
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getMaPNH().equalsIgnoreCase(ma)) {
+                for (int j = i; j < soLuong - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, soLuong - 1);
+                soLuong--;
+                System.out.println("Da xoa phieu nhap hang co ma  " + ma);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay phieu co ma  " + ma);
+    }
+
+    public void suaPNHcothamso(String ma) {
+        String maPNH = ma;
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
                 int k;
