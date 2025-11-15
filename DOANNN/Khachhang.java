@@ -47,6 +47,11 @@ public class Khachhang {
 				makh, hokh, tenkh, diachi, sdt);
 	}
 
+	public String toFileString() {
+		return String.format("%s,%s,%s,%s,%s",
+				makh, hokh, tenkh, diachi, sdt);
+	}
+
 	public String getHo() {
 		return hokh;
 	}
@@ -86,4 +91,5 @@ public class Khachhang {
 	public void setMakh(String makh) {
 		this.makh = makh;
 	}
+
 }
