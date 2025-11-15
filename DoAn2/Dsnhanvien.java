@@ -45,9 +45,10 @@ public class Dsnhanvien implements dieukien {
 
     // ---- Xuat danh sach ----
     public void xuat() {
+        System.out.printf("%-5s %-15s %-20s %-15s %-15s%n",
+        "STT", "Ma nhan vien", "Ho nhan vien", "Ten nhan vien", "Luong");
         for (int i = 0; i < n; i++) {
-            System.out.println("------------------------");
-            System.out.println("Thong tin nhan vien thu " + (i + 1) + ": ");
+            System.out.printf("%-5d", (i + 1));
             ds[i].xuat();
         }
     }

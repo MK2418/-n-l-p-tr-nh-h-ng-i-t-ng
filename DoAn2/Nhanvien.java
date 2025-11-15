@@ -54,10 +54,8 @@ public class Nhanvien {
     }
 
     public void xuat() {
-        System.out.printf("%-15s %-20s %-15s %-15s%n",
-        "Ma nhan vien", "Ho nhan vien", "Ten nhan vien", "Luong");
-        System.out.println("-------------------------------------------------------------");
         System.out.printf("%-15s %-20s %-15s %-15d%n", manv, honv, tennv, luong);
+        System.out.println("---------------------------------------------------------------------");
     }
 
     @Override

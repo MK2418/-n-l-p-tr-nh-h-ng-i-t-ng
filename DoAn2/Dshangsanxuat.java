@@ -39,9 +39,10 @@ public class Dshangsanxuat implements dieukien {
 
     // --- Xuat danh sach ---
     public void xuat() {
+        System.out.printf("%-5s %-15s %-20s %-15s%n",
+        "STT", "Ma hang san xuat", "Ten hang san xuat", "Dia chi");
         for (int i = 0; i < n; i++) {
-            System.out.println("----------------------------");
-            System.out.println("Thong tin hang san xuat thu " + (i + 1) + ": ");
+            System.out.printf("%-5d", (i + 1));
             ds[i].xuat();
         }
     }
