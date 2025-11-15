@@ -58,18 +58,9 @@ public class DsHoadon implements dieukien {
 				"=================================================================================================================");
 
 		for (int i = 0; i < n; i++) {
-			Hoadon hd = ds[i];
-			if (hd != null) {
-				String ngay = (hd.getNgayxuathd() != null) ? hd.getNgayxuathd().toString() : " ";
-				System.out.printf("%-10s %-10s %-10s %,15.0f %-15s\n",
-						hd.getMahd(),
-						hd.getMaKh(),
-						hd.getMaNv(),
-						ngay,
-						hd.getTongtien());
-			}
+			System.out.printf("%-10s %-10s %-10s %15s %-15s\n",
+					ds[i].getMahd(), ds[i].getMaKh(), ds[i].getMaNv(), ds[i].getNgayxuathd(), ds[i].getTongtien());
 		}
-
 		System.out.println(
 				"=================================================================================================================");
 		System.out.println("Tong so: " + n + " hoa don");
