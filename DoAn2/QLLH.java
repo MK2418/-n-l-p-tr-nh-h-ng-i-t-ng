@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class QLLH extends QLBH {
-    Dshangsanxuat dsNV = new Dshangsanxuat();
+    Dsloaihang ds = new Dsloaihang();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -21,12 +21,12 @@ public class QLLH extends QLBH {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> dsNV.xuat();
-                case 2 -> dsNV.them();
-                case 3 -> dsNV.xoa();
-                case 4 -> dsNV.sua();
-                case 5 -> dsNV.timkiem();
-                case 6 -> dsNV.thongke();
+                case 1 -> ds.xuat();
+                case 2 -> ds.them();
+                case 3 -> ds.xoa();
+                case 4 -> ds.sua();
+                case 5 -> ds.timkiem();
+                case 6 -> ds.thongkeMota();
                 case 0 -> System.out.println("Thoat quan ly loai hang.");
                 default -> System.out.println("Chon sai, vui long nhap lai!");
             }

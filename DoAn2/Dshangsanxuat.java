@@ -39,16 +39,48 @@ public class Dshangsanxuat implements dieukien {
 
     // --- Xuat danh sach ---
     public void xuat() {
-        System.out.println("--------------------------------------------------");
-        System.out.printf("%-5s %-10s %-20s %-20s%n", "STT", "Ma HSX", "Ten HSX", "Dia Chi");
-        System.out.println("--------------------------------------------------");
         for (int i = 0; i < n; i++) {
-            System.out.printf("%-5d %-10s %-20s %-20s%n", (i + 1),
-                ds[i].getMahsx(), ds[i].getTenhsx(), ds[i].getDiachi());
+            System.out.println("----------------------------");
+            System.out.println("Thong tin hang san xuat thu " + (i + 1) + ": ");
+            ds[i].xuat();
         }
-        System.out.println("--------------------------------------------------");
     }
 
+    // --- Các phương thức có tham số ---
+    public void them(Hangsanxuat hsxMoi) {
+        ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = hsxMoi;
+        n++;
+        System.out.println("Da them hang san xuat moi thanh cong!");
+    }
+
+    public void xoa(String maHSX) {
+        System.out.print("Nhap ma hang san xuat muon xoa: ");
+        maHSX = sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            if(ds[i].getMahsx().equalsIgnoreCase(maHSX)) {
+                for (int j = i; j < n - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, n - 1);
+                n--;
+                System.out.println("Da xoa hang san xuat " + maHSX);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay hang san xuat " + maHSX);
+    }
+
+    public void sua(String maHSX, Hangsanxuat hsxSua) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMahsx().equalsIgnoreCase(maHSX)) {
+                ds[i] = hsxSua;
+                System.out.println("Da sua hang san xuat: " + maHSX);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay hang san xuat " + maHSX);
+    }
 
     // --- Them ---
     @Override

@@ -44,16 +44,48 @@ public class Dsloaihang implements dieukien {
 
     // ---- Xuat danh sach ----
     public void xuat() {
-        System.out.println("--------------------------------------------------");
-        System.out.printf("%-5s %-10s %-15s %-30s%n", "STT", "Ma LH", "Ten LH", "Mo Ta");
-        System.out.println("--------------------------------------------------");
         for (int i = 0; i < n; i++) {
-            System.out.printf("%-5d %-10s %-15s %-30s%n", (i + 1),
-                ds[i].getMalh(), ds[i].getTenlh(), ds[i].getMota());
+            System.out.println("------------------------");
+            System.out.println("Thong tin loai hang thu " + (i + 1) + ": ");
+            ds[i].xuat();
         }
-        System.out.println("--------------------------------------------------");
     }
 
+    // --- Các phương thức có tham số ---
+    public void them(Loaihang lhMoi) {
+        ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = lhMoi;
+        n++;
+        System.out.println("Da them loai hang moi thanh cong!");
+    }
+
+    public void xoa(String maLH) {
+        System.out.print("Nhap ma loai hang muon xoa: ");
+        maLH = sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            if(ds[i].getMalh().equalsIgnoreCase(maLH)) {
+                for (int j = i; j < n - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, n - 1);
+                n--;
+                System.out.println("Da xoa loai hang " + maLH);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay loai hang " + maLH);
+    }
+
+    public void sua(String maLH, Loaihang lhSua) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMalh().equalsIgnoreCase(maLH)) {
+                ds[i] = lhSua;
+                System.out.println("Da sua loai hang: " + maLH);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay loai hang " + maLH);
+    }
 
     // ---- Them ----
     @Override

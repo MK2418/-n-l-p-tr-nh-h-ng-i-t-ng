@@ -20,7 +20,7 @@ public class Dsnhanvien implements dieukien {
                     parts[0], // manv
                     parts[1], // honv
                     parts[2], // tennv
-                    Double.parseDouble(parts[3]) // luong
+                    Integer.parseInt(parts[3]) // luong
                 );
                 ds[i] = nv;
             }
@@ -45,16 +45,48 @@ public class Dsnhanvien implements dieukien {
 
     // ---- Xuat danh sach ----
     public void xuat() {
-        System.out.println("--------------------------------------------------");
-        System.out.printf("%-5s %-10s %-10s %-10s%n", "STT", "Ma NV", "Ho NV", "Ten NV", "Luong");
-        System.out.println("--------------------------------------------------");
         for (int i = 0; i < n; i++) {
-            System.out.printf("%-5d %-10s %-10s %-10s %-10.0f%n",  (i + 1), 
-                ds[i].getManv(),  ds[i].getHonv(),  ds[i].getTennv(),  ds[i].getLuong());
+            System.out.println("------------------------");
+            System.out.println("Thong tin nhan vien thu " + (i + 1) + ": ");
+            ds[i].xuat();
         }
-        System.out.println("--------------------------------------------------");
     }
 
+    // --- Các phương thức có tham số ---
+    public void them(Nhanvien nvMoi) {
+        ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = nvMoi;
+        n++;
+        System.out.println("Da them nhan vien moi thanh cong!");
+    }
+
+    public void xoa(String maNV) {
+        System.out.print("Nhap ma nhan vien muon xoa: ");
+        maNV = sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            if(ds[i].getManv().equalsIgnoreCase(maNV)) {
+                for (int j = i; j < n - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, n - 1);
+                n--;
+                System.out.println("Da xoa nhan vien " + maNV);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay nhan vien " + maNV);
+    }
+
+    public void sua(String maNV, Nhanvien nvSua) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getManv().equalsIgnoreCase(maNV)) {
+                ds[i] = nvSua;
+                System.out.println("Da sua nhan vien: " + maNV);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay nhan vien " + maNV);
+    }
 
     // ---- Them ----
     @Override
@@ -132,7 +164,7 @@ public class Dsnhanvien implements dieukien {
                             break;
                         case 4:
                             System.out.print("Nhap luong moi: ");
-                            ds[i].setLuong(Double.parseDouble(sc.nextLine()));
+                            ds[i].setLuong(Integer.parseInt(sc.nextLine()));
                             break;
                         case 0:
                             System.out.println("Thoat sua.");
