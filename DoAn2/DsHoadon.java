@@ -311,4 +311,8 @@ public class DsHoadon implements dieukien {
 					" | Tong doanh thu: " + tongTien);
 		}
 	}
+
+	public Hoadon[] getDS() {
+		return ds;
+	}
 }

@@ -44,6 +44,18 @@ public abstract class QLBH {
         }
     }
 
+    public static void tongTienhd() {
+        for (Hoadon hd : dsHoaDon.getDS()) {
+            double tongTien = 0;
+            for (ChiTietDonHang ct : dsChiTietHoaDon.getDS()) {
+                if (ct.getMahd().equals(hd.getMahd())) {
+                    tongTien = tongTien + ct.getTongtien();
+                }
+            }
+            hd.setTongtien(tongTien);
+        }
+    }
+
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }

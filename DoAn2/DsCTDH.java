@@ -55,33 +55,33 @@ public class DsCTDH implements dieukien {
             return;
         }
 
-        System.out.println("========================================================================================================");
+        System.out.println(
+                "========================================================================================================");
         System.out.printf("%-10s %-10s %10s %15s %15s\n",
                 "MaHD", "MaSP", "SoLuong", "DonGia", "ThanhTien");
-        System.out.println("========================================================================================================");
+        System.out.println(
+                "========================================================================================================");
 
         for (int i = 0; i < n; i++) {
             ChiTietDonHang ct = ds[i];
-
-            double thanhTien = ct.getSl() * ct.getDongia();
 
             System.out.printf("%-10s %-10s %10d %,15.0f %,15.0f\n",
                     ct.getMahd(),
                     ct.getMsp(),
                     ct.getSl(),
                     ct.getDongia(),
-                    thanhTien
-            );
+                    ct.getTongtien());
         }
 
-        System.out.println("========================================================================================================");
+        System.out.println(
+                "========================================================================================================");
         System.out.println("Tong so chi tiet don hang: " + n);
     }
 
     public void themCothamso(ChiTietDonHang ctdh) {
-        ds = Arrays.copyOf(ds, n + 1);          
+        ds = Arrays.copyOf(ds, n + 1);
         ds[n] = ctdh;
-        n++;                                  
+        n++;
         System.out.println("Da them chi tiet don hang thanh cong!");
     }
 
@@ -99,7 +99,7 @@ public class DsCTDH implements dieukien {
         }
         System.out.println("Khong tim thay " + mahd + " - " + msp);
     }
-    
+
     public void suaCothamso(String mahd, String msp, ChiTietDonHang ctdhMoi) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMahd().equalsIgnoreCase(mahd) && ds[i].getMsp().equalsIgnoreCase(msp)) {
@@ -110,7 +110,7 @@ public class DsCTDH implements dieukien {
         }
         System.out.println("Khong tim thay chi tiet don hang " + mahd + " - " + msp);
     }
-    
+
     @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
@@ -215,7 +215,7 @@ public class DsCTDH implements dieukien {
         }
         return false;
     }
-    
+
     public void thongke() {
         System.out.println("=== THONG KE CHI TIET DON HANG ===");
         System.out.println("Tong so chi tiet don hang: " + n);
@@ -229,5 +229,7 @@ public class DsCTDH implements dieukien {
         }
     }
 
-
+    public ChiTietDonHang[] getDS() {
+        return ds;
+    }
 }
