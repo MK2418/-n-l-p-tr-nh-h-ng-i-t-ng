@@ -39,35 +39,28 @@ public class Hethong {
                     ql.menuChinh();
                     break;
                 case 4:
-                    ql = new QLCTHD();
-                    ql.menuChinh();
-                    break;
-                case 5:
                     ql = new QLKH();
                     ql.menuChinh();
                     break;
-                case 6:
+                case 5:
                     ql = new QLNV();
                     ql.menuChinh();
                     break;
-                case 7:
+                case 6:
                     ql = new QLLH();
                     ql.menuChinh();
                     break;
-                case 8:
+                case 7:
                     ql = new QLHSX();
                     ql.menuChinh();
                     break;
-                case 9:
+                case 8:
                     ql = new QLPNH();
                     ql.menuChinh();
                     break;
-                case 10:
+                case 9:
                     ql = new QLCTPNH();
                     ql.menuChinh();
-                    break;
-                case 11:
-                    QLBH.thongKe(); 
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh!");
