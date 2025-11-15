@@ -83,6 +83,11 @@ public class Hoadon {
         this.manv = manv;
     }
 
+    public String toFileString() {
+        return String.format("%s,%s,%s,%s,%s",
+                mahd, makh, manv, ngayxuathd, tongtien);
+    }
+
     // Ham nhap
     public void nhap() {
         @SuppressWarnings("resource")
@@ -102,4 +107,5 @@ public class Hoadon {
         System.out.printf("%-10s %-15s %-15s %-20s %-15.2f%n",
                 mahd, makh, manv, ngayxuathd, tongtien);
     }
+
 }
