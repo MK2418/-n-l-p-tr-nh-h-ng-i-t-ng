@@ -7,6 +7,8 @@ public class Hoadon {
     private double tongtien;
     private String makh;
     private String manv;
+    
+    Scanner sc = new Scanner(System.in);
 
     // Ham thiet lap co tham so
     public Hoadon(String mahd, String makh, String manv, LocalDate ngayxuathd) {
@@ -43,8 +45,6 @@ public class Hoadon {
    
  // Ham nhap
     public void nhap() {
-        Scanner sc = new Scanner(System.in);
-
         System.out.print("Nhap ma hoa don: ");
         mahd = sc.nextLine();
         System.out.print("Ma Nhan Vien: ");
