@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class QLKH extends QLBH {
-    Dskhachhang ds = new Dskhachhang();
+    Dskhachhang ds;
     Scanner sc = new Scanner(System.in);
 
     @Override
