@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-public class Dsloaihang implements dieukien {
-    static int n;
-    static Loaihang[] ds;
-    static Scanner sc = new Scanner(System.in);
+public class Dsloaihang{
+    private int n;
+    private Loaihang[] ds;
+    private Scanner sc = new Scanner(System.in);
 
     // ---- Doc file ----
     public void docFile(String filename) throws Exception {
@@ -44,8 +44,10 @@ public class Dsloaihang implements dieukien {
 
     // ---- Xuat danh sach ----
     public void xuat() {
+        System.out.println("---------------------------------------------------------");
         System.out.printf("%-5s %-15s %-20s %-15s%n",
         "STT", "Ma loai hang", "Ten loai hang", "Mota");
+        System.out.println("---------------------------------------------------------");
         for (int i = 0; i < n; i++) {
             System.out.printf("%-5d", (i + 1));
             ds[i].xuat();
@@ -77,19 +79,48 @@ public class Dsloaihang implements dieukien {
         System.out.println("Khong tim thay loai hang " + maLH);
     }
 
-    public void sua(String maLH, Loaihang lhSua) {
+    public void sua(String malh) {
+        System.out.print("Nhap ma loai hang can sua: ");
+        malh = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (ds[i].getMalh().equalsIgnoreCase(maLH)) {
-                ds[i] = lhSua;
-                System.out.println("Da sua loai hang: " + maLH);
+            if (ds[i].getMalh().equalsIgnoreCase(malh)) {
+                int k;
+                do {
+                    System.out.println("------ Sua thong tin loai hang ------");
+                    System.out.println("1. Sua ma loai hang");
+                    System.out.println("2. Sua ten loai hang");
+                    System.out.println("3. Sua mo ta");
+                    System.out.println("0. Thoat");
+                    System.out.print("Chon: ");
+                    k = Integer.parseInt(sc.nextLine());
+
+                    switch (k) {
+                        case 1:
+                            System.out.print("Nhap ma moi: ");
+                            ds[i].setMalh(sc.nextLine());
+                            break;
+                        case 2:
+                            System.out.print("Nhap ten moi: ");
+                            ds[i].setTenlh(sc.nextLine());
+                            break;
+                        case 3:
+                            System.out.print("Nhap mo ta moi: ");
+                            ds[i].setMota(sc.nextLine());
+                            break;
+                        case 0:
+                            System.out.println("Thoat sua.");
+                            break;
+                        default:
+                            System.out.println("Lua chon khong hop le!");
+                    }
+                } while (k != 0);
                 return;
             }
         }
-        System.out.println("Khong tim thay loai hang " + maLH);
+        System.out.println("Khong tim thay loai hang can sua!");
     }
 
     // ---- Them ----
-    @Override
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = new Loaihang();
@@ -99,7 +130,6 @@ public class Dsloaihang implements dieukien {
     }
 
     // ---- Xoa ----
-    @Override
     public void xoa() {
         System.out.print("Nhap ma loai hang muon xoa: ");
         String malh = sc.nextLine();
@@ -118,9 +148,9 @@ public class Dsloaihang implements dieukien {
     }
 
     // ---- Tim kiem ----
-    @Override
     public void timkiem() {
         System.out.print("Nhap ma loai hang can tim: ");
+        System.out.println("---------------------------------------------------------");
         String malh = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMalh().equalsIgnoreCase(malh)) {
@@ -132,7 +162,6 @@ public class Dsloaihang implements dieukien {
     }
 
     // ---- Sua ----
-    @Override
     public void sua() {
         System.out.print("Nhap ma loai hang can sua: ");
         String malh = sc.nextLine();
@@ -201,5 +230,18 @@ public class Dsloaihang implements dieukien {
                 System.out.printf("- %-20s: %d loai hang%n", motaArr[i], dem[i]);
             }
         }
+    }
+
+    public Loaihang[] getDanhsach() {
+        return ds;
+    }
+
+    public int getSoluong() {
+        return n;
+    }
+
+    public void setDanhSach(Loaihang[] ds, int n) {
+        this.ds = ds;
+        this.n = n;
     }
 }

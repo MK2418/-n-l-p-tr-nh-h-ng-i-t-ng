@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class QLNV extends QLBH {
-    Dsnhanvien dsNV = new Dsnhanvien();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -21,14 +20,38 @@ public class QLNV extends QLBH {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> dsNV.xuat();
-                case 2 -> dsNV.them();
-                case 3 -> dsNV.xoa();
-                case 4 -> dsNV.sua();
-                case 5 -> dsNV.timkiem();
-                case 6 -> dsNV.thongke();
-                case 0 -> System.out.println("Thoat quan ly nhan vien.");
-                default -> System.out.println("Chon sai, vui long nhap lai!");
+                case 1: {
+                    System.out.println("========== Danh sách nhan vien ==========");
+                    dsNhanVien.xuat();
+                    break;
+                }
+                case 2: {
+                    System.out.println("========== Them nhan vien ==========");
+                    dsNhanVien.them();
+                    break;
+                }
+                case 3: {
+                    System.out.println("========== Xoa nhan vien ==========");
+                    dsNhanVien.xoa();
+                    break;
+                }
+                case 4: {
+                    System.out.println("========== Sua nhan vien ==========");
+                    dsNhanVien.sua();
+                    break;
+                }
+                case 5: {
+                    System.out.println("========== Tim nhan vien ==========");
+                    dsNhanVien.timkiem();
+                    break;
+                }
+                case 6: {
+                    System.out.println("========== Thong ke luong nhan vien ==========");
+                    dsNhanVien.thongke();
+                    break;
+                }
+                case 0: System.out.println("Thoat quan ly nhan vien.");
+                default: System.out.println("Chon sai, vui long nhap lai!");
             }
         } while (chon != 0);
     }

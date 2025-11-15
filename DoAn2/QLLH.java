@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class QLLH extends QLBH {
-    Dsloaihang ds = new Dsloaihang();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -21,14 +20,38 @@ public class QLLH extends QLBH {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> ds.xuat();
-                case 2 -> ds.them();
-                case 3 -> ds.xoa();
-                case 4 -> ds.sua();
-                case 5 -> ds.timkiem();
-                case 6 -> ds.thongkeMota();
-                case 0 -> System.out.println("Thoat quan ly loai hang.");
-                default -> System.out.println("Chon sai, vui long nhap lai!");
+                case 1: {
+                    System.out.println("========== Danh sách loai hang ==========");
+                    dsLoaiHang.xuat();
+                    break;
+                }
+                case 2: {
+                    System.out.println("========== Them loai hang ==========");
+                    dsLoaiHang.them();
+                    break;
+                }
+                case 3: {
+                    System.out.println("========== Xoa loai hang ==========");
+                    dsLoaiHang.xoa();
+                    break;
+                }
+                case 4: {
+                    System.out.println("========== Sua loai hang ==========");
+                    dsLoaiHang.sua();
+                    break;
+                }
+                case 5: {
+                    System.out.println("========== Tim loai hang ==========");
+                    dsLoaiHang.timkiem();
+                    break;
+                }
+                case 6: {
+                    System.out.println("========== Thong ke loai hang theo mo ta loai hang ==========");
+                    dsLoaiHang.thongkeMota();
+                    break;
+                }
+                case 0: System.out.println("Thoat quan ly loai hang.");
+                default: System.out.println("Chon sai, vui long nhap lai!");
             }
         } while (chon != 0);
     }
