@@ -1,45 +1,62 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class QLSP extends QLBH {
-    private Dsdodunghoctap ds = new Dsdodunghoctap();
-    private Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
     @Override
     public void menuChinh() {
-        int chon;
-        do {
-            System.out.println("\n=== QUAN LY SAN PHAM ===");
-            System.out.println("1. Xuat danh sach");
-            System.out.println("2. Them san pham");
-            System.out.println("3. Sua san pham");
-            System.out.println("4. Xoa san pham");
-            System.out.println("5. Tim kiem theo ma");
-            System.out.println("6. Thong ke");
-            System.out.println("0. Thoat & Luu");
-            System.out.print("Chon chuc nang: ");
-            try {
-                chon = Integer.parseInt(sc.nextLine());
-            } catch (Exception e) {
-                chon = -1;
-            }
+        // Đọc file trước khi vào menu
+        try {
+            dsDoDungHocTap.docFile("dodunghoctap.txt");
+        } catch (Exception e) {
+            System.out.println("Loi khi doc du lieu: " + e.getMessage());
+        }
 
-            switch (chon) {
-                case 1 -> ds.xuat();
-                case 2 -> ds.them();
-                case 3 -> ds.sua();
-                case 4 -> ds.xoa();
-                case 5 -> ds.timkiem();
-                case 6 -> ds.thongKe();
-                case 0 -> {
+        int choice;
+        do {
+            System.out.println("\n===== QUAN LY SAN PHAM =====");
+            System.out.println("1. Xem danh sach san pham");
+            System.out.println("2. Them san pham");
+            System.out.println("3. Xoa san pham");
+            System.out.println("4. Sua thong tin san pham");
+            System.out.println("5. Tim kiem san pham");
+            System.out.println("6. Thong ke san pham");
+            System.out.println("0. Thoat");
+            System.out.print("Nhap lua chon cua ban: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    dsDoDungHocTap.xuat();
+                    break;
+                case 2:
+                    dsDoDungHocTap.them();
+                    break;
+                case 3:
+                    dsDoDungHocTap.xoa();
+                    break;
+                case 4:
+                    dsDoDungHocTap.sua();
+                    break;
+                case 5:
+                    dsDoDungHocTap.timkiem();
+                    break;
+                case 6:
+                    dsDoDungHocTap.thongKe();
+                    break;
+                case 0:
+                    // Ghi file khi thoát
                     try {
-                        ds.ghiFile("dodunghoctap.txt");
-                        System.out.println("Da luu file. Tam biet!");
+                        dsDoDungHocTap.ghiFile("dodunghoctap.txt");
                     } catch (Exception e) {
                         System.out.println("Loi khi ghi file: " + e.getMessage());
                     }
-                }
-                default -> System.out.println("Lua chon khong hop le!");
+                    System.out.println("Thoat khoi quan ly san pham.");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
             }
-        } while (chon != 0);
+        } while (choice != 0);
     }
 }
