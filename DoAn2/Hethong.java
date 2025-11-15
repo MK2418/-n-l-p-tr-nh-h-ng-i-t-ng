@@ -7,6 +7,7 @@ public class Hethong {
         QLBH ql;
         QLBH.docTatCaFile();
         QLBH.tongTien();
+        QLBH.tongTienHoadon();
         do {
             System.out.println("\n=== MENU CHINH HE THONG ===");
             System.out.println("1. Quan ly nha cung cap");
@@ -39,26 +40,30 @@ public class Hethong {
                     ql.menuChinh();
                     break;
                 case 4:
-                    ql = new QLKH();
+                    ql = new QLCTHD();
                     ql.menuChinh();
                     break;
                 case 5:
-                    ql = new QLNV();
+                    ql = new QLKH();
                     ql.menuChinh();
                     break;
                 case 6:
-                    ql = new QLLH();
+                    ql = new QLNV();
                     ql.menuChinh();
                     break;
                 case 7:
-                    ql = new QLHSX();
+                    ql = new QLLH();
                     ql.menuChinh();
                     break;
                 case 8:
-                    ql = new QLPNH();
+                    ql = new QLHSX();
                     ql.menuChinh();
                     break;
                 case 9:
+                    ql = new QLPNH();
+                    ql.menuChinh();
+                    break;
+                case 10:
                     ql = new QLCTPNH();
                     ql.menuChinh();
                     break;
