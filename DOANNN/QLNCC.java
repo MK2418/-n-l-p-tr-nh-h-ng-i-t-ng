@@ -28,22 +28,26 @@ public class QLNCC extends QLBH {
                 case 2:
                     System.out.println("\n--- THEM NHA CUNG CAP MOI ---");
                     // dsNhaCungCap.them();
+                    System.out.println("Them nha cung cap 11");
                     dsNhaCungCap.themcothamso("ncc11", "HoanMy", "HaNoi", 982423444);
                     break;
                 case 3:
                     System.out.println("\n--- XOA NHA CUNG CAP ---");
                     // dsNhaCungCap.xoa();
+                    System.out.println("Xoa nha cung cap co ma ncc10");
                     dsNhaCungCap.xoacothamso("ncc10");
                     break;
                 case 4:
                     System.out.println("\n--- SUA THONG TIN NHA CUNG CAP ---");
                     // dsNhaCungCap.sua();
-                    dsNhaCungCap.suacothamso("ncc11");
+                    System.out.println("Sua nha cung cap co ma ncc1");
+                    dsNhaCungCap.suacothamso("ncc1");
                     break;
                 case 5:
                     System.out.println("\n--- TIM KIEM NHA CUNG CAP ---");
                     // dsNhaCungCap.timkiem();
-                    dsNhaCungCap.timkiemcothamso("ncc11");
+                    System.out.println("Tim kiem nha cung cap co ma ncc5");
+                    dsNhaCungCap.timkiemcothamso("ncc5");
                     break;
                 case 6:
                     System.out.println("\n--- THONG KE NHA CHUNG CAP THEO DIA CHI ---");
