@@ -14,8 +14,7 @@ public class QLHD extends QLBH {
             System.out.println("3. Xoa hoa don");
             System.out.println("4. Sua hoa don");
             System.out.println("5. Tim hoa don");
-            System.out.println("6. Thong ke hoa don theo ma khach hang");
-            System.out.println("7. Thong ke chi tiet hoa don");
+            System.out.println("6. Thong ke hoa don");
             System.out.println("0. Thoat");
             System.out.print("Chon: ");
             chon = sc.nextInt();
@@ -60,3 +59,4 @@ public class QLHD extends QLBH {
     }
 
 }
+
