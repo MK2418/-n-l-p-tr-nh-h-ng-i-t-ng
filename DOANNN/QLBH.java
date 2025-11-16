@@ -92,9 +92,9 @@ public abstract class QLBH {
 
     public static void thongkeTheonam() {
         // Tính toán trước cho từng năm
-        double chi2022 = dsPhieuNhapHang.TKTheoNam(2022);
-        double chi2023 = dsPhieuNhapHang.TKTheoNam(2023);
-        double chi2024 = dsPhieuNhapHang.TKTheoNam(2024);
+        double chi2022 = dsPhieuNhapHang.TKTheoNam(2022) + dsNhanVien.tinhLuongTheoNam(2022);
+        double chi2023 = dsPhieuNhapHang.TKTheoNam(2023) + dsNhanVien.tinhLuongTheoNam(2023);
+        double chi2024 = dsPhieuNhapHang.TKTheoNam(2024) + dsNhanVien.tinhLuongTheoNam(2024);
         double chi2025 = dsPhieuNhapHang.TKTheoNam(2025) + dsNhanVien.tinhLuongTheoNam(2025);
 
         double thu2022 = dsHoaDon.TKTheoNam(2022);
