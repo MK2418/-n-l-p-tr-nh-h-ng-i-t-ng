@@ -371,6 +371,16 @@ public class DsHoadon implements dieukien {
 		}
 		return tien;
 	}
+	
+	public double TKTheoNam(int nam) {
+	    double tong = 0.0;
+	    for (Hoadon hd : ds) {
+	        if (hd != null && hd.getNgayxuathd().getYear() == nam) {
+	            tong += hd.getTongtien();
+	        }
+	    }
+	    return tong;
+	}
 
 	public Hoadon[] getDS() {
 		return ds;

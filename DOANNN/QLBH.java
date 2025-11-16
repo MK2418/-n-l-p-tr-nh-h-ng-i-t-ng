@@ -63,6 +63,28 @@ public abstract class QLBH {
         System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
                 "TONG THU", dsHoaDon.TKQuy1(2025), dsHoaDon.TKQuy2(2025), dsHoaDon.TKQuy3(2025), dsHoaDon.TKQuy4(2025));
     }
+    
+    public static void thongkeTheonam() {
+        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
+                "    ", "2022", "2023", "2024", "2025");
+        
+        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
+                "TONG CHI",
+                dsPhieuNhapHang.TKTheoNam(2022),
+                dsPhieuNhapHang.TKTheoNam(2023),
+                dsPhieuNhapHang.TKTheoNam(2024),
+                dsPhieuNhapHang.TKTheoNam(2025)
+        );
+
+        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
+                "TONG THU",
+                dsHoaDon.TKTheoNam(2022),
+                dsHoaDon.TKTheoNam(2023),
+                dsHoaDon.TKTheoNam(2024),
+                dsHoaDon.TKTheoNam(2025)
+        );
+    }
+
 
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();

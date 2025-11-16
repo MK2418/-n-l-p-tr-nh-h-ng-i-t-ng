@@ -313,6 +313,17 @@ class Dsphieunhaphang {
         }
         return tien;
     }
+    
+    public double TKTheoNam(int nam) {
+        double tong = 0.0;
+        for (PhieuNhapHang pnh : ds) {
+            if (pnh != null && pnh.getNgayNhap().getYear() == nam) {
+                tong += pnh.getTongTien();
+            }
+        }
+        return tong;
+    }
+
 
     public PhieuNhapHang[] getDs() {
         return ds;
