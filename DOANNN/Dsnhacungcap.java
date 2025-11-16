@@ -4,15 +4,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.*;
 
-interface dieukien {
-    void them();
-
-    void xoa();
-
-    void timkiem();
-
-    void sua();
-}
 
 class Dsnhacungcap implements dieukien {
     private int n;
