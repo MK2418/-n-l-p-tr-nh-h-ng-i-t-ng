@@ -22,6 +22,7 @@ public class Hethong {
             System.out.println("11.Quan ly chi tiet hoa don");
             System.out.println("10. Thong ke theo quy");
             System.out.println("12. Thong ke theo nam");
+            System.out.println("13. Thong ke khach hang theo nam");
             System.out.println("0. Thoat");
             System.out.print("Chon: ");
             chon = sc.nextInt();
@@ -71,6 +72,9 @@ public class Hethong {
                     break;
                 case 12:
                     QLBH.thongkeTheonam();
+                    break;
+                case 13:
+                    QLBH.thongkeKhachHangTheoNam();
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh!");

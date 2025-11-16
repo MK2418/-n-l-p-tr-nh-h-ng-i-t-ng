@@ -122,6 +122,36 @@ public abstract class QLBH {
         System.out.println("===================================================================");
     }
 
+    public static void thongkeKhachHangTheoNam() {
+
+        System.out.println("\n============== THONG KE KHACH HANG THEO NAM ==============");
+
+        // Lấy danh sách khách hàng
+        Khachhang[] ds = dsKhachHang.getKhachhang();
+        int soKH = dsKhachHang.getN();
+
+        // Tiêu đề bảng
+        System.out.println("===========================================================================");
+        System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-10s |\n",
+                "MA KH", "2022", "2023", "2024", "2025");
+        System.out.println("===========================================================================");
+
+        // Duyệt tất cả khách hàng
+        for (int i = 0; i < soKH; i++) {
+            String maKH = ds[i].getMakh();
+
+            double nam2022 = dsHoaDon.TKKHtheonam(2022, maKH);
+            double nam2023 = dsHoaDon.TKKHtheonam(2023, maKH);
+            double nam2024 = dsHoaDon.TKKHtheonam(2024, maKH);
+            double nam2025 = dsHoaDon.TKKHtheonam(2025, maKH);
+
+            System.out.printf("| %-10s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
+                    maKH, nam2022, nam2023, nam2024, nam2025);
+        }
+
+        System.out.println("===========================================================================");
+    }
+
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }

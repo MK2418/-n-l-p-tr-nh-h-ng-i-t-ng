@@ -95,7 +95,6 @@ public class Dskhachhang implements dieukien {
         }
     }
 
-
     public void suaCothamso(String makh, String ho, String ten, String diaChi, int sdt) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMakh().equalsIgnoreCase(makh)) {
@@ -104,7 +103,7 @@ public class Dskhachhang implements dieukien {
             }
         }
     }
-    
+
     public void timkiemCothamso(String makh) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMakh().equalsIgnoreCase(makh)) {
@@ -217,5 +216,13 @@ public class Dskhachhang implements dieukien {
             System.out.println((i + 1) + ". " + ds[i].getMakh() + " - " +
                     ds[i].getHo() + " " + ds[i].getTen());
         }
+    }
+
+    public Khachhang[] getKhachhang() {
+        return ds;
+    }
+
+    public int getN() {
+        return n;
     }
 }

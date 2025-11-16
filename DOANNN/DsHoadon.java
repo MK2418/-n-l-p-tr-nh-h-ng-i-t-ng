@@ -377,6 +377,27 @@ public class DsHoadon implements dieukien {
 		return tong;
 	}
 
+	public double TKKHtheonam(int nam, String makh) {
+
+		double tongTien = 0;
+
+		for (int i = 0; i < n; i++) {
+
+			// Chỉ xét mã khách hàng yêu cầu
+			if (!ds[i].getMaKh().equals(makh))
+				continue;
+
+			// Lấy năm
+			int year = ds[i].getNgayxuathd().getYear();
+			if (year != nam)
+				continue;
+
+			tongTien += ds[i].getTongtien();
+		}
+
+		return tongTien;
+	}
+
 	public Hoadon[] getDS() {
 		return ds;
 	}
