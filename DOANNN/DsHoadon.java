@@ -42,7 +42,7 @@ public class DsHoadon implements dieukien {
 	public void xuat() {
 		System.out.println(
 				"=================================================================================================================");
-		System.out.printf("%-10s %-10s %-10s %15s %-15s\n",
+		System.out.printf("%-10s %-15s %-15s %-20s %-15s\n",
 				"MaHD", "MaKH", "MaNV", "NgayXuat", "TongTien");
 		System.out.println(
 				"=================================================================================================================");
