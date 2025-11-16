@@ -61,51 +61,51 @@ public class DsHoadon implements dieukien {
 		System.out.println("Tong so: " + n + " hoa don");
 	}
 
-    public void themCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
-        ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = new Hoadon(mahd, makh, manv, tongtien, ngayxuathd);
-        n++;
-        System.out.println("Da them hoa don moi: " + mahd);
-    }
+	public void themCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
+		ds = Arrays.copyOf(ds, n + 1);
+		ds[n] = new Hoadon(mahd, makh, manv, tongtien, ngayxuathd);
+		n++;
+		System.out.println("Da them hoa don moi: " + mahd);
+	}
 
-    public void xoaCothamso(String mahd) {
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
-                for (int j = i; j < n - 1; j++) {
-                    ds[j] = ds[j + 1];
-                }
-                ds = Arrays.copyOf(ds, n - 1);
-                n--;
-                System.out.println("Da xoa hoa don: " + mahd);
-                return;
-            }
-        }
-        System.out.println("Khong tim thay hoa don: " + mahd);
-    }
+	public void xoaCothamso(String mahd) {
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+				for (int j = i; j < n - 1; j++) {
+					ds[j] = ds[j + 1];
+				}
+				ds = Arrays.copyOf(ds, n - 1);
+				n--;
+				System.out.println("Da xoa hoa don: " + mahd);
+				return;
+			}
+		}
+		System.out.println("Khong tim thay hoa don: " + mahd);
+	}
 
-    public void suaCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
-                ds[i].setMaKh(makh);
-                ds[i].setMaNv(manv);
-                ds[i].setNgayxuathd(ngayxuathd);
-                ds[i].setTongtien(tongtien);
-                System.out.println("Da sua hoa don: " + mahd);
-                return;
-            }
-        }
-        System.out.println("Khong tim thay hoa don: " + mahd);
-    }
+	public void suaCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+				ds[i].setMaKh(makh);
+				ds[i].setMaNv(manv);
+				ds[i].setNgayxuathd(ngayxuathd);
+				ds[i].setTongtien(tongtien);
+				System.out.println("Da sua hoa don: " + mahd);
+				return;
+			}
+		}
+		System.out.println("Khong tim thay hoa don: " + mahd);
+	}
 
-    public void timkiemCothamso(String mahd) {
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
-                ds[i].xuat();
-                return;
-            }
-        }
-        System.out.println("Khong tim thay ma hoa don: " + mahd);
-    }
+	public void timkiemCothamso(String mahd) {
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+				ds[i].xuat();
+				return;
+			}
+		}
+		System.out.println("Khong tim thay ma hoa don: " + mahd);
+	}
 
 	@Override
 	public void them() {
@@ -200,7 +200,7 @@ public class DsHoadon implements dieukien {
 
 	public void thongkeDaydu() {
 		System.out.println("============================================================");
-		System.out.println("                 THONG KÊ HOA DON THEO THANG                ");
+		System.out.println("                 THONG KE HOA DON THEO THANG                ");
 		System.out.println("============================================================");
 
 		for (int nam = 2020; nam <= 2025; nam++) {
@@ -224,7 +224,7 @@ public class DsHoadon implements dieukien {
 				}
 
 				if (soLuong > 0) {
-					System.out.println("  " + thang + "   |     " + soLuong + "      |   " + tongTien);
+					System.out.printf("| %-8d | %-14d | %,-19.2f |%n", nam, soLuong, tongTien);
 					coDuLieu = true;
 				}
 			}
@@ -235,7 +235,7 @@ public class DsHoadon implements dieukien {
 		}
 
 		System.out.println("\n============================================================");
-		System.out.println("                 THONG KÊ HOA DON THEO QUY                  ");
+		System.out.println("                 THONG KE HOA DON THEO QUY                  ");
 		System.out.println("============================================================");
 
 		for (int nam = 2020; nam <= 2025; nam++) {
@@ -261,7 +261,7 @@ public class DsHoadon implements dieukien {
 				}
 
 				if (soLuong > 0) {
-					System.out.println("  " + quy + "   |     " + soLuong + "      |   " + tongTien);
+					System.out.printf("  %-5s |     %-6d |   %,.2f%n", quy, soLuong, tongTien);
 					coDuLieu = true;
 				}
 			}
@@ -272,7 +272,7 @@ public class DsHoadon implements dieukien {
 		}
 
 		System.out.println("\n============================================================");
-		System.out.println("                 THONG KÊ HOA DON THEO NAM                  ");
+		System.out.println("                 THONG KE HOA DON THEO NAM                  ");
 		System.out.println("============================================================");
 
 		for (int nam = 2020; nam <= 2025; nam++) {
@@ -287,11 +287,11 @@ public class DsHoadon implements dieukien {
 			}
 
 			if (soLuong > 0) {
-				System.out.println("Nam " + nam + " | So hoa don: " + soLuong + " | Tong doanh thu: " + tongTien);
+				System.out.printf("| %-8d | %-14d | %,-19.2f |%n", nam, soLuong, tongTien);
 			}
 		}
 
-		System.out.println("\n=== THONG KÊ THEO MA KH ===");
+		System.out.println("\n=== THONG KE THEO MA KHACH HANG ===");
 		for (int i = 0; i < n; i++) {
 			String maKH = ds[i].getMaKh();
 			int soLuong = 0;
@@ -314,9 +314,8 @@ public class DsHoadon implements dieukien {
 				}
 			}
 
-			System.out.println("Ma KH: " + maKH +
-					" | So hoa don: " + soLuong +
-					" | Tong doanh thu: " + tongTien);
+			System.out.printf("Ma KH: %s | So hoa don: %d | Tong doanh thu: %.2f%n",
+					maKH, soLuong, tongTien);
 		}
 	}
 
@@ -371,15 +370,15 @@ public class DsHoadon implements dieukien {
 		}
 		return tien;
 	}
-	
+
 	public double TKTheoNam(int nam) {
-	    double tong = 0.0;
-	    for (Hoadon hd : ds) {
-	        if (hd != null && hd.getNgayxuathd().getYear() == nam) {
-	            tong += hd.getTongtien();
-	        }
-	    }
-	    return tong;
+		double tong = 0.0;
+		for (Hoadon hd : ds) {
+			if (hd != null && hd.getNgayxuathd().getYear() == nam) {
+				tong += hd.getTongtien();
+			}
+		}
+		return tong;
 	}
 
 	public Hoadon[] getDS() {
