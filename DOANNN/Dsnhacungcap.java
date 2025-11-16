@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.*;
 
-
 class Dsnhacungcap implements dieukien {
     private int n;
     private Nhacungcap[] ds;
@@ -26,7 +25,7 @@ class Dsnhacungcap implements dieukien {
                 String[] parts = line.split(",");
                 ds[i] = new Nhacungcap(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]));
             }
-            System.out.println("Doc du lieu thanh cong: " + n + " san pham!"); // ← CÓ THÔNG BÁO
+            System.out.println("Doc du lieu thanh cong: " + n + " nha cung cap!");
         }
     }
 
@@ -78,7 +77,7 @@ class Dsnhacungcap implements dieukien {
 
     @Override
     public void xoa() {
-        System.out.print("nhập mã nhà cung cấp cần xóa");
+        System.out.print("Nhap ma nha cung cap can xoa: ");
         String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {

@@ -64,9 +64,11 @@ public class Hethong {
                 case 9:
                     ql = new QLCTPNH();
                     ql.menuChinh();
+                    break;
                 case 11:
                     ql = new QLCTHD();
                     ql.menuChinh();
+                    break;
                 case 10:
                     QLBH.thongke();
                     break;
