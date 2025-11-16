@@ -246,28 +246,27 @@ public class Dsnhanvien {
         System.out.println("====================================");
         System.out.println("Tong so nhan vien: " + n);
 
-        double tongLuong = 0;
-        double luongCaoNhat = 0;
+        double tongLuong = 0.0;
+        double luongCaoNhat = 0.0;
         double luongThapNhat = Double.MAX_VALUE;
 
         for (int i = 0; i < n; i++) {
-            double luong = ds[i].getLuong();
-            tongLuong += luong;
+            tongLuong += ds[i].getLuong();
 
-            if (luong > luongCaoNhat) {
-                luongCaoNhat = luong;
+            if (ds[i].getLuong() > luongCaoNhat) {
+                luongCaoNhat = ds[i].getLuong();
             }
-            if (luong < luongThapNhat) {
-                luongThapNhat = luong;
+            if (ds[i].getLuong() < luongThapNhat) {
+                luongThapNhat = ds[i].getLuong();
             }
         }
 
         double luongTrungBinh = tongLuong / n;
 
-        System.out.println("Tong luong: " + tongLuong);
-        System.out.println("Luong trung binh: " + luongTrungBinh);
-        System.out.println("Luong cao nhat: " + luongCaoNhat);
-        System.out.println("Luong thap nhat: " + luongThapNhat);
+        System.out.printf("Tong luong: %.0f VND\n", tongLuong);
+        System.out.printf("Luong trung binh: %.0f VND\n", luongTrungBinh);
+        System.out.printf("Luong cao nhat: %.0f VND\n", luongCaoNhat);
+        System.out.printf("Luong thap nhat: %.0f VND\n", luongThapNhat);
         System.out.println("====================================");
     }
 
