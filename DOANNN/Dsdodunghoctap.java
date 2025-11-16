@@ -5,16 +5,6 @@ import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-interface dieukien {
-    void them();
-
-    void xoa();
-
-    void timkiem();
-
-    void sua();
-}
-
 public class Dsdodunghoctap implements dieukien {
     private int n;
     private Dodunghoctap[] ds;
@@ -93,7 +83,7 @@ public class Dsdodunghoctap implements dieukien {
         System.out.println("\nDANH SACH DO DUNG HOC TAP");
         System.out.println(
                 "==================================================================================================================");
-        System.out.printf("%-8s %-15s %11s %12s %-8s %-8s %-8s %-15s %-10s\n",
+        System.out.printf("%-8s %-15s %11s %9s %-6s %-4s %5s %18s %13s\n",
                 "Ma SP", "Ten SP", "So luong", "Don gia", "DVT", "MaLoai", "MaSX", "Loai but/Do day", "Ngoi/Kho");
         System.out.println(
                 "==================================================================================================================");
