@@ -42,6 +42,7 @@ public class QLPNH extends QLBH {
                 case 6:
                     System.out.println("\n--- THONG KE THEO NHA CUNG CAP ---");
                     dsPhieuNhapHang.thongke();
+                    break;
                 case 0:
                     // Ghi file khi thoát
                     try {

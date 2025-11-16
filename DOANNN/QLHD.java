@@ -21,28 +21,30 @@ public class QLHD extends QLBH {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> 
-                dsHoaDon.xuat();
+                case 1 -> {
+                    dsHoaDon.xuat();
+                }
                 case 2 -> {
-                	dsHoaDon.themCothamso("HD999", "KH020", "NV001",  LocalDate.parse("2025-11-22"), 0.00);
-//                	dsHoaDon.them();
+                    dsHoaDon.themCothamso("HD999", "KH020", "NV001", LocalDate.parse("2025-11-22"), 0.00);
+                    // dsHoaDon.them();
                 }
-                
-                case 3 ->{
-                	dsHoaDon.xoaCothamso("HD004");
-//                	dsHoaDon.xoa();
+
+                case 3 -> {
+                    dsHoaDon.xoaCothamso("HD004");
+                    // dsHoaDon.xoa();
                 }
-                 case 4 -> {
-                	 dsHoaDon.suaCothamso("HD020", "KH007", "NV999", LocalDate.parse("2025-11-22"), 0.00);
-//                	 dsHoaDon.sua();
+                case 4 -> {
+                    dsHoaDon.suaCothamso("HD020", "KH007", "NV999", LocalDate.parse("2025-11-22"), 0.00);
+                    // dsHoaDon.sua();
                 }
                 case 5 -> {
-                	dsHoaDon.timkiemCothamso("HD006");
-//                dsHoaDon.timkiem();
+                    dsHoaDon.timkiemCothamso("HD006");
+                    // dsHoaDon.timkiem();
                 }
-                case 6 -> 
-                dsHoaDon.thongkeDaydu();
-                // case 7 -> dsct.thongke();
+                case 6 -> {
+                    dsHoaDon.thongkeDaydu();
+                    // case 7 -> dsct.thongke();
+                }
                 case 0 -> {
                     // Ghi file khi thoát
                     try {
@@ -59,4 +61,3 @@ public class QLHD extends QLBH {
     }
 
 }
-

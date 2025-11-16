@@ -44,6 +44,7 @@ public class QLNCC extends QLBH {
                 case 6:
                     System.out.println("\n--- THONG KE NHA CHUNG CAP THEO DIA CHI ---");
                     dsNhaCungCap.thongke();
+                    break;
                 case 0:
                     // Ghi file khi thoát
                     try {
