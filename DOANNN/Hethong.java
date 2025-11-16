@@ -65,6 +65,9 @@ public class Hethong {
                 case 11:
                     ql = new QLCTHD();
                     ql.menuChinh();
+                case 10:
+                    QLBH.thongke();
+                    break;
                 case 0:
                     System.out.println("Thoat chuong trinh!");
                     break;

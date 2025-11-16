@@ -262,6 +262,58 @@ class Dsphieunhaphang {
 
     }
 
+    public double TKQuy1(int nam) {
+        double tien = 0.0;
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getNgayNhap().getYear() == nam) {
+                int thang = ds[i].getNgayNhap().getMonthValue();
+                if (thang >= 1 && thang <= 3) {
+                    tien = tien + ds[i].getTongTien();
+                }
+            }
+        }
+        return tien;
+    }
+
+    public double TKQuy2(int nam) {
+        double tien = 0.0;
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getNgayNhap().getYear() == nam) {
+                int thang = ds[i].getNgayNhap().getMonthValue();
+                if (thang >= 4 && thang <= 6) {
+                    tien = tien + ds[i].getTongTien();
+                }
+            }
+        }
+        return tien;
+    }
+
+    public double TKQuy3(int nam) {
+        double tien = 0.0;
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getNgayNhap().getYear() == nam) {
+                int thang = ds[i].getNgayNhap().getMonthValue();
+                if (thang >= 7 && thang <= 9) {
+                    tien = tien + ds[i].getTongTien();
+                }
+            }
+        }
+        return tien;
+    }
+
+    public double TKQuy4(int nam) {
+        double tien = 0.0;
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getNgayNhap().getYear() == nam) {
+                int thang = ds[i].getNgayNhap().getMonthValue();
+                if (thang >= 10 && thang <= 12) {
+                    tien = tien + ds[i].getTongTien();
+                }
+            }
+        }
+        return tien;
+    }
+
     public PhieuNhapHang[] getDs() {
         return ds;
     }
