@@ -5,7 +5,7 @@ public class Hangsanxuat {
     private String tenhsx;
     private String diachi;
 
-    static Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
     // --- Constructors ---
     public Hangsanxuat() {
