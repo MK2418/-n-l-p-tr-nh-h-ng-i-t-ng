@@ -66,7 +66,7 @@ public class Dsnhanvien {
     public void xuat() {
         System.out.println("\nDANH SACH NHAN VIEN");
         System.out.println("======================================================================");
-        System.out.printf("%-10s %-15s %-20s %-15s\n",
+        System.out.printf("%-15s %-20s %-15s %-15s\n",
                 "Ma NV", "Ho NV", "Ten NV", "Luong");
         System.out.println("======================================================================");
 
