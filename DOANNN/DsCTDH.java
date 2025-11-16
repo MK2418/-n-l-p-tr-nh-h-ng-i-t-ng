@@ -75,37 +75,48 @@ public class DsCTDH implements dieukien {
         System.out.println("Tong so chi tiet don hang: " + n);
     }
 
-    public void themCothamso(ChiTietDonHang ctdh) {
+    public void themCothamso(String mahd, String msp, int sl, double dongia) {
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = ctdh;
+        ds[n] = new ChiTietDonHang(mahd, msp, sl, dongia);;
         n++;
         System.out.println("Da them chi tiet don hang thanh cong!");
     }
 
-    public void xoaCothamso(String mahd, String msp) {
+
+    public void xoaCothamso(String mahd) {
         for (int i = 0; i < n; i++) {
-            if (ds[i].getMahd().equalsIgnoreCase(mahd) && ds[i].getMsp().equalsIgnoreCase(msp)) {
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
                 for (int j = i; j < n - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
                 ds = Arrays.copyOf(ds, n - 1);
                 n--;
-                System.out.println("Da xoa " + mahd + " - " + msp);
                 return;
             }
         }
-        System.out.println("Khong tim thay " + mahd + " - " + msp);
     }
 
-    public void suaCothamso(String mahd, String msp, ChiTietDonHang ctdhMoi) {
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getMahd().equalsIgnoreCase(mahd) && ds[i].getMsp().equalsIgnoreCase(msp)) {
-                ds[i] = ctdhMoi;
-                System.out.println("Da ua thong tin chi tiet don hang " + mahd + " - " + msp);
+    public void suaCothamso(String mahd, String msp, int sl, double dongia) {
+    	for (int i = 0; i < n; i++) {
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+                ds[i].setMsp(msp);
+                ds[i].setSl(sl);
+                ds[i].setDongia(dongia);
+                System.out.println("Da sua chi tiet hoa don: " + mahd);
                 return;
             }
         }
-        System.out.println("Khong tim thay chi tiet don hang " + mahd + " - " + msp);
+        System.out.println("Khong tim thay hoa don: " + mahd);
+    }
+
+    public void timkiemCothamso(String mahd) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+                ds[i].xuat();
+                return;
+            }
+        }
+        System.out.println("Khong tim thay ma hoa don: " + mahd);
     }
 
     @Override
