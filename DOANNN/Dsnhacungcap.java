@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.*;
 
+
 class Dsnhacungcap implements dieukien {
     private int n;
     private Nhacungcap[] ds;
