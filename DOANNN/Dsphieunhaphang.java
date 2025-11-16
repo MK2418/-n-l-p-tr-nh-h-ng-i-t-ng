@@ -163,7 +163,7 @@ class Dsphieunhaphang {
 
     }
 
-    public void themPhieuNhap(String ma, LocalDate ngay, String nv, String ncc) {
+    public void themPhieuNhapcothamso(String ma, LocalDate ngay, String nv, String ncc) {
         ds = Arrays.copyOf(ds, soLuong + 1);
         ds[soLuong] = new PhieuNhapHang();
         ds[soLuong].setMaPNH(ma);
@@ -313,7 +313,7 @@ class Dsphieunhaphang {
         }
         return tien;
     }
-    
+
     public double TKTheoNam(int nam) {
         double tong = 0.0;
         for (PhieuNhapHang pnh : ds) {
@@ -323,7 +323,6 @@ class Dsphieunhaphang {
         }
         return tong;
     }
-
 
     public PhieuNhapHang[] getDs() {
         return ds;

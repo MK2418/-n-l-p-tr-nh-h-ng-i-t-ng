@@ -25,26 +25,27 @@ public class QLCTHD extends QLBH {
                     dsChiTietHoaDon.xuat();
                     break;
                 case 2:
-                	dsChiTietHoaDon.themCothamso("HD888", "SP333", 2, 22000.00);
-                	System.out.println("Da them HD888, SP333, 2, 22000.00");
-//                    dsChiTietHoaDon.them();
+                    dsChiTietHoaDon.themCothamso("HD888", "SP333", 2, 22000.00);
+                    System.out.println("Da them HD888, SP333, 2, 22000.00");
+                    // dsChiTietHoaDon.them();
                     break;
                 case 3:
-                	dsChiTietHoaDon.xoaCothamso("HD004");
-                	System.out.println("Da xoa HD004");
-//                    dsChiTietHoaDon.xoa();
+                    dsChiTietHoaDon.xoaCothamso("HD004");
+                    System.out.println("Da xoa HD004");
+                    // dsChiTietHoaDon.xoa();
                     break;
                 case 4:
                     dsChiTietHoaDon.suaCothamso("HD005", "SP1001", 666, 1000.0);
                     System.out.println("Da sua HD005, SP1001, 666, 1000.0");
-//                  dsChiTietHoaDon.sua();
+                    // dsChiTietHoaDon.sua();
                     break;
                 case 5:
                     dsChiTietHoaDon.timkiemCothamso("HD019");
-//                    dsChiTietHoaDon.timkiem();
+                    // dsChiTietHoaDon.timkiem();
                     break;
                 case 6:
                     dsChiTietHoaDon.thongke();
+                    break;
                 case 0:
                     // Ghi file khi thoát
                     try {

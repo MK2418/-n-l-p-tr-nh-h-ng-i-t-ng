@@ -26,21 +26,23 @@ public class QLCTPNH extends QLBH {
                     break;
                 case 2:
                     System.out.println("\n--- THEM CHI TIET PHIEU NHAP HANG MOI ---");
-                    dsChiTietPhieuNhap.themChiTietPNH();
+                    // dsChiTietPhieuNhap.themChiTietPNH();
+                    dsChiTietPhieuNhap.themChiTietPNHcothamso("ma01", "sp01", 2, 2000);
                     break;
                 case 3:
                     System.out.println("\n--- XOA CHI TIET PHIEU NHAP HANG ---");
-
-                    String maPNH = sc.nextLine();
-                    dsChiTietPhieuNhap.xoaChiTietPNH();
+                    // dsChiTietPhieuNhap.xoaChiTietPNH();
+                    dsChiTietPhieuNhap.xoaChiTietPNHcothamso("ma01");
                     break;
                 case 4:
                     System.out.println("\n--- TIM KIEM CHI TIET PHIEU NHAP HANG ---");
-                    dsChiTietPhieuNhap.timKiemChiTietPNH();
+                    // dsChiTietPhieuNhap.timKiemChiTietPNH();
+                    dsChiTietPhieuNhap.timKiemChiTietPNHcothamso("ma01");
                     break;
                 case 5:
                     System.out.println("\n--- SUA CHI TIET PHIEU NHAP HANG ---");
-                    dsChiTietPhieuNhap.suaNCC();
+                    // dsChiTietPhieuNhap.suaCTPNH();
+                    dsChiTietPhieuNhap.suaCTPNHcothamso("ma01");
                     break;
                 case 6:
                     System.out.println("\n--- THONG KE THEO MA PHIEU");

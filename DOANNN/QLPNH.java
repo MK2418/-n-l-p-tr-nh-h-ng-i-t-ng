@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class QLPNH extends QLBH {
@@ -25,19 +26,23 @@ public class QLPNH extends QLBH {
                     break;
                 case 2:
                     System.out.println("\n--- THEM PHIEU NHAP HANG MOI ---");
-                    dsPhieuNhapHang.themPhieuNhap();
+                    // dsPhieuNhapHang.themPhieuNhap();
+                    dsPhieuNhapHang.themPhieuNhapcothamso("ma30", LocalDate.parse("2025-09-19"), "nv5", "ncc1");
                     break;
                 case 3:
                     System.out.println("\n--- XOA PHIEU NHAP HANG ---");
-                    dsPhieuNhapHang.xoaPhieuNhapTheoMa();
+                    // dsPhieuNhapHang.xoaPhieuNhapTheoMa();
+                    dsPhieuNhapHang.xoaPhieuNhapTheoMacothamso("ma15");
                     break;
                 case 4:
                     System.out.println("\n--- SUA THONG TIN PHIEU NHAP HANG ---");
-                    dsPhieuNhapHang.suaPNH();
+                    // dsPhieuNhapHang.suaPNH();
+                    dsPhieuNhapHang.suaPNHcothamso("ma02");
                     break;
                 case 5:
                     System.out.println("\n--- TIM KIEM PHIEU NHAP HANG ---");
-                    dsPhieuNhapHang.timPhieuNhap();
+                    // dsPhieuNhapHang.timPhieuNhap();
+                    dsPhieuNhapHang.timPhieuNhapcothamso("ma07");
                     break;
                 case 6:
                     System.out.println("\n--- THONG KE THEO NHA CUNG CAP ---");

@@ -27,19 +27,23 @@ public class QLNCC extends QLBH {
                     break;
                 case 2:
                     System.out.println("\n--- THEM NHA CUNG CAP MOI ---");
-                    dsNhaCungCap.them();
+                    // dsNhaCungCap.them();
+                    dsNhaCungCap.themcothamso("ncc11", "HoanMy", "HaNoi", 982423444);
                     break;
                 case 3:
                     System.out.println("\n--- XOA NHA CUNG CAP ---");
-                    dsNhaCungCap.xoa();
+                    // dsNhaCungCap.xoa();
+                    dsNhaCungCap.xoacothamso("ncc10");
                     break;
                 case 4:
                     System.out.println("\n--- SUA THONG TIN NHA CUNG CAP ---");
-                    dsNhaCungCap.sua();
+                    // dsNhaCungCap.sua();
+                    dsNhaCungCap.suacothamso("ncc11");
                     break;
                 case 5:
                     System.out.println("\n--- TIM KIEM NHA CUNG CAP ---");
-                    dsNhaCungCap.timkiem();
+                    // dsNhaCungCap.timkiem();
+                    dsNhaCungCap.timkiemcothamso("ncc11");
                     break;
                 case 6:
                     System.out.println("\n--- THONG KE NHA CHUNG CAP THEO DIA CHI ---");
@@ -59,4 +63,4 @@ public class QLNCC extends QLBH {
             }
         } while (choice != 0);
     }
-}
+}//

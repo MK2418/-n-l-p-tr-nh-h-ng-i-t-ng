@@ -100,7 +100,7 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay chi tiet phieu nhap hang co ma PNH " + maPNH);
     }
 
-    public void suaNCC() {
+    public void suaCTPNH() {
         String maPNH = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
@@ -182,7 +182,7 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay chi tiet phieu nhap hang co ma PNH " + maPNH);
     }
 
-    public void suaNCCcothamso(String maPNH) {
+    public void suaCTPNHcothamso(String maPNH) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
                 int k;
