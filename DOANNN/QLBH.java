@@ -55,36 +55,40 @@ public abstract class QLBH {
     }
 
     public static void thongke() {
-        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
-                "    ", "QUY1", "QUY2", "QUY3", "QUY4");
-        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
-                "TONG CHI", dsPhieuNhapHang.TKQuy1(2025), dsPhieuNhapHang.TKQuy2(2025), dsPhieuNhapHang.TKQuy3(2025),
-                dsPhieuNhapHang.TKQuy4(2025));
-        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
-                "TONG THU", dsHoaDon.TKQuy1(2025), dsHoaDon.TKQuy2(2025), dsHoaDon.TKQuy3(2025), dsHoaDon.TKQuy4(2025));
-    }
-    
-    public static void thongkeTheonam() {
-        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
-                "    ", "2022", "2023", "2024", "2025");
-        
-        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
-                "TONG CHI",
-                dsPhieuNhapHang.TKTheoNam(2022),
-                dsPhieuNhapHang.TKTheoNam(2023),
-                dsPhieuNhapHang.TKTheoNam(2024),
-                dsPhieuNhapHang.TKTheoNam(2025)
-        );
+        // Lấy tổng lương nhân viên theo quý
+        double luongQuy = dsNhanVien.TKQuy(2025);
 
-        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
-                "TONG THU",
-                dsHoaDon.TKTheoNam(2022),
-                dsHoaDon.TKTheoNam(2023),
-                dsHoaDon.TKTheoNam(2024),
-                dsHoaDon.TKTheoNam(2025)
-        );
-    }
+        // Lấy tổng chi theo quý (nhập hàng)
+        double chiQuy1 = dsPhieuNhapHang.TKQuy1(2025);
+        double chiQuy2 = dsPhieuNhapHang.TKQuy2(2025);
+        double chiQuy3 = dsPhieuNhapHang.TKQuy3(2025);
+        double chiQuy4 = dsPhieuNhapHang.TKQuy4(2025);
 
+        // Lấy tổng thu theo quý
+        double thuQuy1 = dsHoaDon.TKQuy1(2025);
+        double thuQuy2 = dsHoaDon.TKQuy2(2025);
+        double thuQuy3 = dsHoaDon.TKQuy3(2025);
+        double thuQuy4 = dsHoaDon.TKQuy4(2025);
+
+        // Tính lợi nhuận = Thu - Chi nhập hàng - Lương nhân viên
+        double loiNhuanQuy1 = thuQuy1 - chiQuy1 - luongQuy;
+        double loiNhuanQuy2 = thuQuy2 - chiQuy2 - luongQuy;
+        double loiNhuanQuy3 = thuQuy3 - chiQuy3 - luongQuy;
+        double loiNhuanQuy4 = thuQuy4 - chiQuy4 - luongQuy;
+
+        System.out.println("\nBANG THONG KE TAI CHINH NAM 2025");
+        System.out.println("==========================================================");
+        System.out.printf("| %-12s | %-12s | %-12s | %-12s | %-12s |\n",
+                "    ", "QUY 1", "QUY 2", "QUY 3", "QUY 4");
+        System.out.println("==========================================================");
+        System.out.printf("| %-12s | %-12.2f | %-12.2f | %-12.2f | %-12.2f |\n",
+                "TONG CHI", chiQuy1 + luongQuy, chiQuy2 + luongQuy, chiQuy3 + luongQuy, chiQuy4 + luongQuy);
+        System.out.printf("| %-12s | %-12.2f | %-12.2f | %-12.2f | %-12.2f |\n",
+                "TONG THU", thuQuy1, thuQuy2, thuQuy3, thuQuy4);
+        System.out.printf("| %-12s | %-12.2f | %-12.2f | %-12.2f | %-12.2f |\n",
+                "LOI NHUAN", loiNhuanQuy1, loiNhuanQuy2, loiNhuanQuy3, loiNhuanQuy4);
+        System.out.println("==========================================================");
+    }
 
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
