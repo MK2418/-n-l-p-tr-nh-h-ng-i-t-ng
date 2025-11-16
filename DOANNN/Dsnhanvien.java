@@ -65,22 +65,18 @@ public class Dsnhanvien {
     // ---- Xuat danh sach ----
     public void xuat() {
         System.out.println("\nDANH SACH NHAN VIEN");
-        System.out.println("========================================================================================");
-        System.out.printf("%-15s %-20s %-20s %-20s\n",
+        System.out.println("======================================================================");
+        System.out.printf("%-10s %-15s %-20s %-15s\n",
                 "Ma NV", "Ho NV", "Ten NV", "Luong");
-        System.out.println("========================================================================================");
+        System.out.println("======================================================================");
 
         for (int i = 0; i < n; i++) {
             if (ds[i] != null) {
-                System.out.printf("%-15s %-20s %-20s %-20s\n",
-                        ds[i].getManv(),
-                        ds[i].getHonv(),
-                        ds[i].getTennv(),
-                        Nhanvien.formatLuong(ds[i].getLuong()));
+                ds[i].xuat();
+                System.out.println();
             }
         }
-
-        System.out.println("========================================================================================");
+        System.out.println("======================================================================");
         System.out.println("Tong so: " + n + " nhan vien");
     }
 
@@ -250,12 +246,12 @@ public class Dsnhanvien {
         System.out.println("====================================");
         System.out.println("Tong so nhan vien: " + n);
 
-        int tongLuong = 0;
-        int luongCaoNhat = 0;
-        int luongThapNhat = Integer.MAX_VALUE;
+        double tongLuong = 0;
+        double luongCaoNhat = 0;
+        double luongThapNhat = Double.MAX_VALUE;
 
         for (int i = 0; i < n; i++) {
-            int luong = ds[i].getLuong();
+            double luong = ds[i].getLuong();
             tongLuong += luong;
 
             if (luong > luongCaoNhat) {
@@ -266,13 +262,43 @@ public class Dsnhanvien {
             }
         }
 
-        int luongTrungBinh = tongLuong / n;
+        double luongTrungBinh = tongLuong / n;
 
-        System.out.println("Tong luong: " + Nhanvien.formatLuong(tongLuong));
-        System.out.println("Luong trung binh: " + Nhanvien.formatLuong(luongTrungBinh));
-        System.out.println("Luong cao nhat: " + Nhanvien.formatLuong(luongCaoNhat));
-        System.out.println("Luong thap nhat: " + Nhanvien.formatLuong(luongThapNhat));
+        System.out.println("Tong luong: " + tongLuong);
+        System.out.println("Luong trung binh: " + luongTrungBinh);
+        System.out.println("Luong cao nhat: " + luongCaoNhat);
+        System.out.println("Luong thap nhat: " + luongThapNhat);
         System.out.println("====================================");
+    }
+
+    // ===== THỐNG KÊ LƯƠNG THEO THÁNG =====
+    // Lương 1 tháng = tổng lương của tất cả nhân viên
+    public double tinhLuongTheoThang(int thang, int nam) {
+        double tongLuong = 0.0;
+        for (int i = 0; i < n; i++) {
+            tongLuong += ds[i].getLuong();
+        }
+        return tongLuong;
+    }
+
+    // ===== THỐNG KÊ LƯƠNG THEO QUÝ =====
+    // 1 quý = 3 tháng lương
+    public double TKQuy(int nam) {
+        double tongLuongThang = 0.0;
+        for (int i = 0; i < n; i++) {
+            tongLuongThang += ds[i].getLuong();
+        }
+        return tongLuongThang * 3;
+    }
+
+    // ===== THỐNG KÊ LƯƠNG THEO NĂM =====
+    // 1 năm = 12 tháng lương
+    public double tinhLuongTheoNam(int nam) {
+        double tongLuongThang = 0.0;
+        for (int i = 0; i < n; i++) {
+            tongLuongThang += ds[i].getLuong();
+        }
+        return tongLuongThang * 12; // Năm = 12 tháng
     }
 
     public Nhanvien[] getDs() {
