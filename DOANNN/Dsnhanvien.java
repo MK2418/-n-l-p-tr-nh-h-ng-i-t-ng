@@ -65,18 +65,22 @@ public class Dsnhanvien {
     // ---- Xuat danh sach ----
     public void xuat() {
         System.out.println("\nDANH SACH NHAN VIEN");
-        System.out.println("======================================================================");
-        System.out.printf("%-10s %-15s %-20s %-15s\n",
+        System.out.println("========================================================================================");
+        System.out.printf("%-15s %-20s %-20s %-20s\n",
                 "Ma NV", "Ho NV", "Ten NV", "Luong");
-        System.out.println("======================================================================");
+        System.out.println("========================================================================================");
 
         for (int i = 0; i < n; i++) {
             if (ds[i] != null) {
-                ds[i].xuat();
-                System.out.println();
+                System.out.printf("%-15s %-20s %-20s %-20s\n",
+                        ds[i].getManv(),
+                        ds[i].getHonv(),
+                        ds[i].getTennv(),
+                        Nhanvien.formatLuong(ds[i].getLuong()));
             }
         }
-        System.out.println("======================================================================");
+
+        System.out.println("========================================================================================");
         System.out.println("Tong so: " + n + " nhan vien");
     }
 
@@ -246,12 +250,12 @@ public class Dsnhanvien {
         System.out.println("====================================");
         System.out.println("Tong so nhan vien: " + n);
 
-        double tongLuong = 0;
-        double luongCaoNhat = 0;
-        double luongThapNhat = Double.MAX_VALUE;
+        int tongLuong = 0;
+        int luongCaoNhat = 0;
+        int luongThapNhat = Integer.MAX_VALUE;
 
         for (int i = 0; i < n; i++) {
-            double luong = ds[i].getLuong();
+            int luong = ds[i].getLuong();
             tongLuong += luong;
 
             if (luong > luongCaoNhat) {
@@ -262,7 +266,7 @@ public class Dsnhanvien {
             }
         }
 
-        double luongTrungBinh = tongLuong / n;
+        int luongTrungBinh = tongLuong / n;
 
         System.out.println("Tong luong: " + tongLuong);
         System.out.println("Luong trung binh: " + luongTrungBinh);

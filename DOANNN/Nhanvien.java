@@ -81,12 +81,17 @@ public class Nhanvien {
     }
 
     public void xuat() {
-        System.out.printf("%-15s %-20s %-15s %-15d%n", manv, honv, tennv, luong);
+        System.out.printf("%-15s %-20s %-15s %-15d%n", manv, honv, tennv, formatLuong(luong));
         System.out.println("---------------------------------------------------------------------");
     }
 
     public String toFileString() {
         return String.format("%s,%s,%s,%d",
                 manv, honv, tennv, luong);
+    }
+
+    
+    public static String formatLuong(int n) {
+        return String.format("%,d", n).replace(",", ".");
     }
 }
