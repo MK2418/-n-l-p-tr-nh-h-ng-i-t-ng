@@ -37,8 +37,7 @@ class Dsphieunhaphang {
             bw.newLine();
             for (int i = 0; i < soLuong; i++) {
                 if (ds[i] != null) {
-                    bw.write(ds[i].getMaPNH() + "," + ds[i].getNgayNhap() + "," + ds[i].getNv() + ","
-                            + ds[i].getNcc() + "," + ds[i].getTongTien());
+                    bw.write(ds[i].toFileString());
                     bw.newLine();
                 }
             }
