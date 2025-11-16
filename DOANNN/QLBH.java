@@ -90,6 +90,38 @@ public abstract class QLBH {
         System.out.println("==========================================================");
     }
 
+    public static void thongkeTheonam() {
+        // Tính toán trước cho từng năm
+        double chi2022 = dsPhieuNhapHang.TKTheoNam(2022);
+        double chi2023 = dsPhieuNhapHang.TKTheoNam(2023);
+        double chi2024 = dsPhieuNhapHang.TKTheoNam(2024);
+        double chi2025 = dsPhieuNhapHang.TKTheoNam(2025) + dsNhanVien.tinhLuongTheoNam(2025);
+
+        double thu2022 = dsHoaDon.TKTheoNam(2022);
+        double thu2023 = dsHoaDon.TKTheoNam(2023);
+        double thu2024 = dsHoaDon.TKTheoNam(2024);
+        double thu2025 = dsHoaDon.TKTheoNam(2025);
+
+        double loiNhuan2022 = thu2022 - chi2022;
+        double loiNhuan2023 = thu2023 - chi2023;
+        double loiNhuan2024 = thu2024 - chi2024;
+        double loiNhuan2025 = thu2025 - chi2025;
+
+        // Hiển thị bảng
+        System.out.println("\nBANG THONG KE THEO NAM");
+        System.out.println("===================================================================");
+        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-12s |\n",
+                "    ", "2022", "2023", "2024", "2025");
+        System.out.println("===================================================================");
+        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
+                "TONG CHI", chi2022, chi2023, chi2024, chi2025);
+        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
+                "TONG THU", thu2022, thu2023, thu2024, thu2025);
+        System.out.printf("| %-8s | %-10.2f | %-10.2f | %-10.2f | %-10.2f |\n",
+                "LOI NHUAN", loiNhuan2022, loiNhuan2023, loiNhuan2024, loiNhuan2025);
+        System.out.println("===================================================================");
+    }
+
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }
