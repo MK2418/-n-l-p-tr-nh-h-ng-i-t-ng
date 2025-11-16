@@ -54,6 +54,16 @@ public abstract class QLBH {
         }
     }
 
+    public static void thongke() {
+        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
+                "    ", "QUY1", "QUY2", "QUY3", "QUY4");
+        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
+                "TONG CHI", dsPhieuNhapHang.TKQuy1(2025), dsPhieuNhapHang.TKQuy2(2025), dsPhieuNhapHang.TKQuy3(2025),
+                dsPhieuNhapHang.TKQuy4(2025));
+        System.out.printf("| %-8s | %-10s | %-10s | %-10s | %-10s |\n",
+                "TONG THU", dsHoaDon.TKQuy1(2025), dsHoaDon.TKQuy2(2025), dsHoaDon.TKQuy3(2025), dsHoaDon.TKQuy4(2025));
+    }
+
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }

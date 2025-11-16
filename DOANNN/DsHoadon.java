@@ -307,6 +307,58 @@ public class DsHoadon implements dieukien {
 		}
 	}
 
+	public double TKQuy1(int nam) {
+		double tien = 0.0;
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getNgayxuathd().getYear() == nam) {
+				int thang = ds[i].getNgayxuathd().getMonthValue();
+				if (thang >= 1 && thang <= 3) {
+					tien = tien + ds[i].getTongtien();
+				}
+			}
+		}
+		return tien;
+	}
+
+	public double TKQuy2(int nam) {
+		double tien = 0.0;
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getNgayxuathd().getYear() == nam) {
+				int thang = ds[i].getNgayxuathd().getMonthValue();
+				if (thang >= 4 && thang <= 6) {
+					tien = tien + ds[i].getTongtien();
+				}
+			}
+		}
+		return tien;
+	}
+
+	public double TKQuy3(int nam) {
+		double tien = 0.0;
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getNgayxuathd().getYear() == nam) {
+				int thang = ds[i].getNgayxuathd().getMonthValue();
+				if (thang >= 7 && thang <= 9) {
+					tien = tien + ds[i].getTongtien();
+				}
+			}
+		}
+		return tien;
+	}
+
+	public double TKQuy4(int nam) {
+		double tien = 0.0;
+		for (int i = 0; i < n; i++) {
+			if (ds[i].getNgayxuathd().getYear() == nam) {
+				int thang = ds[i].getNgayxuathd().getMonthValue();
+				if (thang >= 10 && thang <= 12) {
+					tien = tien + ds[i].getTongtien();
+				}
+			}
+		}
+		return tien;
+	}
+
 	public Hoadon[] getDS() {
 		return ds;
 	}
