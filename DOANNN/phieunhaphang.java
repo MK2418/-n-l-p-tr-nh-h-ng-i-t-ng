@@ -44,6 +44,11 @@ class PhieuNhapHang {
                 maPNH, ngayNhap, nv, ncc, tongTien);
     }
 
+    public String toFileString() {
+        return String.format("%s,%s,%s,%s,%s",
+                maPNH, ngayNhap, nv, ncc, tongTien);
+    }
+
     public void nhap() {
         System.out.print("Nhap ma phieu nhap hang: ");
         this.maPNH = sc.nextLine();

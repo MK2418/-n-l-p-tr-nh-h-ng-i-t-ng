@@ -268,10 +268,10 @@ public class Dsnhanvien {
 
         int luongTrungBinh = tongLuong / n;
 
-        System.out.println("Tong luong: " + tongLuong);
-        System.out.println("Luong trung binh: " + luongTrungBinh);
-        System.out.println("Luong cao nhat: " + luongCaoNhat);
-        System.out.println("Luong thap nhat: " + luongThapNhat);
+        System.out.println("Tong luong: " + Nhanvien.formatLuong(tongLuong));
+        System.out.println("Luong trung binh: " + Nhanvien.formatLuong(luongTrungBinh));
+        System.out.println("Luong cao nhat: " + Nhanvien.formatLuong(luongCaoNhat));
+        System.out.println("Luong thap nhat: " + Nhanvien.formatLuong(luongThapNhat));
         System.out.println("====================================");
     }
 
