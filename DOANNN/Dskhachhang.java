@@ -76,37 +76,42 @@ public class Dskhachhang implements dieukien {
         System.out.println("Tong so: " + n + " khach hang");
     }
 
-    public void them(Khachhang khMoi) {
+    public void themCothamso(String makh, String hokh, String tenkh, String diachi, int sdt) {
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = khMoi;
+        ds[n] = new Khachhang(makh, hokh, tenkh, diachi, sdt);
         n++;
-        System.out.println("Da them khach hang moi: " + khMoi.getMakh());
     }
 
-    public void xoa(String makh) {
+    public void xoaCothamso(String maKH) {
         for (int i = 0; i < n; i++) {
-            if (ds[i].getMakh().equalsIgnoreCase(makh)) {
+            if (ds[i].getMakh().equalsIgnoreCase(maKH)) {
                 for (int j = i; j < n - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
                 ds = Arrays.copyOf(ds, n - 1);
                 n--;
-                System.out.println("Da xoa khach hang: " + makh);
                 return;
             }
         }
-        System.out.println("Khong tim thay khach hang: " + makh);
     }
 
-    public void sua(String makh, Khachhang khMoi) {
+
+    public void suaCothamso(String makh, String ho, String ten, String diaChi, int sdt) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMakh().equalsIgnoreCase(makh)) {
-                ds[i] = khMoi;
-                System.out.println("Da sua khach hang: " + makh);
+                ds[i] = new Khachhang(makh, ho, ten, diaChi, sdt);
                 return;
             }
         }
-        System.out.println("Khong tim thay khach hang: " + makh);
+    }
+    
+    public void timkiemCothamso(String makh) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMakh().equalsIgnoreCase(makh)) {
+                ds[i].xuat();
+                return;
+            }
+        }
     }
 
     @Override

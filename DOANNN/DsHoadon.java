@@ -61,38 +61,51 @@ public class DsHoadon implements dieukien {
 		System.out.println("Tong so: " + n + " hoa don");
 	}
 
-	public void themCothamso(Hoadon hdMoi) {
-		ds = Arrays.copyOf(ds, n + 1);
-		ds[n] = hdMoi;
-		n++;
-		System.out.println("Da them hoa don moi: " + hdMoi.getMahd());
-	}
+    public void themCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
+        ds = Arrays.copyOf(ds, n + 1);
+        ds[n] = new Hoadon(mahd, makh, manv, tongtien, ngayxuathd);
+        n++;
+        System.out.println("Da them hoa don moi: " + mahd);
+    }
 
-	public void xoaCothamso(String mahd) {
-		for (int i = 0; i < n; i++) {
-			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
-				for (int j = i; j < n - 1; j++) {
-					ds[j] = ds[j + 1];
-				}
-				ds = Arrays.copyOf(ds, n - 1);
-				n--;
-				System.out.println("Da xoa hoa donn: " + mahd);
-				return;
-			}
-		}
-		System.out.println("Khong tim thay hoa don: " + mahd);
-	}
+    public void xoaCothamso(String mahd) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+                for (int j = i; j < n - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, n - 1);
+                n--;
+                System.out.println("Da xoa hoa don: " + mahd);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay hoa don: " + mahd);
+    }
 
-	public void suaCothamso(String mahd, Hoadon hdMoi) {
-		for (int i = 0; i < n; i++) {
-			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
-				ds[i] = hdMoi;
-				System.out.println("Da sua hoa don: " + mahd);
-				return;
-			}
-		}
-		System.out.println("Khong tim thay hoa don: " + mahd);
-	}
+    public void suaCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+                ds[i].setMaKh(makh);
+                ds[i].setMaNv(manv);
+                ds[i].setNgayxuathd(ngayxuathd);
+                ds[i].setTongtien(tongtien);
+                System.out.println("Da sua hoa don: " + mahd);
+                return;
+            }
+        }
+        System.out.println("Khong tim thay hoa don: " + mahd);
+    }
+
+    public void timkiemCothamso(String mahd) {
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
+                ds[i].xuat();
+                return;
+            }
+        }
+        System.out.println("Khong tim thay ma hoa don: " + mahd);
+    }
 
 	@Override
 	public void them() {
