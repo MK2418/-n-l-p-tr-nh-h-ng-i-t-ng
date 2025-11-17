@@ -85,6 +85,7 @@ public class Hethong {
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh!");
+                    QLBH.ghitatcacacfile();
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");

@@ -36,6 +36,24 @@ public abstract class QLBH {
         }
     }
 
+    public static void ghitatcacacfile() {
+        try {
+            dsNhanVien.ghiFile("nhanvien.txt");
+            dsKhachHang.ghiFile("DsKH.txt");
+            dsHoaDon.ghiFile("DsHD.txt");
+            dsPhieuNhapHang.ghiFile("Dsphieunhaphang.txt");
+            dsDoDungHocTap.ghiFile("dodunghoctap.txt");
+            dsLoaiHang.ghiFile("loaihang.txt");
+            dsHangSanXuat.ghiFile("hangsanxuat.txt");
+            dsChiTietHoaDon.ghiFile("DsCTHD.txt");
+            dsChiTietPhieuNhap.ghiFile("Dschitietphieunhaphang.txt");
+            dsNhaCungCap.ghiFile("Dsnhacungcap.txt");
+            System.out.println("Doc tat ca file thanh cong");
+        } catch (Exception e) {
+            System.out.println("Loi ghi file: " + e.getMessage());
+        }
+    }
+
     public static void tongTien() {
         for (PhieuNhapHang pnh : dsPhieuNhapHang.getDs()) {
             double tongTien = 0;
