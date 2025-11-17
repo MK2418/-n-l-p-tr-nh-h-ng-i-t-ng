@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class DsHoadon implements dieukien {
-	static int n;
-	static Hoadon[] ds;
-	static Scanner sc = new Scanner(System.in);
+	int n;
+	Hoadon[] ds;
+	Scanner sc = new Scanner(System.in);
 
 	public void docFile(String filename) throws Exception {
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -57,11 +57,11 @@ public class DsHoadon implements dieukien {
 		System.out.println("Tong so: " + n + " hoa don");
 	}
 
-	public void themCothamso(String mahd, String makh, String manv, LocalDate ngayxuathd, double tongtien) {
+	public void themCothamso(Hoadon hd) {
 		ds = Arrays.copyOf(ds, n + 1);
-		ds[n] = new Hoadon(mahd, makh, manv, tongtien, ngayxuathd);
+		ds[n] = hd;
 		n++;
-		System.out.println("Da them hoa don moi: " + mahd);
+		System.out.println("Da them hoa don moi: " + hd.getMahd());
 	}
 
 	public void xoaCothamso(String mahd) {
@@ -93,15 +93,35 @@ public class DsHoadon implements dieukien {
 		System.out.println("Khong tim thay hoa don: " + mahd);
 	}
 
-	public void timkiemCothamso(String mahd) {
+	public Hoadon timkiemCothamso(String mahd) {
 		for (int i = 0; i < n; i++) {
 			if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
 				ds[i].xuat();
-				return;
+				return ds[i];
 			}
 		}
 		System.out.println("Khong tim thay ma hoa don: " + mahd);
+		return null;
 	}
+	
+	public Hoadon[] timKiemTheoMakh(String makh) {
+	    Hoadon[] kq = new Hoadon[n];
+	    int count = 0;
+
+	    for (int i = 0; i < n; i++) {
+	        if (ds[i].getMaKh().equalsIgnoreCase(makh)) {
+	            kq[count] = ds[i];  
+	            count++;
+	        }
+	    }
+
+	    if (count == 0) {
+	        System.out.println("Khong tim thay ten khach hang: " + makh);
+	        return new Hoadon[0];
+	    }
+	    return Arrays.copyOf(kq, count);
+	}
+
 
 	@Override
 	public void them() {
