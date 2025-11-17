@@ -15,6 +15,7 @@ public class QLHD extends QLBH {
             System.out.println("4. Sua hoa don");
             System.out.println("5. Tim hoa don");
             System.out.println("6. Thong ke hoa don");
+            System.out.println("7. Tim kiem theo makh"); 
             System.out.println("0. Thoat");
             System.out.print("Chon: ");
             chon = sc.nextInt();
@@ -45,6 +46,12 @@ public class QLHD extends QLBH {
                     dsHoaDon.thongkeDaydu();
                     // case 7 -> dsct.thongke();
                 }
+                case 7 -> {
+                    Hoadon[] ketQua = dsHoaDon.timKiemTheoMakh("KH001");
+                    for (Hoadon hd : ketQua) {
+                        hd.xuat();
+                    }
+                }    
                 case 0 -> {
                     // Ghi file khi thoát
                     try {
@@ -61,3 +68,4 @@ public class QLHD extends QLBH {
     }
 
 }
+
