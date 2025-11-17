@@ -101,7 +101,6 @@ public class Dsloaihang {
     }
 
     public void timkiemcothamso(String maLH) {
-        boolean found = false;
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println("====================================================");
         System.out.printf("%-12s %-20s %-25s\n",
@@ -112,7 +111,6 @@ public class Dsloaihang {
             if (ds[i].getMalh().equalsIgnoreCase(maLH)) {
                 ds[i].xuat();
                 System.out.println();
-                found = true;
             }
         }
         System.out.println("====================================================");

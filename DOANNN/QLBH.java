@@ -1,4 +1,10 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+
 public abstract class QLBH {
+    // ---- SCANNER DÙNG CHUNG ----
+    protected static Scanner sc = new Scanner(System.in);
+
     // ---- CÁC DANH SÁCH DÙNG CHUNG ----
     protected static Dsnhanvien dsNhanVien = new Dsnhanvien();
     protected static Dskhachhang dsKhachHang = new Dskhachhang();
@@ -152,6 +158,66 @@ public abstract class QLBH {
         System.out.println("==================================================================");
     }
 
-    // ---- MENU CHÍNH ĐỂ RỖNG ----
+    public void muaHang() {
+        System.out.println("\n===== MUA HANG =====");
+
+        // Nhập mã sản phẩm
+        System.out.print("Nhap ma san pham: ");
+        String maSP = sc.nextLine();
+
+        // Tìm sản phẩm
+        Dodunghoctap sp = dsDoDungHocTap.timkiemcothamso(maSP);
+        if (sp == null) {
+            System.out.println("San pham khong ton tai!");
+            return;
+        }
+
+        System.out.println("Ten: " + sp.getTenSP());
+        System.out.println("Gia: " + sp.getDonGia());
+        System.out.println("SL ton kho: " + sp.getSoLuong());
+
+        // Nhập số lượng
+        System.out.print("Nhap so luong can mua: ");
+        int sl = Integer.parseInt(sc.nextLine());
+
+        if (sl <= 0) {
+            System.out.println("So luong khong hop le!");
+            return;
+        }
+
+        if (sl > sp.getSoLuong()) {
+            System.out.println("Kho khong đu so luong!");
+            return;
+        }
+
+        // Tính tiền
+        double thanhTien = sl * sp.getDonGia();
+
+        // Cập nhật lại số lượng tồn kho
+        sp.setSoLuong(sp.getSoLuong() - sl);
+
+        // Tạo mã hóa đơn
+        LocalDate today = LocalDate.now();
+        String maHD = String.format("HD30", today.getYear(), today.getMonthValue(), today.getDayOfMonth(),
+                dsHoaDon.getDS().length + 1);
+
+        // Tạo hóa đơn chính
+        dsHoaDon.themCothamso(maHD, "KH01", "NV01", LocalDate.now(), thanhTien);
+
+        // Tạo chi tiết hóa đơn
+        dsChiTietHoaDon.themCothamso(maHD, maSP, sl, (double) sp.getDonGia());
+
+        // Xuất hóa đơn
+        System.out.println("\n===== HOA ĐON BAN HANG =====");
+        System.out.println("MA HD      : " + maHD);
+        System.out.println("MA SP      : " + maSP);
+        System.out.println("TEN SP     : " + sp.getTenSP());
+        System.out.println("DON GIA    : " + sp.getDonGia());
+        System.out.println("SO LUONG   : " + sl);
+        System.out.println("THANH TIEN : " + thanhTien);
+
+        System.out.println("\nMUA HANG THANH CONG !");
+    } // ---- MENU CHÍNH ĐỂ RỖNG ----
+
     public abstract void menuChinh();
 }

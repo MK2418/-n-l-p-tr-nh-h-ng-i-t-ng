@@ -134,11 +134,9 @@ public class Dsdodunghoctap {
         System.out.println("Khong tim thay san pham co ma " + maSP);
     }
 
-    public Dodunghoctap[] timkiem() {
+    public void timkiem() {
         System.out.print("Nhap ma san pham can tim: ");
         String maSP = sc.nextLine();
-
-        Dodunghoctap[] ketQua = new Dodunghoctap[1];
 
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println(
@@ -153,7 +151,6 @@ public class Dsdodunghoctap {
             if (ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 ds[i].xuat();
                 System.out.println();
-                ketQua[0] = ds[i]; // Lưu sản phẩm tìm được
                 found = true;
                 break; // Thoát vòng lặp khi tìm thấy
             }
@@ -161,7 +158,9 @@ public class Dsdodunghoctap {
         System.out.println(
                 "==================================================================================================================");
 
-        return ketQua;
+        if (!found) {
+            System.out.println("Khong tim thay san pham co ma: " + maSP);
+        }
     }
 
     public void sua() {
@@ -255,36 +254,14 @@ public class Dsdodunghoctap {
         }
     }
 
-    public Dodunghoctap[] timkiemcothamso(String maSP) {
-        System.out.println("\nKET QUA TIM KIEM:");
-        System.out.println(
-                "==================================================================================================================");
-        System.out.printf("%-8s %-15s %11s %12s %-8s %-8s %-8s %-15s %-10s\n",
-                "Ma SP", "Ten SP", "So luong", "Don gia", "DVT", "MaLoai", "MaSX", "Loai but/Do day", "Ngoi/Kho");
-        System.out.println(
-                "==================================================================================================================");
-
+    public Dodunghoctap timkiemcothamso(String maSP) {
         // Tìm sản phẩm
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaSP().equalsIgnoreCase(maSP)) {
-                ds[i].xuat();
-                System.out.println();
-
-                Dodunghoctap[] ketQua = new Dodunghoctap[1];
-                ketQua[0] = ds[i];
-
-                System.out.println(
-                        "==================================================================================================================");
-                return ketQua;
+                return ds[i];
             }
         }
-
-        // Không tìm thấy
-        System.out.println("Khong tim thay san pham voi ma: " + maSP);
-        System.out.println(
-                "==================================================================================================================");
-
-        return new Dodunghoctap[0]; // Trả về mảng rỗng
+        return null;
     }
 
     public void suacothamso(String maSP, String tenSP, int soLuong, int donGia,

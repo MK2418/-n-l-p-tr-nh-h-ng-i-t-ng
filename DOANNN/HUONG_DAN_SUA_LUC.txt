@@ -1,0 +1,48 @@
+========== HƯỚNG DẪN SỬA LỖI HỆ THỐNG BÁN HÀNG ==========
+
+NỘI DUNG SỬA:
+
+1. FILE: QLBH.java
+   - Sửa hàm muaHang() để hoạt động đúng
+   - Sử dụng đúng method names: getTenSP(), getDonGia(), getSoLuong() (thay vì getTen(), getDongia(), getSoluong())
+   - Gọi đúng method themCothamso() của DsHoadon
+   - Quản lý tài nguyên Scanner đúng cách
+   - Xóa import java.util.* không cần thiết
+
+2. FILE: Dsdodunghoctap.java
+   - Sửa method timkiemcothamso() để return đúng object (Dodunghoctap) thay vì array
+   - Xóa logic in bảng không cần trong method này
+   - Tạo method riêng timkiemcothamso() đơn giản chỉ tìm và return sản phẩm
+
+3. FILE: MUAHANG.java
+   - Cập nhật menu bán hàng thêm các tùy chọn xem danh sách sản phẩm và hóa đơn
+   - Sử dụng dsDoDungHocTap thay vì dsHoaDon để xem kho
+
+4. FILE: Dsloaihang.java
+   - Xóa biến boolean found không sử dụng trong method timkiemcothamso()
+
+5. FILE: QLCTPNH.java
+   - Xóa dòng khai báo biến maPNH không sử dụng
+
+CHỨC NĂNG BÁN HÀNG ĐÃ HOÀN CHỈNH:
+- Người dùng nhập mã sản phẩm
+- Hệ thống kiểm tra sản phẩm có tồn tại không
+- Hiển thị thông tin sản phẩm (tên, giá, số lượng tồn)
+- Nhập số lượng cần mua
+- Kiểm tra số lượng tồn kho có đủ không
+- Tính thành tiền
+- Cập nhật lại số lượng tồn kho
+- Tạo hóa đơn mới
+- Tạo chi tiết hóa đơn
+- Hiển thị thông tin hóa đơn cho khách hàng
+
+HƯỚNG DẪN CHẠY:
+1. Compile toàn bộ project
+2. Chạy class Hethong.java (chứa main)
+3. Chọn menu "Bán Hàng"
+4. Chọn "Mua hàng"
+5. Nhập mã sản phẩm (ví dụ: BV001, GS001)
+6. Nhập số lượng
+7. Xem hóa đơn được tạo
+
+TẠP CẢ LỖI BIÊN DỊCH ĐÃ ĐƯỢC SỬA XONG!

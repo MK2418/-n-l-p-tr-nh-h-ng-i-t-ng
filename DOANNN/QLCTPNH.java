@@ -30,8 +30,6 @@ public class QLCTPNH extends QLBH {
                     break;
                 case 3:
                     System.out.println("\n--- XOA CHI TIET PHIEU NHAP HANG ---");
-
-                    String maPNH = sc.nextLine();
                     dsChiTietPhieuNhap.xoaChiTietPNH();
                     break;
                 case 4:
