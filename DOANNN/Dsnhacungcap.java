@@ -25,7 +25,7 @@ class Dsnhacungcap implements dieukien {
                 String[] parts = line.split(",");
                 ds[i] = new Nhacungcap(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]));
             }
-            System.out.println("Doc du lieu thanh cong: " + n + " nha cung cap!");
+            System.out.println("Doc du lieu thanh cong: " + n + " san pham!"); // ← CÓ THÔNG BÁO
         }
     }
 
@@ -44,16 +44,16 @@ class Dsnhacungcap implements dieukien {
     }
 
     public void xuat() {
-        System.out.println("==============================================================");
+        System.out.println("============================================================================");
         System.out.printf("| %-10s | %-20s | %-20s | %-13s |\n",
                 "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
-        System.out.println("==============================================================");
+        System.out.println("============================================================================");
 
         for (int i = 0; i < n; i++) {
             ds[i].xuat();
         }
 
-        System.out.println("==============================================================");
+        System.out.println("============================================================================");
     }
 
     public void nhap() {
@@ -77,7 +77,7 @@ class Dsnhacungcap implements dieukien {
 
     @Override
     public void xoa() {
-        System.out.print("Nhap ma nha cung cap can xoa: ");
+        System.out.print("nhap ma nha cung cap can xoa");
         String maNCC = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equals(maNCC)) {
@@ -185,17 +185,22 @@ class Dsnhacungcap implements dieukien {
         System.out.println("Khong tim thay nha cung cap co ma " + maNCC);
     }
 
-    public void timkiemcothamso(String ma) {
+    public Nhacungcap[] timkiemcothamso(String ma) {
         String maNCC = ma;
+        Nhacungcap[] ketQua = new Nhacungcap[1]; // Mảng 1 phần tử
+
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaNCC().equalsIgnoreCase(maNCC)) {
                 System.out.printf("| %-10s | %-20s | %-20s | %-13s |\n",
                         "Ma NCC", "Ten NCC", "Dia Chi", "So Dien Thoai");
                 ds[i].xuat();
-                return;
+                ketQua[0] = ds[i]; // Lưu kết quả vào mảng
+                return ketQua; // Trả về ngay khi tìm thấy
             }
         }
+
         System.out.println("Khong tim thay nha cung cap voi ma nay.");
+        return new Nhacungcap[0]; // Trả về mảng rỗng nếu không tìm thấy
     }
 
     public void suacothamso(String ma) {

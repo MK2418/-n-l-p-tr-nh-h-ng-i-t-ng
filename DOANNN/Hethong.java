@@ -19,8 +19,8 @@ public class Hethong {
             System.out.println("7. Quan ly hang san xuat");
             System.out.println("8. Quan ly phieu nhap hang");
             System.out.println("9. Quan ly chi tiet phieu nhap hang");
-            System.out.println("11.Quan ly chi tiet hoa don");
-            System.out.println("10. Thong ke theo quy");
+            System.out.println("10.Quan ly chi tiet hoa don");
+            System.out.println("11. Thong ke theo quy");
             System.out.println("12. Thong ke theo nam");
             System.out.println("13. Thong ke khach hang theo nam");
             System.out.println("0. Thoat");
@@ -65,11 +65,11 @@ public class Hethong {
                     ql = new QLCTPNH();
                     ql.menuChinh();
                     break;
-                case 11:
+                case 10:
                     ql = new QLCTHD();
                     ql.menuChinh();
                     break;
-                case 10:
+                case 11:
                     QLBH.thongke();
                     break;
                 case 12:

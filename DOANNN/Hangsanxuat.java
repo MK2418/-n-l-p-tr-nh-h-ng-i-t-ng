@@ -5,7 +5,7 @@ public class Hangsanxuat {
     private String tenhsx;
     private String diachi;
 
-    private Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
     // --- Constructors ---
     public Hangsanxuat() {
@@ -60,7 +60,7 @@ public class Hangsanxuat {
 
     public void xuat() {
         System.out.printf("%-15s %-20s %-15s%n", mahsx, tenhsx, diachi);
-        System.out.println("---------------------------------------------------------------");
+        System.out.println("----------------------------------------------------");
     }
 
     public String toFileString() {

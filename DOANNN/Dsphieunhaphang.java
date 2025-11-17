@@ -51,15 +51,15 @@ class Dsphieunhaphang {
             System.out.println("Chua co phieu nhap nao!");
             return;
         }
-        System.out.println("\n================= DANH SACH PHIEU NHAP HANG =================");
+        System.out.println("\n===================== DANH SACH PHIEU NHAP HANG ====================");
         System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12s |\n",
                 "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
-        System.out.println("----------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------");
 
         for (int i = 0; i < soLuong; i++) {
             ds[i].xuat();
         }
-        System.out.println("----------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------");
     }
 
     // Ham co ban khong tham so
@@ -151,19 +151,39 @@ class Dsphieunhaphang {
     }
 
     // Ham co ban co tham so
-    public void timPhieuNhapcothamso(String ma) {
+    public PhieuNhapHang[] timPhieuNhapcothamso(String ma) {
         String manh = ma;
-        System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12s |\n",
-                "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
+
+        // Đếm số lượng kết quả trùng khớp
+        int count = 0;
         for (int i = 0; i < soLuong; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(manh)) {
-                ds[i].xuat();
+                count++;
             }
         }
 
+        // Tạo mảng kết quả
+        PhieuNhapHang[] ketQua = new PhieuNhapHang[count];
+        int index = 0;
+
+        System.out.printf("| %-8s | %-12s | %-10s | %-10s | %-12s |\n",
+                "Ma PNH", "Ngay Nhap", "Nhan Vien", "NCC", "Tong Tien");
+
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i].getMaPNH().equalsIgnoreCase(manh)) {
+                ds[i].xuat();
+                ketQua[index++] = ds[i]; // Thêm vào mảng kết quả
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("Khong tim thay phieu nhap hang voi ma: " + manh);
+        }
+
+        return ketQua;
     }
 
-    public void themPhieuNhapcothamso(String ma, LocalDate ngay, String nv, String ncc) {
+    public void themPhieuNhap(String ma, LocalDate ngay, String nv, String ncc) {
         ds = Arrays.copyOf(ds, soLuong + 1);
         ds[soLuong] = new PhieuNhapHang();
         ds[soLuong].setMaPNH(ma);

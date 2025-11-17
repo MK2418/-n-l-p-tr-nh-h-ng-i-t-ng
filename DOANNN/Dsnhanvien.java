@@ -66,7 +66,7 @@ public class Dsnhanvien {
     public void xuat() {
         System.out.println("\nDANH SACH NHAN VIEN");
         System.out.println("======================================================================");
-        System.out.printf("%-15s %-20s %-15s %-15s\n",
+        System.out.printf("%-10s %-15s %-20s %-15s\n",
                 "Ma NV", "Ho NV", "Ten NV", "Luong");
         System.out.println("======================================================================");
 
@@ -114,18 +114,31 @@ public class Dsnhanvien {
         System.out.println("Khong tim thay nhan vien co ma " + maNV);
     }
 
-    public void timkiemcothamso(String maNV) {
-        boolean found = false;
+    public Nhanvien[] timkiemcothamso(String maNV) {
+        // Đếm số lượng kết quả trùng khớp
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getManv().equalsIgnoreCase(maNV)) {
+                count++;
+            }
+        }
+
+        // Tạo mảng kết quả
+        Nhanvien[] ketQua = new Nhanvien[count];
+        int index = 0;
+
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println("======================================================================");
         System.out.printf("%-10s %-15s %-20s %-15s\n",
                 "Ma NV", "Ho NV", "Ten NV", "Luong");
         System.out.println("======================================================================");
 
+        boolean found = false;
         for (int i = 0; i < n; i++) {
             if (ds[i].getManv().equalsIgnoreCase(maNV)) {
                 ds[i].xuat();
                 System.out.println();
+                ketQua[index++] = ds[i]; // Thêm vào mảng kết quả
                 found = true;
             }
         }
@@ -134,6 +147,8 @@ public class Dsnhanvien {
             System.out.println("Khong tim thay nhan vien voi ma: " + maNV);
         }
         System.out.println("======================================================================");
+
+        return ketQua;
     }
 
     // ===== Các phương thức không tham số (implement interface) =====
@@ -163,10 +178,21 @@ public class Dsnhanvien {
         System.out.println("Khong tim thay nhan vien co ma " + maNV);
     }
 
-    public void timkiem() {
+    public Nhanvien[] timkiem() {
         System.out.print("Nhap ma nhan vien can tim: ");
         String maNV = sc.nextLine();
-        boolean found = false;
+
+        // Đếm số lượng kết quả tìm được
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getManv().equalsIgnoreCase(maNV)) {
+                count++;
+            }
+        }
+
+        // Tạo mảng kết quả
+        Nhanvien[] ketQua = new Nhanvien[count];
+        int index = 0;
 
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println("======================================================================");
@@ -178,14 +204,16 @@ public class Dsnhanvien {
             if (ds[i].getManv().equalsIgnoreCase(maNV)) {
                 ds[i].xuat();
                 System.out.println();
-                found = true;
+                ketQua[index++] = ds[i]; // Thêm vào mảng kết quả
             }
         }
 
-        if (!found) {
+        if (count == 0) {
             System.out.println("Khong tim thay nhan vien voi ma: " + maNV);
         }
         System.out.println("======================================================================");
+
+        return ketQua; // Trả về mảng kết quả
     }
 
     public void sua() {

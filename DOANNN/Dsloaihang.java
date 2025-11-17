@@ -65,10 +65,10 @@ public class Dsloaihang {
     // ---- Xuat danh sach ----
     public void xuat() {
         System.out.println("\nDANH SACH LOAI HANG");
-        System.out.println("====================================================");
+        System.out.println("========================================================");
         System.out.printf("%-12s %-20s %-25s\n",
                 "Ma LH", "Ten loai hang", "Mo ta");
-        System.out.println("====================================================");
+        System.out.println("========================================================");
 
         for (int i = 0; i < n; i++) {
             if (ds[i] != null) {
@@ -76,7 +76,7 @@ public class Dsloaihang {
                 System.out.println();
             }
         }
-        System.out.println("====================================================");
+        System.out.println("=========================================================");
         System.out.println("Tong so: " + n + " loai hang");
     }
 
@@ -251,21 +251,6 @@ public class Dsloaihang {
         System.out.println("Loai co mo ta trung binh (10-30 ky tu): " + trungBinh);
         System.out.println("Loai co mo ta dai (>30 ky tu): " + dai);
         System.out.println("====================================");
-    }
-
-    public void thongkeMota() {
-        System.out.println("\nTHONG KE THEO MO TA");
-        System.out.println("====================");
-
-        Map<String, Integer> thongKeMota = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            String moTa = ds[i].getMota();
-            thongKeMota.put(moTa, thongKeMota.getOrDefault(moTa, 0) + 1);
-        }
-
-        for (Map.Entry<String, Integer> entry : thongKeMota.entrySet()) {
-            System.out.println("Mo ta: \"" + entry.getKey() + "\" - So luong: " + entry.getValue());
-        }
     }
 
     public Loaihang[] getDs() {

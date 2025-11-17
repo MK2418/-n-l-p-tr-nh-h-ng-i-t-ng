@@ -40,15 +40,15 @@ public class Dschitietphieunhaphang {
     }
 
     public void xuat() {
-        System.out.println("===============================================================");
-        System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-12s |\n",
+        System.out.println("======================================================================");
+        System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-12s  |\n",
                 "Ma PNH", "Ma Hang", "So Luong", "Don Gia", "Thanh Tien");
-        System.out.println("===============================================================");
+        System.out.println("======================================================================");
 
         for (int i = 0; i < n; i++) {
             ds[i].xuat();
         }
-        System.out.println("===============================================================");
+        System.out.println("======================================================================");
     }
 
     public void nhap() {
@@ -100,7 +100,7 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay chi tiet phieu nhap hang co ma PNH " + maPNH);
     }
 
-    public void suaCTPNH() {
+    public void suaNCC() {
         String maPNH = sc.nextLine();
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
@@ -153,18 +153,37 @@ public class Dschitietphieunhaphang {
         System.out.println("Da them chi tiet phieu nhap hang moi thanh cong!");
     }
 
-    public void timKiemChiTietPNHcothamso(String ma) {
+    public chitietphieunhaphang[] timKiemChiTietPNHcothamso(String ma) {
         String maPNH = ma;
+
+        // Đếm số lượng kết quả trùng khớp
+        int count = 0;
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaPNH().equalsIgnoreCase(maPNH)) {
-                System.out.println("Thong tin chi tiet phieu nhap hang:");
-                System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-12s |\n",
-                        "Ma PNH", "Ma Hang", "So Luong", "Don Gia", "Thanh Tien");
-                ds[i].xuat();
-                return;
+                count++;
             }
         }
-        System.out.println("Khong tim thay chi tiet phieu nhap hang co ma PNH " + maPNH);
+
+        // Tạo mảng kết quả
+        chitietphieunhaphang[] ketQua = new chitietphieunhaphang[count];
+        int index = 0;
+
+        System.out.println("Thong tin chi tiet phieu nhap hang:");
+        System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-12s |\n",
+                "Ma PNH", "Ma Hang", "So Luong", "Don Gia", "Thanh Tien");
+
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMaPNH().equalsIgnoreCase(maPNH)) {
+                ds[i].xuat();
+                ketQua[index++] = ds[i]; // Thêm vào mảng kết quả
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("Khong tim thay chi tiet phieu nhap hang co ma PNH " + maPNH);
+        }
+
+        return ketQua;
     }
 
     public void xoaChiTietPNHcothamso(String maPNH) {
@@ -182,7 +201,7 @@ public class Dschitietphieunhaphang {
         System.out.println("Khong tim thay chi tiet phieu nhap hang co ma PNH " + maPNH);
     }
 
-    public void suaCTPNHcothamso(String maPNH) {
+    public void suaNCCcothamso(String maPNH) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaPNH().equals(maPNH)) {
                 int k;

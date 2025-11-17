@@ -100,22 +100,41 @@ public class Dshangsanxuat {
         }
     }
 
-    public void timkiemcothamso(String maHSX) {
-        boolean found = false;
+    public Hangsanxuat[] timkiemcothamso(String maHSX) {
+        // Đếm số lượng kết quả trùng khớp
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getMahsx().equalsIgnoreCase(maHSX)) {
+                count++;
+            }
+        }
+
+        // Tạo mảng kết quả
+        Hangsanxuat[] ketQua = new Hangsanxuat[count];
+        int index = 0;
+
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println("====================================================");
         System.out.printf("%-15s %-20s %-25s\n",
                 "Ma HSX", "Ten hang SX", "Dia chi");
         System.out.println("====================================================");
 
+        boolean found = false;
         for (int i = 0; i < n; i++) {
             if (ds[i].getMahsx().equalsIgnoreCase(maHSX)) {
                 ds[i].xuat();
                 System.out.println();
+                ketQua[index++] = ds[i]; // Thêm vào mảng kết quả
                 found = true;
             }
         }
+
+        if (!found) {
+            System.out.println("Khong tim thay hang san xuat voi ma: " + maHSX);
+        }
         System.out.println("====================================================");
+
+        return ketQua;
     }
 
     public void suacothamso(String maHSX, String tenHSX, String diaChi) {

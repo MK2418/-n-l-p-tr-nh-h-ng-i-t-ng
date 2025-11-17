@@ -39,8 +39,8 @@ public class QLSP extends QLBH {
                     System.out.println("Da sua SP BV02, But da quang, 25, 7000, cay, BV, TL, Muc nuoc, 3");
                     break;
                 case 5:
-                    // dsDoDungHocTap.timkiem();
-                    dsDoDungHocTap.timkiemcothamso("GS02");
+                    dsDoDungHocTap.timkiem();
+                    // dsDoDungHocTap.timkiemcothamso("GS02");
                     break;
                 case 6:
                     dsDoDungHocTap.thongke();

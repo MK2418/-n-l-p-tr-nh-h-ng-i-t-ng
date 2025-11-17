@@ -20,29 +20,29 @@ public class QLKH extends QLBH {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> 
-                dsKhachHang.xuat();
+                case 1 ->
+                    dsKhachHang.xuat();
                 case 2 -> {
-                dsKhachHang.themCothamso("KH999", "Anh", "Anh", "aaa2222", 0123451122);
-                System.out.println("Da them KH999, Anh, Anh, aaa2222, 0123451122");
-//              dsKhachHang.them();
+                    dsKhachHang.themCothamso("KH999", "Anh", "Anh", "aaa2222", 0123451122);
+                    System.out.println("Da them KH999, Anh, Anh, aaa2222, 0123451122");
+                    // dsKhachHang.them();
                 }
                 case 3 -> {
-                dsKhachHang.xoaCothamso("KH020");
-                System.out.println("Da xoa KH020,Hoang,Trang,Quang Ngai,964561278");
-//                dsKhachHang.xoa();
+                    dsKhachHang.xoaCothamso("KH020");
+                    System.out.println("Da xoa KH020,Hoang,Trang,Quang Ngai,964561278");
+                    // dsKhachHang.xoa();
                 }
                 case 4 -> {
-                dsKhachHang.suaCothamso("KH019", "Tran Van", "Ti", "123PhamNguLao", 0000111);
-                System.out.println("Da sua KH019, Tran Van, Ti,123PhamNguLao, 0000111");
-//                dsKhachHang.sua();
+                    dsKhachHang.suaCothamso("KH019", "Tran Van", "Ti", "123PhamNguLao", 0000111);
+                    System.out.println("Da sua KH019, Tran Van, Ti,123PhamNguLao, 0000111");
+                    // dsKhachHang.sua();
                 }
                 case 5 -> {
-                dsKhachHang.timkiemCothamso("KH004");
-//                dsKhachHang.timkiem();
+                    dsKhachHang.timkiemCothamso("KH004");
+                    // dsKhachHang.timkiem();
                 }
-                case 6 -> 
-                dsKhachHang.thongke();
+                case 6 ->
+                    dsKhachHang.thongke();
                 case 0 -> {
                     // Ghi file khi thoát
                     try {

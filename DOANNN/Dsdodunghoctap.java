@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Dsdodunghoctap implements dieukien {
+public class Dsdodunghoctap {
     private int n;
     private Dodunghoctap[] ds;
     private Scanner sc = new Scanner(System.in);
@@ -82,11 +82,11 @@ public class Dsdodunghoctap implements dieukien {
     public void xuat() {
         System.out.println("\nDANH SACH DO DUNG HOC TAP");
         System.out.println(
-                "==================================================================================================================");
+                "================================================================================================================");
         System.out.printf("%-8s %-15s %11s %9s %-6s %-4s %5s %18s %13s\n",
                 "Ma SP", "Ten SP", "So luong", "Don gia", "DVT", "MaLoai", "MaSX", "Loai but/Do day", "Ngoi/Kho");
         System.out.println(
-                "==================================================================================================================");
+                "================================================================================================================");
 
         for (int i = 0; i < n; i++) {
             if (ds[i] != null) {
@@ -95,17 +95,17 @@ public class Dsdodunghoctap implements dieukien {
             }
         }
         System.out.println(
-                "==================================================================================================================");
+                "================================================================================================================");
         System.out.println("Tong so: " + n + " san pham");
     }
 
     // Ham khong tham so
-    @Override
+
     public void them() {
         ds = Arrays.copyOf(ds, n + 1);
         System.out.println("Nhap thong tin san pham moi: ");
         System.out.print("Chon loai (1-But viet, 2-Giay so): ");
-        int loai = Integer.parseInt(sc.nextLine());
+        int loai = sc.nextInt();
 
         if (loai == 1) {
             ds[n] = new Butviet();
@@ -117,7 +117,6 @@ public class Dsdodunghoctap implements dieukien {
         System.out.println("Da them san pham moi thanh cong!");
     }
 
-    @Override
     public void xoa() {
         System.out.print("Nhap ma san pham can xoa: ");
         String maSP = sc.nextLine();
@@ -135,11 +134,11 @@ public class Dsdodunghoctap implements dieukien {
         System.out.println("Khong tim thay san pham co ma " + maSP);
     }
 
-    @Override
-    public void timkiem() {
+    public Dodunghoctap[] timkiem() {
         System.out.print("Nhap ma san pham can tim: ");
         String maSP = sc.nextLine();
-        boolean found = false;
+
+        Dodunghoctap[] ketQua = new Dodunghoctap[1];
 
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println(
@@ -149,22 +148,22 @@ public class Dsdodunghoctap implements dieukien {
         System.out.println(
                 "==================================================================================================================");
 
+        boolean found = false;
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 ds[i].xuat();
                 System.out.println();
+                ketQua[0] = ds[i]; // Lưu sản phẩm tìm được
                 found = true;
+                break; // Thoát vòng lặp khi tìm thấy
             }
-        }
-
-        if (!found) {
-            System.out.println("Khong tim thay san pham voi ma: " + maSP);
         }
         System.out.println(
                 "==================================================================================================================");
+
+        return ketQua;
     }
 
-    @Override
     public void sua() {
         System.out.print("Nhap ma san pham can sua: ");
         String maSP = sc.nextLine();
@@ -256,8 +255,7 @@ public class Dsdodunghoctap implements dieukien {
         }
     }
 
-    public void timkiemcothamso(String maSP) {
-        boolean found = false;
+    public Dodunghoctap[] timkiemcothamso(String maSP) {
         System.out.println("\nKET QUA TIM KIEM:");
         System.out.println(
                 "==================================================================================================================");
@@ -266,15 +264,27 @@ public class Dsdodunghoctap implements dieukien {
         System.out.println(
                 "==================================================================================================================");
 
+        // Tìm sản phẩm
         for (int i = 0; i < n; i++) {
             if (ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 ds[i].xuat();
                 System.out.println();
-                found = true;
+
+                Dodunghoctap[] ketQua = new Dodunghoctap[1];
+                ketQua[0] = ds[i];
+
+                System.out.println(
+                        "==================================================================================================================");
+                return ketQua;
             }
         }
+
+        // Không tìm thấy
+        System.out.println("Khong tim thay san pham voi ma: " + maSP);
         System.out.println(
                 "==================================================================================================================");
+
+        return new Dodunghoctap[0]; // Trả về mảng rỗng
     }
 
     public void suacothamso(String maSP, String tenSP, int soLuong, int donGia,

@@ -54,7 +54,7 @@ public class QLLH extends QLBH {
                 }
                 case 6: {
                     System.out.println("========== Thong ke loai hang theo mo ta loai hang ==========");
-                    dsLoaiHang.thongkeMota();
+                    dsLoaiHang.thongke();
                     break;
                 }
                 case 0:

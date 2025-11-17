@@ -28,21 +28,21 @@ public class QLNV extends QLBH {
                 case 2: {
                     System.out.println("========== Them nhan vien ==========");
                     // dsNhanVien.them();
-                    dsNhanVien.themcothamso("NV09", "Tran", "Kim", 4500000);
-                    System.out.println("Da them NV09 Tran Kim luong 4500000\n");
+                    dsNhanVien.themcothamso("NV05", "Tran", "Kim", 45000);
+                    System.out.println("Da them NV05 Tran Kim luong 45000\n");
                     break;
                 }
                 case 3: {
                     System.out.println("========== Xoa nhan vien ==========");
                     // dsNhanVien.xoa();
-                    dsNhanVien.xoacothamso("NV07");
-                    System.out.println("Da duoi NV07 Nguyen Ha luong 4700000\n");
+                    dsNhanVien.xoacothamso("NV03");
+                    System.out.println("Da duoi NV03 Le luong 47000\n");
                     break;
                 }
                 case 4: {
                     System.out.println("========== Sua nhan vien ==========");
                     // dsNhanVien.sua();
-                    dsNhanVien.suacothamso("NV04", "Pham", "Long", 4500000);
+                    dsNhanVien.suacothamso("NV04", "Pham", "Long", 45000);
                     System.out.println("Da sua nhan vien NV04 Pham Long luong lai thanh");
                     break;
                 }

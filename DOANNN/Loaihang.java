@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Loaihang {
     private String malh, tenlh, mota;
-    private Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
     public Loaihang() {
     }

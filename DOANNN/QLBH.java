@@ -77,17 +77,17 @@ public abstract class QLBH {
         double loiNhuanQuy4 = thuQuy4 - chiQuy4 - luongQuy;
 
         System.out.println("\nBANG THONG KE TAI CHINH NAM 2025");
-        System.out.println("==========================================================");
+        System.out.println("============================================================================");
         System.out.printf("| %-12s | %-12s | %-12s | %-12s | %-12s |\n",
                 "    ", "QUY 1", "QUY 2", "QUY 3", "QUY 4");
-        System.out.println("==========================================================");
+        System.out.println("============================================================================");
         System.out.printf("| %-12s | %-12.2f | %-12.2f | %-12.2f | %-12.2f |\n",
                 "TONG CHI", chiQuy1 + luongQuy, chiQuy2 + luongQuy, chiQuy3 + luongQuy, chiQuy4 + luongQuy);
         System.out.printf("| %-12s | %-12.2f | %-12.2f | %-12.2f | %-12.2f |\n",
                 "TONG THU", thuQuy1, thuQuy2, thuQuy3, thuQuy4);
         System.out.printf("| %-12s | %-12.2f | %-12.2f | %-12.2f | %-12.2f |\n",
                 "LOI NHUAN", loiNhuanQuy1, loiNhuanQuy2, loiNhuanQuy3, loiNhuanQuy4);
-        System.out.println("==========================================================");
+        System.out.println("============================================================================");
     }
 
     public static void thongkeTheonam() {
@@ -131,10 +131,10 @@ public abstract class QLBH {
         int soKH = dsKhachHang.getN();
 
         // Tiêu đề bảng
-        System.out.println("===========================================================================");
+        System.out.println("==================================================================");
         System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-10s |\n",
                 "MA KH", "2022", "2023", "2024", "2025");
-        System.out.println("===========================================================================");
+        System.out.println("=================================================================");
 
         // Duyệt tất cả khách hàng
         for (int i = 0; i < soKH; i++) {
@@ -149,7 +149,7 @@ public abstract class QLBH {
                     maKH, nam2022, nam2023, nam2024, nam2025);
         }
 
-        System.out.println("===========================================================================");
+        System.out.println("==================================================================");
     }
 
     // ---- MENU CHÍNH ĐỂ RỖNG ----

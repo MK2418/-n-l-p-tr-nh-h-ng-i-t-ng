@@ -6,7 +6,7 @@ public class Nhanvien {
     private String tennv;
     private int luong;
 
-    private Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
     // Ham thiet lap khong tham so
     public Nhanvien() {
