@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class DsCTDH implements dieukien {
-    static int n;
-    static ChiTietDonHang[] ds;
-    static Scanner sc = new Scanner(System.in);
+	int n;
+    ChiTietDonHang[] ds;
+    Scanner sc = new Scanner(System.in);
 
     public DsCTDH() {
         ds = new ChiTietDonHang[0];
@@ -75,9 +75,9 @@ public class DsCTDH implements dieukien {
         System.out.println("Tong so chi tiet don hang: " + n);
     }
 
-    public void themCothamso(String mahd, String msp, int sl, double dongia) {
+    public void themCothamso(ChiTietDonHang ctdh) {
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = new ChiTietDonHang(mahd, msp, sl, dongia);;
+        ds[n] = ctdh;
         n++;
         System.out.println("Da them chi tiet don hang thanh cong!");
     }
@@ -109,14 +109,15 @@ public class DsCTDH implements dieukien {
         System.out.println("Khong tim thay hoa don: " + mahd);
     }
 
-    public void timkiemCothamso(String mahd) {
+    public ChiTietDonHang timkiemCothamso(String mahd) {
         for (int i = 0; i < n; i++) {
             if (ds[i].getMahd().equalsIgnoreCase(mahd)) {
                 ds[i].xuat();
-                return;
+                return ds[i];
             }
         }
         System.out.println("Khong tim thay ma hoa don: " + mahd);
+        return null;
     }
 
     @Override
