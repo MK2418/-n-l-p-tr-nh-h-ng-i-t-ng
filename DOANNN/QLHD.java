@@ -25,7 +25,7 @@ public class QLHD extends QLBH {
                     dsHoaDon.xuat();
                 }
                 case 2 -> {
-                    dsHoaDon.themCothamso("HD999", "KH020", "NV001", LocalDate.parse("2025-11-22"), 0.00);
+                    dsHoaDon.themCothamso("HD888", "KH020", "NV001", LocalDate.parse("2025-11-22"), 0.00);
                     // dsHoaDon.them();
                 }
 

@@ -23,7 +23,7 @@ public class Hethong {
             System.out.println("11. Thong ke theo quy");
             System.out.println("12. Thong ke theo nam");
             System.out.println("13. Thong ke khach hang theo nam");
-            System.out.println("14. mua hang");
+            System.out.println("14. Ban hang");
             System.out.println("0. Thoat");
             System.out.print("Chon: ");
             chon = sc.nextInt();
