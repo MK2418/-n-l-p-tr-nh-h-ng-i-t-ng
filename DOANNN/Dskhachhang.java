@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Dskhachhang implements dieukien {
-    static int n;
-    static Khachhang[] ds;
-    static Scanner sc = new Scanner(System.in);
+    int n;
+    Khachhang[] ds;
+    Scanner sc = new Scanner(System.in);
 
     public void docFile(String filename) throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -111,6 +111,25 @@ public class Dskhachhang implements dieukien {
                 return;
             }
         }
+    }
+    
+    public Khachhang[] timkiemTheoten(String ten) {
+    	Khachhang[] kq = new Khachhang[n];
+    	int count = 0 ;
+    	
+    	for (int i = 0; i<n;i++) {
+    		if(ds[i].getTen().equalsIgnoreCase(ten)) {
+    			kq[count] = ds[i];
+    			count++;
+    		}
+    	}
+    	
+    	if (count == 0) {
+    		System.out.print("khong tim thay");
+    		return new Khachhang[0];
+    		
+    	}
+    	return Arrays.copyOf(kq, count);
     }
 
     @Override
