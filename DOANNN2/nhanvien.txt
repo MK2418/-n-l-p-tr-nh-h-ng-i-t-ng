@@ -1,0 +1,5 @@
+4
+NV01,Nguyen,Anh,30000
+NV02,Tran,Minh,250000
+NV03,Le,Hoa,20000
+NV04,Pham,Long,28000
